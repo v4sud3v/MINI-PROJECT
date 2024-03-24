@@ -104,6 +104,7 @@ background-color:transparent;</string>
      <property name="styleSheet">
       <string notr="true">background-color:rgba(0,0,0,100);
 border-radius:3px;
+padding-left: 10px;
 color:#fff;
 </string>
      </property>
@@ -122,8 +123,9 @@ color:#fff;
      </property>
      <property name="styleSheet">
       <string notr="true">background-color:rgba(0,0,0,100);
-border-radius:3px;
-color:#fff;</string>
+border-radius: 3px;
+color:#fff;
+padding-left: 10px;</string>
      </property>
     </widget>
     <widget class="QLabel" name="Usernamelabel">
@@ -173,15 +175,15 @@ background-color:transparent;</string>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>-10</x>
        <y>0</y>
-       <width>471</width>
+       <width>481</width>
        <height>571</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgba(65, 55, 153, 122));
-border-radius:20px;</string>
+border-radius:25px;</string>
      </property>
      <property name="text">
       <string/>
