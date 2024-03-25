@@ -43,7 +43,7 @@
       <rect>
        <x>80</x>
        <y>50</y>
-       <width>741</width>
+       <width>731</width>
        <height>681</height>
       </rect>
      </property>
@@ -168,6 +168,27 @@ color:#fff;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">padding:20px;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>594</x>
+        <y>40</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:transparent;</string>
+      </property>
+      <property name="text">
+       <string>Category</string>
       </property>
      </widget>
     </widget>
