@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1081</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">*{ 
+	font: 9pt &quot;Century Gothic&quot;;
+
+background-color: rgb(255, 255, 255);}
+QLineEdit{
+border-bottom: 1px solid;
+border-color:rgba(255, 255, 255,100);
+}</string>
+   </property>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>-90</y>
+      <width>1261</width>
+      <height>871</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{background-color:rgba(0,0,0,100);
+border-radius:5px;
+color:#fff;}
+QPushButton:hover{
+background-color:rgba(0,0,0,130);
+color:rgb(60, 223, 255);
+}</string>
+    </property>
+    <widget class="QLabel" name="loginHeading">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>200</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255);
+background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>Create an account</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="passwordLabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>300</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#fff;
+background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>Password</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Password_Entry">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>300</y>
+       <width>220</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border-radius:3px;
+padding-left: 10px;
+color:#fff;
+</string>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>150</y>
+       <width>411</width>
+       <height>521</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">*{border-radius:30px;
+
+	background-color: rgb(48, 71, 125);
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="NameEntry">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>260</y>
+       <width>220</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border-radius:3px;
+padding-left: 10px;
+color:#fff;
+</string>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Usernamelabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>260</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#fff;
+background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>User name</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>1101</width>
+       <height>751</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(23, 34, 63, 255), stop:0.531579 rgba(40, 57, 98, 255));
+border-radius:25px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>90</y>
+       <width>671</width>
+       <height>661</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+border-image: url(:/images/images/imgman.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="loginButton">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>440</y>
+       <width>220</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Sign-Up</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="passwordLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>340</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#fff;
+background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>Confirm </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Password_Entry_2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>340</y>
+       <width>220</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+border-radius:3px;
+padding-left: 10px;
+color:#fff;
+</string>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+    </widget>
+    <zorder>label_2</zorder>
+    <zorder>label_3</zorder>
+    <zorder>loginHeading</zorder>
+    <zorder>NameEntry</zorder>
+    <zorder>Usernamelabel</zorder>
+    <zorder>Password_Entry</zorder>
+    <zorder>passwordLabel</zorder>
+    <zorder>label</zorder>
+    <zorder>loginButton</zorder>
+    <zorder>passwordLabel_2</zorder>
+    <zorder>Password_Entry_2</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imageresources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
