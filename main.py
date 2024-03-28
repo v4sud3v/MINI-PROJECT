@@ -13,6 +13,7 @@ class MainWindow(QMainWindow):
         self.ui.widget_2.hide()
         self.ui.changingwidget.setCurrentIndex(0)
         self.ui.Dashboard_Button_minimized.setChecked(True)
+        self.ui.MenuButton.setChecked(True)
 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)
