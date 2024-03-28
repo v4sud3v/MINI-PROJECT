@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1073, 831)
+        MainWindow.resize(1190, 857)
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("*{\n"
@@ -28,6 +28,8 @@ class Ui_MainWindow(object):
 "")
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.leftmenu = QtWidgets.QHBoxLayout()
         self.leftmenu.setSpacing(0)
@@ -453,10 +455,15 @@ class Ui_MainWindow(object):
         spacerItem3 = QtWidgets.QSpacerItem(13, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_6.addItem(spacerItem3)
         self.verticalLayout_9 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_9.setContentsMargins(31, -1, -1, 9)
+        self.verticalLayout_9.setContentsMargins(31, -1, -1, 34)
         self.verticalLayout_9.setSpacing(6)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.overview_frame = QtWidgets.QFrame(self.page)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.overview_frame.sizePolicy().hasHeightForWidth())
+        self.overview_frame.setSizePolicy(sizePolicy)
         self.overview_frame.setMinimumSize(QtCore.QSize(496, 180))
         self.overview_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
@@ -487,7 +494,12 @@ class Ui_MainWindow(object):
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_9.addItem(spacerItem4)
         self.Statistics_frame = QtWidgets.QFrame(self.page)
-        self.Statistics_frame.setMinimumSize(QtCore.QSize(500, 241))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Statistics_frame.sizePolicy().hasHeightForWidth())
+        self.Statistics_frame.setSizePolicy(sizePolicy)
+        self.Statistics_frame.setMinimumSize(QtCore.QSize(567, 263))
         self.Statistics_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
 "pading-left: 20px;}\n"
@@ -525,17 +537,20 @@ class Ui_MainWindow(object):
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
 "}\n"
-"QLineEdit{\n"
+"#amount,#description{\n"
 "border-bottom-color: rgb(255, 255, 255);\n"
+"border-bottom: 1px solid;\n"
+"color: rgb(255, 255, 255);\n"
+"border-color:rgba(255, 255, 255,100);\n"
 "}")
         self.Expense_Frame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Expense_Frame.setFrameShadow(QtWidgets.QFrame.Plain)
         self.Expense_Frame.setLineWidth(0)
         self.Expense_Frame.setObjectName("Expense_Frame")
-        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.Expense_Frame)
-        self.verticalLayout_14.setContentsMargins(0, 0, 0, 13)
-        self.verticalLayout_14.setSpacing(0)
-        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.Expense_Frame)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_7.setContentsMargins(-1, -1, 7, -1)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
@@ -553,19 +568,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.label)
         spacerItem6 = QtWidgets.QSpacerItem(318, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_7.addItem(spacerItem6)
-        self.verticalLayout_14.addLayout(self.horizontalLayout_7)
-        self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.verticalLayout_12.addLayout(self.horizontalLayout_7)
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem7)
+        self.horizontalLayout_10.addItem(spacerItem7)
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_5.setSpacing(16)
+        self.horizontalLayout_5.setSpacing(6)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.verticalLayout_13 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_13.setSpacing(11)
-        self.verticalLayout_13.setObjectName("verticalLayout_13")
         self.group_ = QtWidgets.QComboBox(self.Expense_Frame)
-        self.group_.setMinimumSize(QtCore.QSize(0, 0))
+        self.group_.setMinimumSize(QtCore.QSize(112, 0))
         self.group_.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.group_.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -594,55 +608,18 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.group_.setEditable(False)
+        self.group_.setCurrentText("")
         self.group_.setIconSize(QtCore.QSize(20, 20))
         self.group_.setObjectName("group_")
         self.group_.addItem("")
         self.group_.addItem("")
-        self.verticalLayout_13.addWidget(self.group_)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_13.addItem(spacerItem8)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_13.addItem(spacerItem9)
-        self.horizontalLayout_5.addLayout(self.verticalLayout_13)
-        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_11.setSpacing(16)
-        self.verticalLayout_11.setObjectName("verticalLayout_11")
-        self.lineEdit = QtWidgets.QLineEdit(self.Expense_Frame)
-        self.lineEdit.setWhatsThis("")
-        self.lineEdit.setStyleSheet("border-bottom: 1px solid;\n"
-"border-color:rgba(255, 255, 255,100)\n"
-"\n"
-"")
-        self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout_11.addWidget(self.lineEdit)
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.Expense_Frame)
-        self.lineEdit_2.setMinimumSize(QtCore.QSize(130, 19))
-        self.lineEdit_2.setStyleSheet("border-bottom: 1px solid;\n"
-"border-color:rgba(255, 255, 255,100)\n"
-"\n"
-"")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.verticalLayout_11.addWidget(self.lineEdit_2)
-        self.pushButton = QtWidgets.QPushButton(self.Expense_Frame)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setMinimumSize(QtCore.QSize(71, 28))
-        self.pushButton.setStyleSheet("QPushButton{\n"
-"    border: 1px solid;\n"
-"    border-color:#fff;\n"
-"    border-radius: 7px;\n"
-"color:#fff;\n"
-"}\n"
-"\n"
-"font: 3pt \"Century Gothic\";")
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_11.addWidget(self.pushButton)
-        self.horizontalLayout_5.addLayout(self.verticalLayout_11)
-        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.horizontalLayout_5.addWidget(self.group_)
+        self.amount = QtWidgets.QLineEdit(self.Expense_Frame)
+        self.amount.setMinimumSize(QtCore.QSize(130, 19))
+        self.amount.setWhatsThis("")
+        self.amount.setStyleSheet("")
+        self.amount.setObjectName("amount")
+        self.horizontalLayout_5.addWidget(self.amount)
         self.comboBox_2 = QtWidgets.QComboBox(self.Expense_Frame)
         self.comboBox_2.setMinimumSize(QtCore.QSize(111, 0))
         self.comboBox_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -677,25 +654,66 @@ class Ui_MainWindow(object):
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
-        self.verticalLayout_12.addWidget(self.comboBox_2)
+        self.horizontalLayout_5.addWidget(self.comboBox_2)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_5)
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_8.setSpacing(6)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        spacerItem8 = QtWidgets.QSpacerItem(112, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem8)
+        self.description = QtWidgets.QLineEdit(self.Expense_Frame)
+        self.description.setMinimumSize(QtCore.QSize(129, 19))
+        self.description.setStyleSheet("\n"
+"")
+        self.description.setText("")
+        self.description.setObjectName("description")
+        self.horizontalLayout_8.addWidget(self.description)
+        spacerItem9 = QtWidgets.QSpacerItem(111, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem9)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_8)
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
         spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_12.addItem(spacerItem10)
+        self.horizontalLayout_9.addItem(spacerItem10)
+        self.pushButton = QtWidgets.QPushButton(self.Expense_Frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        self.pushButton.setMinimumSize(QtCore.QSize(71, 28))
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"    border: 1px solid;\n"
+"    border-color:#fff;\n"
+"    border-radius: 7px;\n"
+"color:#fff;\n"
+"}\n"
+"\n"
+"font: 3pt \"Century Gothic\";")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_9.addWidget(self.pushButton)
         spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_12.addItem(spacerItem11)
-        self.horizontalLayout_5.addLayout(self.verticalLayout_12)
-        self.horizontalLayout_8.addLayout(self.horizontalLayout_5)
+        self.horizontalLayout_9.addItem(spacerItem11)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_9)
+        self.horizontalLayout_10.addLayout(self.verticalLayout_11)
         spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem12)
-        self.verticalLayout_14.addLayout(self.horizontalLayout_8)
+        self.horizontalLayout_10.addItem(spacerItem12)
+        self.verticalLayout_12.addLayout(self.horizontalLayout_10)
+        self.verticalLayout_13.addLayout(self.verticalLayout_12)
         self.verticalLayout_9.addWidget(self.Expense_Frame)
         self.horizontalLayout_6.addLayout(self.verticalLayout_9)
         spacerItem13 = QtWidgets.QSpacerItem(138, 18, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_6.addItem(spacerItem13)
         self.verticalLayout_8 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_8.setContentsMargins(-1, 2, -1, 10)
+        self.verticalLayout_8.setContentsMargins(-1, 2, -1, 34)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.Monthly_frame = QtWidgets.QFrame(self.page)
-        self.Monthly_frame.setMinimumSize(QtCore.QSize(221, 305))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Monthly_frame.sizePolicy().hasHeightForWidth())
+        self.Monthly_frame.setSizePolicy(sizePolicy)
+        self.Monthly_frame.setMinimumSize(QtCore.QSize(231, 305))
         self.Monthly_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
 "pading-left: 20px;}\n"
@@ -725,7 +743,12 @@ class Ui_MainWindow(object):
         spacerItem14 = QtWidgets.QSpacerItem(23, 43, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_8.addItem(spacerItem14)
         self.History_frame = QtWidgets.QFrame(self.page)
-        self.History_frame.setMinimumSize(QtCore.QSize(221, 342))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.History_frame.sizePolicy().hasHeightForWidth())
+        self.History_frame.setSizePolicy(sizePolicy)
+        self.History_frame.setMinimumSize(QtCore.QSize(231, 355))
         self.History_frame.setMaximumSize(QtCore.QSize(221, 331))
         self.History_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
@@ -892,9 +915,11 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "   Add Expenses"))
         self.group_.setItemText(0, _translate("MainWindow", "Item1"))
         self.group_.setItemText(1, _translate("MainWindow", "Item 2"))
-        self.pushButton.setText(_translate("MainWindow", "Save"))
+        self.amount.setPlaceholderText(_translate("MainWindow", "Amount"))
         self.comboBox_2.setItemText(0, _translate("MainWindow", "Item1"))
         self.comboBox_2.setItemText(1, _translate("MainWindow", "Item 2"))
+        self.description.setPlaceholderText(_translate("MainWindow", "Description"))
+        self.pushButton.setText(_translate("MainWindow", "Save"))
         self.label_5.setText(_translate("MainWindow", "This month"))
         self.label_4.setText(_translate("MainWindow", "History"))
         self.label_8.setText(_translate("MainWindow", "Wallets"))
