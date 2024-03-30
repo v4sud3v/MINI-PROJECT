@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow,QApplication
-from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup
+from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup,QEvent,pyqtSignal,Qt
 from main_window import Ui_MainWindow
 
 class MainWindow(QMainWindow):
@@ -15,6 +15,9 @@ class MainWindow(QMainWindow):
         self.ui.changingwidget.setCurrentIndex(0)
         
         self.ui.MenuButton.clicked.connect(self.toggle_sidebar)
+
+        # Connect window state change event
+        self.windowStateChanged.connect(self.handle_window_state_change)
 
      # Initialize sidebar hidden state
         self.sidebar_hidden = False
@@ -31,6 +34,22 @@ class MainWindow(QMainWindow):
         self.group = QParallelAnimationGroup()
         self.group.addAnimation(self.sidebar_animation)
         self.group.addAnimation(self.mainwidget_animation)
+
+    windowStateChanged = pyqtSignal()
+    def event(self, event):
+        if event.type() == QEvent.WindowStateChange:
+            self.windowStateChanged.emit()
+        return super().event(event)
+
+    def handle_window_state_change(self):
+        if self.windowState() == Qt.WindowMaximized or self.windowState() == Qt.WindowFullScreen:
+            self.sidebar_hidden = False
+        elif self.windowState() == Qt.WindowMinimized:
+            # Depending on your application's behavior, you may choose to set sidebar_hidden to True here.
+            pass
+        else:
+            # For other states (e.g., Normal), maintain the current sidebar state.
+            self.sidebar_hidden = False
     def toggle_sidebar(self):
         # Toggle sidebar visibility and trigger animation
         if self.sidebar_hidden:
@@ -47,7 +66,7 @@ class MainWindow(QMainWindow):
         # Calculate main widget's end position
         mainwidget_start_geometry = self.ui.mainwidget.geometry()
         mainwidget_end_geometry = QRect(self.ui.widget_2.width(), mainwidget_start_geometry.y(),
-                                        mainwidget_start_geometry.width(), mainwidget_start_geometry.height())
+                                        mainwidget_start_geometry.width()-self.ui.widget_2.width(), mainwidget_start_geometry.height())
         self.mainwidget_animation.setStartValue(mainwidget_start_geometry)
         self.mainwidget_animation.setEndValue(mainwidget_end_geometry)
 
@@ -63,12 +82,24 @@ class MainWindow(QMainWindow):
         # Calculate main widget's end position
         mainwidget_start_geometry = self.ui.mainwidget.geometry()
         mainwidget_end_geometry = QRect(0, mainwidget_start_geometry.y(),
-                                        mainwidget_start_geometry.width(), mainwidget_start_geometry.height())
+                                        mainwidget_start_geometry.width() + self.ui.widget_2.width(), mainwidget_start_geometry.height())
         self.mainwidget_animation.setStartValue(mainwidget_start_geometry)
         self.mainwidget_animation.setEndValue(mainwidget_end_geometry)
 
         self.group.start()
         self.sidebar_hidden = True
+
+    @pyqtSlot()
+    def sidebar_animation_finished(self):
+        if self.sidebar_hidden:
+            self.ui.widget_2.hide()
+        else:
+            self.ui.widget_2.show()
+
+            # Adjust the geometry of the main widget to stretch horizontally
+            mainwidget_geometry = self.ui.mainwidget.geometry()
+            mainwidget_geometry.setWidth(mainwidget_geometry.width() + self.ui.widget_2.width())
+            self.ui.mainwidget.setGeometry(mainwidget_geometry)
 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)
