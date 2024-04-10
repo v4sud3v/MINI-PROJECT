@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1243</width>
-    <height>862</height>
+    <width>1118</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -689,7 +689,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <property name="spacing">
-              <number>0</number>
+              <number>20</number>
              </property>
              <property name="sizeConstraint">
               <enum>QLayout::SetDefaultConstraint</enum>
@@ -700,10 +700,13 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
              <property name="topMargin">
               <number>29</number>
              </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_9">
                <property name="spacing">
-                <number>6</number>
+                <number>20</number>
                </property>
                <property name="leftMargin">
                 <number>31</number>
@@ -790,22 +793,6 @@ border-bottom-color: rgb(255, 255, 255);
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Preferred</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
                 <widget class="QFrame" name="Statistics_frame">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -846,58 +833,158 @@ border-bottom-color: rgb(255, 255, 255);
                  <property name="lineWidth">
                   <number>0</number>
                  </property>
-                 <widget class="QLabel" name="label_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>30</x>
-                    <y>20</y>
-                    <width>151</width>
-                    <height>21</height>
-                   </rect>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Century Gothic</family>
-                    <pointsize>11</pointsize>
-                    <weight>50</weight>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color:#fff</string>
-                  </property>
-                  <property name="text">
-                   <string>Expense Statistics</string>
-                  </property>
-                 </widget>
-                 <widget class="QWidget" name="widget_3" native="true">
-                  <property name="geometry">
-                   <rect>
-                    <x>30</x>
-                    <y>60</y>
-                    <width>511</width>
-                    <height>171</height>
-                   </rect>
-                  </property>
-                 </widget>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>30</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>20</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>30</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_2">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Century Gothic</family>
+                        <pointsize>11</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="toolTipDuration">
+                       <number>0</number>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color:#fff</string>
+                      </property>
+                      <property name="text">
+                       <string>Expense Statistics</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_3">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Expanding</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>30</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboBox_3">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>111</width>
+                        <height>4</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="sizeIncrement">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Century Gothic</family>
+                        <pointsize>9</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="layoutDirection">
+                       <enum>Qt::LeftToRight</enum>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">*{color:#fff;
+background-color: rgb(45, 63, 109);
+border-radius:8px;}
+QComboBox{
+	padding-left: 20px;
+
+}
+QComboBox::drop-down {
+	
+	image: url(:/icon/icons/chevron-down.svg);
+    width: 16px;
+    height: 16px;
+	border: none;
+	padding: 3px
+}
+
+</string>
+                      </property>
+                      <property name="editable">
+                       <bool>false</bool>
+                      </property>
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>20</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Last 7 days</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Last month</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Last Year</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_3" native="true"/>
+                  </item>
+                 </layout>
                 </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Preferred</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
                <item>
                 <widget class="QFrame" name="Expense_Frame">
@@ -1055,7 +1142,7 @@ border-color:rgba(255, 255, 255,100);
                             <property name="font">
                              <font>
                               <family>Century Gothic</family>
-                              <pointsize>11</pointsize>
+                              <pointsize>9</pointsize>
                               <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
@@ -1164,7 +1251,7 @@ QComboBox::drop-down {
                             <property name="font">
                              <font>
                               <family>Century Gothic</family>
-                              <pointsize>11</pointsize>
+                              <pointsize>9</pointsize>
                               <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
@@ -1378,23 +1465,10 @@ font: 3pt &quot;Century Gothic&quot;;</string>
               </layout>
              </item>
              <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Preferred</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>18</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
               <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="spacing">
+                <number>20</number>
+               </property>
                <property name="topMargin">
                 <number>2</number>
                </property>
@@ -1480,28 +1554,6 @@ border-bottom-color: rgb(255, 255, 255);
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_5">
-                 <property name="minimumSize">
-                  <size>
-                   <width>23</width>
-                   <height>43</height>
-                  </size>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Preferred</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
                 <widget class="QFrame" name="History_frame">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1581,39 +1633,7 @@ border-bottom-color: rgb(255, 255, 255);
                </item>
               </layout>
              </item>
-             <item>
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Preferred</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>30</width>
-                 <height>18</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
             </layout>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>24</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -1645,7 +1665,15 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
             <string>Wallets</string>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>100</width>
+             <height>38</height>
+            </rect>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_35">
             <item>
              <spacer name="horizontalSpacer_43">
@@ -1697,7 +1725,15 @@ font: 3pt &quot;Century Gothic&quot;;</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>100</width>
+             <height>30</height>
+            </rect>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_33">
             <item>
              <spacer name="horizontalSpacer_42">
@@ -1749,7 +1785,15 @@ font: 3pt &quot;Century Gothic&quot;;</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>100</width>
+             <height>30</height>
+            </rect>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_29">
             <item>
              <spacer name="horizontalSpacer_39">
@@ -1921,7 +1965,15 @@ border-bottom-color: rgb(255, 255, 255);
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>245</width>
+             <height>307</height>
+            </rect>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_32">
             <item>
              <spacer name="horizontalSpacer_38">
