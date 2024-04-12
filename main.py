@@ -1,7 +1,7 @@
 
 import sys
 from PyQt5.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QSizePolicy
-from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup,QEvent,pyqtSignal,Qt,QPointF
+from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup,QEvent,pyqtSignal,Qt,QAbstractAnimation,QSize
 import pyqtgraph as pg
 from PyQt5.QtGui import QLinearGradient,QColor,QPen
 import numpy as np
@@ -22,12 +22,14 @@ class MainWindow(QMainWindow):
         self.sidebar_animation_apply()
         self.ui.MenuButton.clicked.connect(self.toggle_sidebar)
 
+
+
         # Connect window state change event
         self.windowStateChanged.connect(self.handle_window_state_change)
 
         # Initialize sidebar hidden state
         self.sidebar_hidden = False
-        self.ui.comboBox_3.currentIndexChanged.connect(self.change_graph)
+        self.ui.comboBox_3.currentIndexChanged.connect(self.draw_graph)
     def sidebar_animation_apply(self):
         # Define sidebar animation
         self.sidebar_animation = QPropertyAnimation(self.ui.widget_2, b'geometry')
@@ -41,9 +43,57 @@ class MainWindow(QMainWindow):
         self.group = QParallelAnimationGroup()
         self.group.addAnimation(self.sidebar_animation)
         self.group.addAnimation(self.mainwidget_animation)
-    def change_graph(self):
-        heading=self.ui.comboBox_3.currentText()
+    def draw_graph(self):
+        self.plot_widget.setXRange(0, 30)  # Set view range for x-axis
+        self.plot_widget.setYRange(0, 20)  # Set view range for y-axis
+        self.plot_widget.setLimits(xMin=0, xMax=7, yMin=0, yMax=100)  # Adjust these values as needed
+        self.plot_widget.setMouseEnabled(x=False, y=True)  # Disable x zooming
+
+        heading = self.ui.comboBox_3.currentText()
         self.plot_widget.setTitle(heading)
+        gradient = QLinearGradient(0, 0, 0, 40)  # (xstart, ystart, xstop, ystop)
+        gradient.setColorAt(0.0, QColor('#0d00ff'))
+        gradient.setColorAt(1.0, QColor('#f000bc'))
+        pen = QPen(gradient, 1)
+        pen.setWidth(0)
+        self.plot_widget.clear()
+        date_axis = DateAxisItem(orientation='bottom')
+        self.plot_widget.setAxisItems({'bottom': date_axis})
+        
+        if heading == "Last 7 days":
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.days[i]}') for i in range(0, 7)]])
+            x = np.array([0, 1, 2, 3, 4, 5, 6])
+            y = np.array([2, 30, 5, 35, 25, 37, 20])
+            self.plot = self.plot_widget.plot(x, y, pen=pen)
+            
+        elif heading == "Last month":
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'week{i}') for i in range(0, 7)]])
+            x = np.array([0, 1, 2, 3, 4, 5, 6])
+            y = np.array([4, 5, 11, 40, 2, 35, 40])
+            self.plot = self.plot_widget.plot(x, y, pen=pen)
+
+        elif heading == "Last Year":
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'month{i}') for i in range(0, 8)]])
+            x = np.array([0, 1, 2, 3, 4, 5, 6])
+            y = np.array([45, 5, 20, 80, 2, 35, 25])
+            self.plot = self.plot_widget.plot(x, y, pen=pen)
+
+        # Set y-axis to AxisItem
+        text_axis = AxisItem(orientation='left')
+        self.plot_widget.setAxisItems({'left': text_axis})
+        self.plot_widget.getAxis('left').setTicks([[(i, f'${i}') for i in range(0, 100, 10)]])
+        self.plot_widget.setMinimumSize(100, 100) 
+
+        self.plot_widget.getAxis('left').setPen('#6f7da2')
+        self.plot_widget.getAxis('bottom').setPen('#6f7da2')
+        
+        # Explicitly set grid visibility
+
+
+    # Set pen for grid lines with adjusted opacity
+        self.plot_widget.getAxis('left').setGrid(255)  # Adjust opacity for left axis grid lines
+        self.plot_widget.setLabel('bottom', 'Day')
+        self.plot_widget.setLabel('left', 'Expenses')
 
     def last_seven_days(self):
         # Get the current system date
@@ -75,50 +125,12 @@ class MainWindow(QMainWindow):
         # Set size policy for plot widget to Expanding
         self.plot_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        days = self.last_seven_days()
-        print(days)
-        # Sample x values corresponding to Monday to Saturday
-        x = np.array([0,1, 2, 3, 4, 5, 6])
-        y = np.array([2, 30, 5, 35, 25, 37, 20])
-        # Create a linear gradient for the pen
-        gradient = QLinearGradient(0, 0, 0, 30)  # (xstart, ystart, xstop, ystop)
-        gradient.setColorAt(0.0, QColor('#0d00ff'))
-        gradient.setColorAt(1.0, QColor('#f000bc'))
-        pen = QPen(gradient, 1)
-        pen.setWidth(0) # QPen with this gradient
-
-        # Plot data with custom GradientLinePlot
-        self.plot = self.plot_widget.plot(x, y, pen=pen)
-
-        # Set the size of the plot widget
-        self.plot_widget.setMinimumSize(100, 100)  # Adjust the size as needed
-
-        # Set background color to transparent
+        self.days = self.last_seven_days()
         self.plot_widget.setBackground(None)
-        graph_title=self.ui.comboBox_3.currentText()
-        self.plot_widget.setTitle(graph_title)
-        self.plot_widget.setXRange(0, 20)  # Set view range for x-axis
-        self.plot_widget.setYRange(0, 20)  # Set view range for y-axis
-        self.plot_widget.setLimits(xMin=0, xMax=7, yMin=0, yMax=100)  # Adjust these values as needed
-        self.plot_widget.setMouseEnabled(x=False, y=False)  # Disable both x and y zooming
-  
         
-        # Set x-axis to DateAxisItem
-        date_axis =DateAxisItem(orientation='bottom')
-        self.plot_widget.setAxisItems({'bottom': date_axis})
-        self.plot_widget.getAxis('bottom').setTicks([[(i,f'{days[i]}') for i in range(0, 7)]])
+        self.draw_graph()
+        # Set the size of the plot widget
         
-        
-        # Set y-axis to AxisItem
-        text_axis = AxisItem(orientation='left')
-        self.plot_widget.setAxisItems({'left': text_axis})
-        self.plot_widget.getAxis('left').setTicks([[(i, f'${i}') for i in range(0, 100,10)]])
-        
-        self.plot_widget.getAxis('left').setPen('#6f7da2')
-        self.plot_widget.getAxis('bottom').setPen('#6f7da2')                                                                             
-        self.plot_widget.showGrid(y=True)
-        self.plot_widget.setLabel('bottom', 'Day')
-        self.plot_widget.setLabel('left', 'Expenses')
     windowStateChanged = pyqtSignal()
     
     def event(self, event):
