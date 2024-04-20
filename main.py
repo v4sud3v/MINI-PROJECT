@@ -43,11 +43,13 @@ class MainWindow(QMainWindow):
         self.group = QParallelAnimationGroup()
         self.group.addAnimation(self.sidebar_animation)
         self.group.addAnimation(self.mainwidget_animation)
+
+    
     def draw_graph(self):
         self.plot_widget.setXRange(0, 30)  # Set view range for x-axis
         self.plot_widget.setYRange(0, 20)  # Set view range for y-axis
-        self.plot_widget.setLimits(xMin=0, xMax=7, yMin=0, yMax=100)  # Adjust these values as needed
-        self.plot_widget.setMouseEnabled(x=False, y=True)  # Disable x zooming
+        self.plot_widget.setLimits(xMin=0, xMax=12, yMin=0, yMax=100)  # Adjust these values as needed
+        self.plot_widget.setMouseEnabled(x=True, y=True)  # Disable x zooming
 
         heading = self.ui.comboBox_3.currentText()
         self.plot_widget.setTitle(heading)
@@ -67,16 +69,18 @@ class MainWindow(QMainWindow):
             self.plot = self.plot_widget.plot(x, y, pen=pen)
             
         elif heading == "Last month":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'week{i}') for i in range(0, 7)]])
-            x = np.array([0, 1, 2, 3, 4, 5, 6])
-            y = np.array([4, 5, 11, 40, 2, 35, 40])
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'week{i+1}') for i in range(0, 5)]])
+            x = np.array([0, 1, 2, 3,])
+            y = np.array([4, 5, 11, 40])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
 
         elif heading == "Last Year":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'month{i}') for i in range(0, 8)]])
-            x = np.array([0, 1, 2, 3, 4, 5, 6])
-            y = np.array([45, 5, 20, 80, 2, 35, 25])
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'mon{i+1}') for i in range(0, 12)]])
+            x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+            y = np.array([45, 5, 20, 80, 2, 35, 25,4, 5, 11, 40, 4])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
+
+        self.plot_widget.autoRange()
 
         # Set y-axis to AxisItem
         text_axis = AxisItem(orientation='left')
