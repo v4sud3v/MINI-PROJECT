@@ -1,28 +1,29 @@
 
 import sys
-from PyQt5.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QSizePolicy
+from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup,QEvent,pyqtSignal,Qt,QAbstractAnimation,QSize
 import pyqtgraph as pg
 from PyQt5.QtGui import QLinearGradient,QColor,QPen
 import numpy as np
-from main_window import Ui_MainWindow
+
 from pyqtgraph import AxisItem,DateAxisItem
 from datetime import datetime, timedelta
 
+from main_window2 import Ui_MainWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.Dashboard_Button.setChecked(True)
         self.ui.changingwidget.setCurrentIndex(0)
         self.initialize_graph()
         self.sidebar_animation_apply()
+        self.Buttons_list=[self.ui.Dashboard_Button,self.ui.CategoriesButton,self.ui.Help_Button,self.ui.Wallets_Button,self.ui.Settings_Button,self.ui.Info_Button]
         self.ui.MenuButton.clicked.connect(self.toggle_sidebar)
-
-
+        self.create_overview()
+        
 
         # Connect window state change event
         self.windowStateChanged.connect(self.handle_window_state_change)
@@ -49,7 +50,7 @@ class MainWindow(QMainWindow):
         self.plot_widget.setXRange(0, 30)  # Set view range for x-axis
         self.plot_widget.setYRange(0, 20)  # Set view range for y-axis
         self.plot_widget.setLimits(xMin=0, xMax=12, yMin=0, yMax=100)  # Adjust these values as needed
-        self.plot_widget.setMouseEnabled(x=True, y=True)  # Disable x zooming
+        self.plot_widget.setMouseEnabled(x=False, y=True)  # Disable x zooming
 
         heading = self.ui.comboBox_3.currentText()
         self.plot_widget.setTitle(heading)
@@ -75,7 +76,7 @@ class MainWindow(QMainWindow):
             self.plot = self.plot_widget.plot(x, y, pen=pen)
 
         elif heading == "Last Year":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'mon{i+1}') for i in range(0, 12)]])
+            self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.months[i]}') for i in range(0, 12)]])
             x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
             y = np.array([45, 5, 20, 80, 2, 35, 25,4, 5, 11, 40, 4])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
@@ -85,11 +86,11 @@ class MainWindow(QMainWindow):
         # Set y-axis to AxisItem
         text_axis = AxisItem(orientation='left')
         self.plot_widget.setAxisItems({'left': text_axis})
-        self.plot_widget.getAxis('left').setTicks([[(i, f'${i}') for i in range(0, 100, 10)]])
         self.plot_widget.setMinimumSize(100, 100) 
-
+        self.plot_widget.getAxis('left').setTicks([[(i, f'{i}$') for i in range(0, 200,10)]])
         self.plot_widget.getAxis('left').setPen('#6f7da2')
         self.plot_widget.getAxis('bottom').setPen('#6f7da2')
+       
         
         # Explicitly set grid visibility
 
@@ -97,7 +98,7 @@ class MainWindow(QMainWindow):
     # Set pen for grid lines with adjusted opacity
         self.plot_widget.getAxis('left').setGrid(255)  # Adjust opacity for left axis grid lines
         self.plot_widget.setLabel('bottom', 'Day')
-        self.plot_widget.setLabel('left', 'Expenses')
+        self.plot_widget.setLabel('left', 'Expenses($)')
 
     def last_seven_days(self):
         # Get the current system date
@@ -121,7 +122,7 @@ class MainWindow(QMainWindow):
         # Create a plot widget for the line graph
         self.plot_widget = pg.PlotWidget()
         self.plot_layout = QVBoxLayout(self.ui.widget_3)
-
+        self.months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
         self.plot_layout.addWidget(self.plot_widget)
         self.plot_layout.setContentsMargins(0, 0, 30,0)
         self.ui.widget_3.setLayout(self.plot_layout)
@@ -147,7 +148,7 @@ class MainWindow(QMainWindow):
             self.sidebar_hidden = False
         elif self.windowState() == Qt.WindowMinimized:
             # Depending on your application's behavior, you may choose to set sidebar_hidden to True here.
-            pass
+            self.sidebar_hidden = False
         else:
             # For other states (e.g., Normal), maintain the current sidebar state.
             self.sidebar_hidden = False
@@ -205,6 +206,29 @@ class MainWindow(QMainWindow):
             mainwidget_geometry = self.ui.mainwidget.geometry()
             mainwidget_geometry.setWidth(mainwidget_geometry.width() + self.ui.widget_2.width())
             self.ui.mainwidget.setGeometry(mainwidget_geometry)
+    def create_overview(self):
+        frame_layout=QVBoxLayout(self.ui.overview_frame)
+
+        layout_OUT=QHBoxLayout()
+        layout_OUT.setAlignment(Qt.AlignCenter)
+        outside_widget=self.ui.widget_7
+        outside_widget.setLayout(layout_OUT)
+        heading_list=["Total spend","You owe","You get back","Settled up"]
+        data_list=[205,3500,600,405]
+        for i in range(4):
+            layout_in=QVBoxLayout()
+            inside_widget=QWidget()
+            data=QLabel(f'{data_list[i]}$')
+            heading=QLabel(f'{heading_list[i]}')
+            data.setStyleSheet("*{color:rgb(255,255,255);\n"
+ "font: 15pt 'MS Shell Dlg 2';}")
+            heading.setStyleSheet("*{color: rgb(116, 131, 169);\n"
+ "font: 10pt 'MS Shell Dlg 2';}")
+            inside_widget.setLayout(layout_in)
+            layout_in.addWidget(data)
+            layout_in.addWidget(heading)
+            layout_OUT.addWidget(inside_widget)
+
 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)
