@@ -646,7 +646,7 @@ font: 3pt &quot;Century Gothic&quot;;</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -2108,172 +2108,355 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
           </widget>
          </widget>
          <widget class="QWidget" name="page_4">
-          <widget class="QLabel" name="label_10">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>10</y>
-             <width>141</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);
+          <layout class="QVBoxLayout" name="verticalLayout_17">
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="font">
+              <font>
+               <family>Century Gothic</family>
+               <pointsize>12</pointsize>
+               <weight>9</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);
 
 font: 75 12pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Settings</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_6">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>60</y>
-             <width>151</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:#fff</string>
-           </property>
-           <property name="text">
-            <string>Salary Day</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="amount_2">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>100</y>
-             <width>561</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>214</width>
-             <height>19</height>
-            </size>
-           </property>
-           <property name="whatsThis">
-            <string/>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="placeholderText">
-            <string>Amount</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="yourwallets">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>150</y>
-             <width>151</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:#fff</string>
-           </property>
-           <property name="text">
-            <string>Your Wallets</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="widget" native="true">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>200</y>
-             <width>651</width>
-             <height>371</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLabel" name="removeaccounts">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>600</y>
-             <width>151</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:#fff</string>
-           </property>
-           <property name="text">
-            <string>Remove Accounts</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="removeaccount">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>660</y>
-             <width>661</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>90</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
+             </property>
+             <property name="text">
+              <string>Settings</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <family>Century Gothic</family>
+               <pointsize>11</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:#fff</string>
+             </property>
+             <property name="text">
+              <string>Salary Day</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_18">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_15">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_16">
+                 <item>
+                  <spacer name="horizontalSpacer_19">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="amount_2">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>214</width>
+                     <height>19</height>
+                    </size>
+                   </property>
+                   <property name="whatsThis">
+                    <string/>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Amount</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_20">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Preferred</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_14">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_15">
+                   <item>
+                    <spacer name="horizontalSpacer_18">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="yourwallets">
+                     <property name="font">
+                      <font>
+                       <family>Century Gothic</family>
+                       <pointsize>11</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color:#fff</string>
+                     </property>
+                     <property name="text">
+                      <string>Your Wallets</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_17">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_9">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Preferred</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_14">
+                     <item>
+                      <spacer name="horizontalSpacer_13">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Preferred</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget" native="true"/>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_14">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Preferred</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Preferred</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_13">
+                         <item>
+                          <spacer name="horizontalSpacer_15">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeType">
+                            <enum>QSizePolicy::Maximum</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="removeaccounts">
+                           <property name="font">
+                            <font>
+                             <family>Century Gothic</family>
+                             <pointsize>11</pointsize>
+                             <weight>50</weight>
+                             <italic>false</italic>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">color:#fff</string>
+                           </property>
+                           <property name="text">
+                            <string>Remove Accounts</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="horizontalSpacer_16">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeType">
+                            <enum>QSizePolicy::Preferred</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>9</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_12">
+                         <item>
+                          <spacer name="horizontalSpacer_3">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeType">
+                            <enum>QSizePolicy::Preferred</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>10</width>
+                             <height>13</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="removeaccount">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>90</width>
+                             <height>28</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QPushButton{
 	border: 1px solid;
 	border-color:#fff;
 	border-radius: 7px;
@@ -2284,34 +2467,89 @@ color:rgb(22, 201, 236);
 border-color:rgb(22, 201, 236);
 }
 font: 3pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Remove</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="removeaccount_2">
-           <property name="geometry">
-            <rect>
-             <x>790</x>
-             <y>90</y>
-             <width>231</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>90</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
+                           </property>
+                           <property name="text">
+                            <string>Remove</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="horizontalSpacer_12">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeType">
+                            <enum>QSizePolicy::Preferred</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>0</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Preferred</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_16">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <item>
+                  <spacer name="horizontalSpacer_21">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="signout">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>90</width>
+                     <height>28</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
 	border: 1px solid;
 	border-color:#fff;
 	border-radius: 7px;
@@ -2322,11 +2560,45 @@ color:rgb(22, 201, 236);
 border-color:rgb(22, 201, 236);
 }
 font: 3pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Sign Out</string>
-           </property>
-          </widget>
+                   </property>
+                   <property name="text">
+                    <string>Sign Out</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_22">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_11">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_5">
           <widget class="QLabel" name="label_11">
