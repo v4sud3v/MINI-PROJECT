@@ -16,7 +16,7 @@ class Button(QtWidgets.QPushButton):
     # Event handler for mouse enter
     def enterEvent(self, e) -> None:
         self.mouse = 'on'
-        self.tm.start(25, self)
+        self.tm.start(20, self)
 
     # Event handler for mouse leave
     def leaveEvent(self, e) -> None:
@@ -44,7 +44,7 @@ class custFrame(QtWidgets.QFrame):
         self.shadow.setOffset(7,10)
         self.shadow.setBlurRadius(20)
         self.shadow.setColor(QtGui.QColor("#0f0936"))
-
+        self.repeatationtime=4
         
 
         # Initialize mouse state
@@ -84,17 +84,40 @@ class custFrame(QtWidgets.QFrame):
 
     # Timer event for smooth transitions
     def timerEvent(self, e) -> None:
+        if self.mouse == 'on' and self.expand < self.maxExpand:
+            self.expand += 1
+            self.shadow.setOffset(1,2)
+            self.shadow.setColor(QtGui.QColor(self.garding_s_seq[self.expand-1]))
+            self.setGeometry(self.x()-1, int(self.y()-1), self.width()+2, self.height()+2)
+        elif self.mouse == 'off' and  self.expand > 0:
+            self.expand -= 1
+            self.setGeometry(self.x()+1, int(self.y()+1), self.width()-2, self.height()-2)
+        elif self.mouse == 'off' and self.expand in [0, self.maxExpand]:
+            self.shadow.setOffset(7,10)
+            self.shadow.setColor(QtGui.QColor(self.init_s_color))
+            self.tm.stop()
+        
+class statframe(custFrame):
+     def give_size(self,windoww,windowh):
+         self.wcounter=int((windoww/8)/self.repeatationtime)
+         self.hcounter=int((windowh)/5/self.repeatationtime)
+         self.xcounter=int((windoww)/9/self.repeatationtime)
+         self.ycounter=int((windowh)/9/self.repeatationtime)
+         print(self.xcounter)
+
+     def timerEvent(self,e) -> None:
+        delaytime=65
+        
+        maxtimer=delaytime+self.repeatationtime
         self.raise_()
         if self.mouse == 'on' and self.expand < self.maxExpand:
-            
             self.expand += 1
             self.shadow.setColor(QtGui.QColor(self.garding_s_seq[self.expand-1]))
-            self.shadow.setOffset(0,0)
+            self.shadow.setOffset(1,2)
             self.setGeometry(self.x()-1, int(self.y()-1), self.width()+2, self.height()+2)
-        elif self.mouse == 'off' and self.timer > 65 and self.expand==self.maxExpand:
+        elif self.mouse == 'off' and self.timer > delaytime and self.expand==self.maxExpand:
             self.timer-=1
-            
-            self.setGeometry(self.x()+5, int(self.y()+5), self.width()-10, self.height()-10)
+            self.setGeometry(self.x()-self.xcounter, int(self.y()+self.ycounter), self.width()-self.wcounter, self.height()-self.hcounter)
 
         elif self.mouse == 'off' and  self.expand > 0 :
             self.expand -= 1
@@ -105,10 +128,10 @@ class custFrame(QtWidgets.QFrame):
             self.shadow.setColor(QtGui.QColor(self.init_s_color))
             self.timer=0
             self.tm.stop()
-        elif self.mouse == 'on' and self.expand==self.maxExpand and self.timer<70:
+        elif self.mouse == 'on' and self.expand==self.maxExpand and self.timer<maxtimer:
                 self.timer+=1
-                if self.timer>65:
-                    self.setGeometry(self.x()-5, int(self.y()-5), self.width()+10, self.height()+10)
+                if self.timer>delaytime:
+                    self.setGeometry(self.x()+self.xcounter, int(self.y()-self.ycounter), self.width()+self.wcounter, self.height()+self.hcounter)
                     
         
         

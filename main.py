@@ -16,6 +16,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowTitle('Expenzio')
+        self.setGeometry(100, 100, 1400, 400) 
         self.ui.Dashboard_Button.setChecked(True)
         self.ui.changingwidget.setCurrentIndex(0)
         self.initialize_graph()
@@ -47,58 +49,69 @@ class MainWindow(QMainWindow):
 
     
     def draw_graph(self):
-        self.plot_widget.setXRange(0, 30)  # Set view range for x-axis
-        self.plot_widget.setYRange(0, 20)  # Set view range for y-axis
-        self.plot_widget.setLimits(xMin=0, xMax=12, yMin=0, yMax=100)  # Adjust these values as needed
-        self.plot_widget.setMouseEnabled(x=False, y=True)  # Disable x zooming
+        # Set view range for x and y axes
+        self.plot_widget.setXRange(0, 30)
+        self.plot_widget.setYRange(0, 20)
 
+        # Adjust view limits
+        self.plot_widget.setLimits(xMin=0, xMax=12, yMin=0, yMax=100)
+
+        # Disable x-axis zooming
+        self.plot_widget.setMouseEnabled(x=False, y=True)
+
+        # Get the selected heading from the combo box
         heading = self.ui.comboBox_3.currentText()
         self.plot_widget.setTitle(heading)
-        gradient = QLinearGradient(0, 0, 0, 40)  # (xstart, ystart, xstop, ystop)
+
+        # Create a gradient for the plot line
+        gradient = QLinearGradient(0, 0, 0, 40)
         gradient.setColorAt(0.0, QColor('#0d00ff'))
         gradient.setColorAt(1.0, QColor('#f000bc'))
         pen = QPen(gradient, 1)
         pen.setWidth(0)
+
+        # Clear the plot widget
         self.plot_widget.clear()
+
+        # Set up date axis
         date_axis = DateAxisItem(orientation='bottom')
         self.plot_widget.setAxisItems({'bottom': date_axis})
-        
+
         if heading == "Last 7 days":
             self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.days[i]}') for i in range(0, 7)]])
             x = np.array([0, 1, 2, 3, 4, 5, 6])
             y = np.array([2, 30, 5, 35, 25, 37, 20])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
-            
+            self.plot_widget.setLabel('bottom', 'Day')
         elif heading == "Last month":
             self.plot_widget.getAxis('bottom').setTicks([[(i, f'week{i+1}') for i in range(0, 5)]])
-            x = np.array([0, 1, 2, 3,])
+            x = np.array([0, 1, 2, 3])
             y = np.array([4, 5, 11, 40])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
-
+            self.plot_widget.setLabel('bottom', 'week')
         elif heading == "Last Year":
             self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.months[i]}') for i in range(0, 12)]])
             x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
-            y = np.array([45, 5, 20, 80, 2, 35, 25,4, 5, 11, 40, 4])
+            y = np.array([45, 5, 20, 80, 2, 35, 25, 4, 5, 11, 40, 4])
             self.plot = self.plot_widget.plot(x, y, pen=pen)
+            self.plot_widget.setLabel('bottom', 'months')
 
+        # Auto-range the plot
         self.plot_widget.autoRange()
 
         # Set y-axis to AxisItem
         text_axis = AxisItem(orientation='left')
         self.plot_widget.setAxisItems({'left': text_axis})
-        self.plot_widget.setMinimumSize(100, 100) 
-        self.plot_widget.getAxis('left').setTicks([[(i, f'{i}$') for i in range(0, 200,10)]])
+        self.plot_widget.setMinimumSize(100, 100)
         self.plot_widget.getAxis('left').setPen('#6f7da2')
         self.plot_widget.getAxis('bottom').setPen('#6f7da2')
-       
-        
+        self.plot_widget.update()
+        QApplication.processEvents() 
         # Explicitly set grid visibility
-
-
-    # Set pen for grid lines with adjusted opacity
         self.plot_widget.getAxis('left').setGrid(255)  # Adjust opacity for left axis grid lines
-        self.plot_widget.setLabel('bottom', 'Day')
+        
         self.plot_widget.setLabel('left', 'Expenses($)')
+
 
     def last_seven_days(self):
         # Get the current system date
@@ -144,14 +157,14 @@ class MainWindow(QMainWindow):
         return super().event(event)
 
     def handle_window_state_change(self):
-        if self.windowState() == Qt.WindowMaximized or self.windowState() == Qt.WindowFullScreen:
-            self.sidebar_hidden = False
-        elif self.windowState() == Qt.WindowMinimized:
-            # Depending on your application's behavior, you may choose to set sidebar_hidden to True here.
-            self.sidebar_hidden = False
-        else:
-            # For other states (e.g., Normal), maintain the current sidebar state.
-            self.sidebar_hidden = False
+            self.sidebar_hidden = False 
+            self.findsize()
+    def resizeEvent(self,event):
+        self.findsize()
+    def findsize(self):
+        new_size =self.ui.mainwidget.geometry()
+        stframe=self.ui.Statistics_frame
+        stframe.give_size(new_size.width(),new_size.height())                   #self,windowx,windowy,windoww,windowh,xratio,yratio,wratio,hratio
 
     def toggle_sidebar(self):
         # Toggle sidebar visibility and trigger animation
@@ -207,12 +220,11 @@ class MainWindow(QMainWindow):
             mainwidget_geometry.setWidth(mainwidget_geometry.width() + self.ui.widget_2.width())
             self.ui.mainwidget.setGeometry(mainwidget_geometry)
     def create_overview(self):
-        frame_layout=QVBoxLayout(self.ui.overview_frame)
-
+        frame_layout=QHBoxLayout()
+        self.ui.overview_frame.setLayout(frame_layout)
         layout_OUT=QHBoxLayout()
-        layout_OUT.setAlignment(Qt.AlignCenter)
-        outside_widget=self.ui.widget_7
-        outside_widget.setLayout(layout_OUT)
+        frame_layout.setAlignment(Qt.AlignCenter)
+        outside_widget=self.ui.widget_7 
         heading_list=["Total spend","You owe","You get back","Settled up"]
         data_list=[205,3500,600,405]
         for i in range(4):
@@ -228,7 +240,7 @@ class MainWindow(QMainWindow):
             layout_in.addWidget(data)
             layout_in.addWidget(heading)
             layout_OUT.addWidget(inside_widget)
-
+        outside_widget.setLayout(layout_OUT)
 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)
@@ -253,6 +265,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     window = MainWindow()
-    window.show()
+    window.showMaximized()
 
     sys.exit(app.exec())

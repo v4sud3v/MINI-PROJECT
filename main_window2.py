@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from custom_widgets_classes import Button,custFrame
+from custom_widgets_classes import Button,custFrame,statframe
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -345,7 +345,7 @@ class Ui_MainWindow(object):
         self.widget_7.setGeometry(QtCore.QRect(19, 50, 531, 111))
         self.widget_7.setObjectName("widget_7")
         self.verticalLayout_9.addWidget(self.overview_frame)
-        self.Statistics_frame =custFrame(self.page)
+        self.Statistics_frame =statframe(self.page)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
