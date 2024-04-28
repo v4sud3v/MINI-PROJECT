@@ -10,6 +10,11 @@
     <height>850</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>.AppleSystemUIFont</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -131,9 +136,8 @@ background-color: rgb(12, 20, 43);
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
-               <weight>9</weight>
                <italic>false</italic>
-               <bold>false</bold>
+               <fontweight></fontweight>
               </font>
              </property>
              <property name="styleSheet">
@@ -182,7 +186,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -238,7 +241,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -291,7 +293,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -338,7 +339,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -414,7 +414,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -458,7 +457,6 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -646,7 +644,7 @@ font: 3pt &quot;Century Gothic&quot;;</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -671,9 +669,8 @@ font: 3pt &quot;Century Gothic&quot;;</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
-               <weight>9</weight>
                <italic>false</italic>
-               <bold>false</bold>
+               <fontweight></fontweight>
               </font>
              </property>
              <property name="styleSheet">
@@ -762,7 +759,6 @@ border-bottom-color: rgb(255, 255, 255);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -862,7 +858,6 @@ border-bottom-color: rgb(255, 255, 255);
                        <font>
                         <family>Century Gothic</family>
                         <pointsize>11</pointsize>
-                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -924,7 +919,6 @@ border-bottom-color: rgb(255, 255, 255);
                        <font>
                         <family>Century Gothic</family>
                         <pointsize>9</pointsize>
-                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -1053,7 +1047,6 @@ border-color:rgba(255, 255, 255,100);
                          <font>
                           <family>Century Gothic</family>
                           <pointsize>11</pointsize>
-                          <weight>50</weight>
                           <italic>false</italic>
                           <bold>false</bold>
                          </font>
@@ -1145,7 +1138,6 @@ border-color:rgba(255, 255, 255,100);
                              <font>
                               <family>Century Gothic</family>
                               <pointsize>9</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -1254,7 +1246,6 @@ QComboBox::drop-down {
                              <font>
                               <family>Century Gothic</family>
                               <pointsize>9</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -1525,7 +1516,6 @@ border-bottom-color: rgb(255, 255, 255);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -1592,7 +1582,6 @@ border-bottom-color: rgb(255, 255, 255);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -1625,9 +1614,8 @@ border-bottom-color: rgb(255, 255, 255);
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
-               <weight>9</weight>
                <italic>false</italic>
-               <bold>false</bold>
+               <fontweight></fontweight>
               </font>
              </property>
              <property name="styleSheet">
@@ -1846,8 +1834,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>100</width>
-                       <height>30</height>
+                       <width>262</width>
+                       <height>470</height>
                       </rect>
                      </property>
                     </widget>
@@ -1953,7 +1941,6 @@ border-bottom-color: rgb(255, 255, 255);
                         <font>
                          <family>Century Gothic</family>
                          <pointsize>11</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -2037,7 +2024,6 @@ border-bottom-color: rgb(255, 255, 255);
                         <font>
                          <family>Century Gothic</family>
                          <pointsize>11</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -2109,7 +2095,6 @@ border-bottom-color: rgb(255, 255, 255);
                     <font>
                      <family>Century Gothic</family>
                      <pointsize>11</pointsize>
-                     <weight>50</weight>
                      <italic>false</italic>
                      <bold>false</bold>
                     </font>
@@ -2160,9 +2145,8 @@ border-bottom-color: rgb(255, 255, 255);
             <font>
              <family>Century Gothic</family>
              <pointsize>12</pointsize>
-             <weight>9</weight>
              <italic>false</italic>
-             <bold>false</bold>
+             <fontweight></fontweight>
             </font>
            </property>
            <property name="styleSheet">
@@ -2183,9 +2167,8 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
-               <weight>9</weight>
                <italic>false</italic>
-               <bold>false</bold>
+               <fontweight></fontweight>
               </font>
              </property>
              <property name="styleSheet">
@@ -2217,7 +2200,6 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2285,7 +2267,6 @@ border-color:rgba(255, 255, 255,100);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2331,7 +2312,6 @@ border-color:rgba(255, 255, 255,100);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2533,9 +2513,8 @@ border-color:rgb(22, 201, 236);
             <font>
              <family>Century Gothic</family>
              <pointsize>12</pointsize>
-             <weight>9</weight>
              <italic>false</italic>
-             <bold>false</bold>
+             <fontweight></fontweight>
             </font>
            </property>
            <property name="styleSheet">
@@ -2545,6 +2524,149 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
            </property>
            <property name="text">
             <string>Help</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>60</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to create a new account</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>110</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to delete an account</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_14">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>260</y>
+             <width>91</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Getting started</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>300</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Home tab</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>350</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>stats tab</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_7">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>400</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to add an income &amp; expense</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_9">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>510</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to add wallet</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_10">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>570</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to change wallet name</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_15">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>470</y>
+             <width>58</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Wallets</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_8">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>630</y>
+             <width>331</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to check wallet balance</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_11">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>160</y>
+             <width>341</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>How to exclude balance of certain accounts from totals</string>
            </property>
           </widget>
          </widget>
@@ -2562,9 +2684,8 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
             <font>
              <family>Century Gothic</family>
              <pointsize>12</pointsize>
-             <weight>9</weight>
              <italic>false</italic>
-             <bold>false</bold>
+             <fontweight></fontweight>
             </font>
            </property>
            <property name="styleSheet">
