@@ -136,8 +136,9 @@ background-color: rgb(12, 20, 43);
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
+               <weight>9</weight>
                <italic>false</italic>
-               <fontweight></fontweight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -186,6 +187,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -241,6 +243,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -293,6 +296,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -339,6 +343,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -414,6 +419,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -457,6 +463,7 @@ color: rgb(255, 255, 255);</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>11</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -576,32 +583,6 @@ color: rgb(255, 255, 255);</string>
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="bellButton">
-              <property name="minimumSize">
-               <size>
-                <width>36</width>
-                <height>36</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:transparent;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="resources.qrc">
-                <normaloff>:/icon/icons/bell.svg</normaloff>:/icon/icons/bell.svg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="accountButton">
               <property name="minimumSize">
                <size>
@@ -616,7 +597,7 @@ color: rgb(255, 255, 255);</string>
 	border-radius: 17px;
 }
 
-font: 3pt &quot;Century Gothic&quot;;</string>
+</string>
               </property>
               <property name="text">
                <string/>
@@ -644,7 +625,7 @@ font: 3pt &quot;Century Gothic&quot;;</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -669,8 +650,9 @@ font: 3pt &quot;Century Gothic&quot;;</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
+               <weight>9</weight>
                <italic>false</italic>
-               <fontweight></fontweight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -759,6 +741,7 @@ border-bottom-color: rgb(255, 255, 255);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -858,6 +841,7 @@ border-bottom-color: rgb(255, 255, 255);
                        <font>
                         <family>Century Gothic</family>
                         <pointsize>11</pointsize>
+                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -919,6 +903,7 @@ border-bottom-color: rgb(255, 255, 255);
                        <font>
                         <family>Century Gothic</family>
                         <pointsize>9</pointsize>
+                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -1047,6 +1032,7 @@ border-color:rgba(255, 255, 255,100);
                          <font>
                           <family>Century Gothic</family>
                           <pointsize>11</pointsize>
+                          <weight>50</weight>
                           <italic>false</italic>
                           <bold>false</bold>
                          </font>
@@ -1138,6 +1124,7 @@ border-color:rgba(255, 255, 255,100);
                              <font>
                               <family>Century Gothic</family>
                               <pointsize>9</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -1246,6 +1233,7 @@ QComboBox::drop-down {
                              <font>
                               <family>Century Gothic</family>
                               <pointsize>9</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -1511,24 +1499,6 @@ border-bottom-color: rgb(255, 255, 255);
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_22">
                   <item>
-                   <widget class="QLabel" name="label_5">
-                    <property name="font">
-                     <font>
-                      <family>Century Gothic</family>
-                      <pointsize>11</pointsize>
-                      <italic>false</italic>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color:#fff</string>
-                    </property>
-                    <property name="text">
-                     <string>This month</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
                    <widget class="QWidget" name="widget_6" native="true"/>
                   </item>
                  </layout>
@@ -1582,6 +1552,7 @@ border-bottom-color: rgb(255, 255, 255);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -1614,8 +1585,9 @@ border-bottom-color: rgb(255, 255, 255);
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
+               <weight>9</weight>
                <italic>false</italic>
-               <fontweight></fontweight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -1752,7 +1724,7 @@ border-color:rgb(22, 201, 236);
 font: 3pt &quot;Century Gothic&quot;;</string>
                         </property>
                         <property name="text">
-                         <string>Add Transaction</string>
+                         <string>Add wallet</string>
                         </property>
                        </widget>
                       </item>
@@ -1834,8 +1806,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>76</width>
-                       <height>377</height>
+                       <width>285</width>
+                       <height>489</height>
                       </rect>
                      </property>
                     </widget>
@@ -1941,6 +1913,7 @@ border-bottom-color: rgb(255, 255, 255);
                         <font>
                          <family>Century Gothic</family>
                          <pointsize>11</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -2024,6 +1997,7 @@ border-bottom-color: rgb(255, 255, 255);
                         <font>
                          <family>Century Gothic</family>
                          <pointsize>11</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -2082,30 +2056,6 @@ border-bottom-color: rgb(255, 255, 255);
                   <property name="lineWidth">
                    <number>0</number>
                   </property>
-                  <widget class="QLabel" name="label_46">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>30</y>
-                     <width>92</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Century Gothic</family>
-                     <pointsize>11</pointsize>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:#fff</string>
-                   </property>
-                   <property name="text">
-                    <string>This month</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item>
@@ -2145,8 +2095,9 @@ border-bottom-color: rgb(255, 255, 255);
             <font>
              <family>Century Gothic</family>
              <pointsize>12</pointsize>
+             <weight>9</weight>
              <italic>false</italic>
-             <fontweight></fontweight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
@@ -2167,8 +2118,9 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
               <font>
                <family>Century Gothic</family>
                <pointsize>12</pointsize>
+               <weight>9</weight>
                <italic>false</italic>
-               <fontweight></fontweight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -2200,6 +2152,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2267,6 +2220,7 @@ border-color:rgba(255, 255, 255,100);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2312,6 +2266,7 @@ border-color:rgba(255, 255, 255,100);
                      <font>
                       <family>Century Gothic</family>
                       <pointsize>11</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2505,13 +2460,16 @@ border-color:rgb(22, 201, 236);
             <widget class="QWidget" name="widget_14" native="true">
              <property name="styleSheet">
               <string notr="true">*{
-	font: 13pt &quot;Century Gothic&quot;;}
+	font: 13pt &quot;Century Gothic&quot;;
+	color:#fff;}
 
 QPushButton{
+	
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(42, 33, 113, 255), stop:1 rgba(62, 200, 169, 252));
 border-radius: 10px;
                 }
-</string>
+QPushButton::hover{
+color:rgb(112, 236, 255);}</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_20">
               <item>
@@ -2520,20 +2478,21 @@ border-radius: 10px;
                  <string notr="true"/>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_24">
-                 <item>
+                 <item alignment="Qt::AlignTop">
                   <widget class="QLabel" name="label_11">
                    <property name="font">
                     <font>
                      <family>Century Gothic</family>
-                     <pointsize>12</pointsize>
+                     <pointsize>13</pointsize>
+                     <weight>9</weight>
                      <italic>false</italic>
-                     <fontweight></fontweight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">color: rgb(255, 255, 255);
 
-font: 75 12pt &quot;Century Gothic&quot;;</string>
+font: 75 13pt &quot;Century Gothic&quot;;</string>
                    </property>
                    <property name="text">
                     <string>Help</string>
@@ -2634,7 +2593,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>400</width>
+                     <width>437</width>
                      <height>59</height>
                     </size>
                    </property>
@@ -2647,6 +2606,22 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                   <widget class="QLabel" name="label_15">
                    <property name="text">
                     <string>Wallet management</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_11">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to remove wallet</string>
                    </property>
                   </widget>
                  </item>
@@ -2698,8 +2673,8 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>381</width>
-                      <height>703</height>
+                      <width>372</width>
+                      <height>734</height>
                      </rect>
                     </property>
                    </widget>
@@ -2727,8 +2702,9 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
             <font>
              <family>Century Gothic</family>
              <pointsize>12</pointsize>
+             <weight>9</weight>
              <italic>false</italic>
-             <fontweight></fontweight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
