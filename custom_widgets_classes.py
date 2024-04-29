@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets,QtCore,QtGui
 from colour import Color
-import time
 class Button(QtWidgets.QPushButton):
     def __init__(self, parent=None):
         super().__init__(parent)

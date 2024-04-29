@@ -1,7 +1,7 @@
 
 import sys
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import QPropertyAnimation,QEasingCurve,QRect,pyqtSlot,QParallelAnimationGroup,QEvent,pyqtSignal,Qt,QAbstractAnimation,QSize
+from PyQt5.QtCore import *
 import pyqtgraph as pg
 from PyQt5.QtGui import QLinearGradient,QColor,QPen
 import numpy as np
@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle('Expenzio')
-        self.setGeometry(100, 100, 1400, 400) 
+
         self.ui.Dashboard_Button.setChecked(True)
         self.ui.changingwidget.setCurrentIndex(0)
         self.initialize_graph()
