@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1098</width>
-    <height>866</height>
+    <width>1068</width>
+    <height>848</height>
    </rect>
   </property>
   <property name="font">
@@ -625,7 +625,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -949,12 +949,12 @@ QComboBox::drop-down {
                       </item>
                       <item>
                        <property name="text">
-                        <string>Last month</string>
+                        <string>This month</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>Last Year</string>
+                        <string>This year</string>
                        </property>
                       </item>
                      </widget>
@@ -1155,10 +1155,10 @@ QComboBox::drop-down {
                              <bool>false</bool>
                             </property>
                             <property name="currentText">
-                             <string/>
+                             <string>Wallet1</string>
                             </property>
                             <property name="currentIndex">
-                             <number>-1</number>
+                             <number>0</number>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -1168,7 +1168,7 @@ QComboBox::drop-down {
                             </property>
                             <item>
                              <property name="text">
-                              <string>Item1</string>
+                              <string>Wallet1</string>
                              </property>
                             </item>
                             <item>
@@ -1264,7 +1264,7 @@ QComboBox::drop-down {
                              <bool>false</bool>
                             </property>
                             <property name="currentIndex">
-                             <number>-1</number>
+                             <number>0</number>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -1274,12 +1274,27 @@ QComboBox::drop-down {
                             </property>
                             <item>
                              <property name="text">
-                              <string>Item1</string>
+                              <string>Food</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
-                              <string>Item 2</string>
+                              <string>Travel</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Clothes</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Groceries</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Others</string>
                              </property>
                             </item>
                            </widget>
@@ -1292,20 +1307,88 @@ QComboBox::drop-down {
                            <number>6</number>
                           </property>
                           <item>
-                           <spacer name="horizontalSpacer_5">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
+                           <widget class="QComboBox" name="group_1">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
                             </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::Expanding</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
+                            <property name="minimumSize">
                              <size>
                               <width>112</width>
+                              <height>4</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="sizeIncrement">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Century Gothic</family>
+                              <pointsize>9</pointsize>
+                              <weight>50</weight>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#fff;
+background-color: rgb(45, 63, 109);
+border-radius:8px;}
+QComboBox{
+	padding-left: 20px;
+
+}
+QComboBox::drop-down {
+	
+	image: url(:/icon/icons/chevron-down.svg);
+    width: 16px;
+    height: 16px;
+	border: none;
+	padding: 3px
+}
+
+</string>
+                            </property>
+                            <property name="editable">
+                             <bool>false</bool>
+                            </property>
+                            <property name="currentText">
+                             <string>Income</string>
+                            </property>
+                            <property name="currentIndex">
+                             <number>0</number>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>20</width>
                               <height>20</height>
                              </size>
                             </property>
-                           </spacer>
+                            <item>
+                             <property name="text">
+                              <string>Income</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Expense</string>
+                             </property>
+                            </item>
+                           </widget>
                           </item>
                           <item>
                            <widget class="QLineEdit" name="description">
@@ -1806,8 +1889,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>315</width>
-                       <height>505</height>
+                       <width>285</width>
+                       <height>489</height>
                       </rect>
                      </property>
                     </widget>
@@ -2673,8 +2756,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>402</width>
-                      <height>750</height>
+                      <width>372</width>
+                      <height>732</height>
                      </rect>
                     </property>
                    </widget>
