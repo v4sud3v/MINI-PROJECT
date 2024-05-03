@@ -21,8 +21,9 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.conn = self.create_connection()
         self.init_table()
-        #self.set_login()
+        #self.show_main()
         self.set_login()
+       
 
 
     def set_login(self):
@@ -32,8 +33,33 @@ class MainWindow(QMainWindow):
         self.login_ui.loginButton_2.clicked.connect(self.check_login)
         self.login_ui.Password_Entry_2.setEchoMode(QLineEdit.Password)
         self.login_window.show()
-        
 
+    def add_transaction(self):
+        cursor=self.conn.cursor()
+        wallet_name=self.ui.group_.currentText()
+        amount=self.ui.amount.text()
+        description=self.ui.description.text()
+        category=self.ui.comboBox_2.currentText()
+        trans_type=self.ui.group_1.currentText()
+        trans_date=datetime.now().strftime('%d-%m-%Y')
+        cursor.execute("select wallet_id from Wallet where user_id=? and wallet_name=?",(self.current_user.userid,wallet_name))
+        res=cursor.fetchone()
+        wallet_id=res[0]
+        print("wallet id:",wallet_id)
+        cursor.execute("select balance from wallet where wallet_id=?",(wallet_id,))
+        res1=cursor.fetchone()
+        if trans_type=="Income":
+            walletbalance=res1[0]+int(amount)
+        else:
+            walletbalance=res1[0]-int(amount)
+        cursor.execute("update wallet set balance=? where wallet_id=? ;",(walletbalance,wallet_id))
+        self.conn.commit()
+        cursor.execute("insert into Transactions(wallet_id,amount,description,category,transaction_type,transaction_date) values(?,?,?,?,?,?);",(wallet_id,amount,description,category,trans_type,trans_date))
+        self.conn.commit()
+        cursor.execute("select * from wallet;")
+        print(cursor.fetchall())
+        self.ui.amount.clear()
+        self.ui.description.clear()
     def check_login(self):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
@@ -64,6 +90,7 @@ class MainWindow(QMainWindow):
         self.create_overview()
         self.ui.comboBox_3.currentIndexChanged.connect(self.draw_graph)
         self.windowStateChanged.connect(self.handle_window_state_change)
+        self.ui.pushButton.clicked.connect(self.add_transaction)
         
 
     def login(self, username, password):
@@ -73,6 +100,10 @@ class MainWindow(QMainWindow):
         print
         if result:
             self.current_user = user(result[0])
+            cursor.execute("SELECT * from Wallet;")
+            wallet_exist=cursor.fetchone()
+            if wallet_exist==None:
+                cursor.execute("insert into Wallet (user_id,wallet_name,balance)values(?,?,?)",(self.current_user.userid,"Wallet1",0))
             return True
         else:
             return False
@@ -102,7 +133,8 @@ class MainWindow(QMainWindow):
         if not admin_exists:
             cursor.execute("INSERT INTO User (username, password) VALUES (?, ?);", ('admin', '1234')) 
         self.conn.commit()
-    
+        #####################################################################################################################
+    #UI stuff 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)
 
@@ -198,7 +230,6 @@ class MainWindow(QMainWindow):
         self.sidebar_hidden = True
 
     def resizeEvent(self, event):
-        print("Resize event triggered")
         self.findsize()
 
     def findsize(self):
