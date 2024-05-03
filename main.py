@@ -11,7 +11,9 @@ from datetime import datetime, timedelta
 
 from main_window2 import Ui_MainWindow
 
+
 class MainWindow(QMainWindow):
+    
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
@@ -22,7 +24,7 @@ class MainWindow(QMainWindow):
         self.ui.changingwidget.setCurrentIndex(0)
         self.initialize_graph()
         self.sidebar_animation_apply()
-        self.Buttons_list=[self.ui.Dashboard_Button,self.ui.CategoriesButton,self.ui.Help_Button,self.ui.Wallets_Button,self.ui.Settings_Button,self.ui.Info_Button]
+       
         self.ui.MenuButton.clicked.connect(self.toggle_sidebar)
         self.create_overview()
         

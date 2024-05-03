@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'HOMEWINDOW5.ui'
+# Form implementation generated from reading ui file 'HOMEWINDOW6.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -9,13 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from custom_widgets_classes import*
+from custom_widgets_classes import *
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1068, 850)
+        MainWindow.resize(1139, 850)
+        MainWindow.setMinimumSize(QtCore.QSize(1068, 850))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        MainWindow.setFont(font)
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("*{\n"
@@ -231,7 +235,7 @@ class Ui_MainWindow(object):
         self.widget_4.setObjectName("widget_4")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.widget_4)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.MenuButton = QtWidgets.QPushButton(self.widget_4)
+        self.MenuButton = Button(self.widget_4)
         self.MenuButton.setMinimumSize(QtCore.QSize(41, 41))
         self.MenuButton.setStyleSheet("background-color:transparent;")
         self.MenuButton.setText("")
@@ -250,17 +254,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
-        self.bellButton = QtWidgets.QPushButton(self.widget_4)
-        self.bellButton.setMinimumSize(QtCore.QSize(36, 36))
-        self.bellButton.setStyleSheet("background-color:transparent;")
-        self.bellButton.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(":/icon/icons/bell.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.bellButton.setIcon(icon7)
-        self.bellButton.setIconSize(QtCore.QSize(30, 30))
-        self.bellButton.setObjectName("bellButton")
-        self.horizontalLayout_2.addWidget(self.bellButton)
-        self.accountButton = QtWidgets.QPushButton(self.widget_4)
+        self.accountButton = Button(self.widget_4)
         self.accountButton.setMinimumSize(QtCore.QSize(36, 36))
         self.accountButton.setStyleSheet("QPushButton{\n"
 "    border: 1px solid;\n"
@@ -268,11 +262,11 @@ class Ui_MainWindow(object):
 "    border-radius: 17px;\n"
 "}\n"
 "\n"
-"font: 3pt \"Century Gothic\";")
+"")
         self.accountButton.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/icon/icons/user.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.accountButton.setIcon(icon8)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/icon/icons/user.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.accountButton.setIcon(icon7)
         self.accountButton.setIconSize(QtCore.QSize(25, 25))
         self.accountButton.setObjectName("accountButton")
         self.horizontalLayout_2.addWidget(self.accountButton)
@@ -537,10 +531,8 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.group_.setEditable(False)
-        self.group_.setCurrentText("")
         self.group_.setIconSize(QtCore.QSize(20, 20))
         self.group_.setObjectName("group_")
-        self.group_.addItem("")
         self.group_.addItem("")
         self.horizontalLayout_5.addWidget(self.group_)
         self.amount = QtWidgets.QLineEdit(self.Expense_Frame)
@@ -593,13 +585,54 @@ class Ui_MainWindow(object):
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
         self.horizontalLayout_5.addWidget(self.comboBox_2)
         self.verticalLayout_11.addLayout(self.horizontalLayout_5)
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_8.setSpacing(6)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        spacerItem6 = QtWidgets.QSpacerItem(112, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem6)
+        self.group_1 = QtWidgets.QComboBox(self.Expense_Frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.group_1.sizePolicy().hasHeightForWidth())
+        self.group_1.setSizePolicy(sizePolicy)
+        self.group_1.setMinimumSize(QtCore.QSize(112, 4))
+        self.group_1.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.group_1.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.group_1.setFont(font)
+        self.group_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.group_1.setStyleSheet("*{color:#fff;\n"
+"background-color: rgb(45, 63, 109);\n"
+"border-radius:8px;}\n"
+"QComboBox{\n"
+"    padding-left: 20px;\n"
+"\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    \n"
+"    image: url(:/icon/icons/chevron-down.svg);\n"
+"    width: 16px;\n"
+"    height: 16px;\n"
+"    border: none;\n"
+"    padding: 3px\n"
+"}\n"
+"\n"
+"")
+        self.group_1.setEditable(False)
+        self.group_1.setIconSize(QtCore.QSize(20, 20))
+        self.group_1.setObjectName("group_1")
+        self.group_1.addItem("")
+        self.group_1.addItem("")
+        self.horizontalLayout_8.addWidget(self.group_1)
         self.description = QtWidgets.QLineEdit(self.Expense_Frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -611,14 +644,14 @@ class Ui_MainWindow(object):
         self.description.setText("")
         self.description.setObjectName("description")
         self.horizontalLayout_8.addWidget(self.description)
-        spacerItem7 = QtWidgets.QSpacerItem(111, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem7)
+        spacerItem6 = QtWidgets.QSpacerItem(111, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem6)
         self.verticalLayout_11.addLayout(self.horizontalLayout_8)
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem8)
-        self.pushButton = QtWidgets.QPushButton(self.Expense_Frame)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem7)
+        self.pushButton = Button(self.Expense_Frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -638,12 +671,12 @@ class Ui_MainWindow(object):
 "font: 3pt \"Century Gothic\";")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_9.addWidget(self.pushButton)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem9)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem8)
         self.verticalLayout_11.addLayout(self.horizontalLayout_9)
         self.horizontalLayout_10.addLayout(self.verticalLayout_11)
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_10.addItem(spacerItem10)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_10.addItem(spacerItem9)
         self.verticalLayout_12.addLayout(self.horizontalLayout_10)
         self.verticalLayout_13.addLayout(self.verticalLayout_12)
         self.verticalLayout_9.addWidget(self.Expense_Frame)
@@ -676,19 +709,75 @@ class Ui_MainWindow(object):
         self.Monthly_frame.setObjectName("Monthly_frame")
         self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.Monthly_frame)
         self.verticalLayout_22.setObjectName("verticalLayout_22")
-        self.label_5 = QtWidgets.QLabel(self.Monthly_frame)
-        font = QtGui.QFont()
-        font.setFamily("Century Gothic")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color:#fff")
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_22.addWidget(self.label_5)
         self.widget_6 = QtWidgets.QWidget(self.Monthly_frame)
+        self.widget_6.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
         self.widget_6.setObjectName("widget_6")
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.widget_6)
+        self.verticalLayout_27.setObjectName("verticalLayout_27")
+        self.label_23 = QtWidgets.QLabel(self.widget_6)
+        self.label_23.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_23.setObjectName("label_23")
+        self.verticalLayout_27.addWidget(self.label_23)
+        self.food_bar = QtWidgets.QProgressBar(self.widget_6)
+        self.food_bar.setStyleSheet("")
+        self.food_bar.setProperty("value", 75)
+        self.food_bar.setAlignment(QtCore.Qt.AlignCenter)
+        self.food_bar.setObjectName("food_bar")
+        self.verticalLayout_27.addWidget(self.food_bar)
+        self.label_20 = QtWidgets.QLabel(self.widget_6)
+        self.label_20.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_20.setObjectName("label_20")
+        self.verticalLayout_27.addWidget(self.label_20)
+        self.travel = QtWidgets.QProgressBar(self.widget_6)
+        self.travel.setStyleSheet("")
+        self.travel.setProperty("value", 75)
+        self.travel.setAlignment(QtCore.Qt.AlignCenter)
+        self.travel.setObjectName("travel")
+        self.verticalLayout_27.addWidget(self.travel)
+        self.label_22 = QtWidgets.QLabel(self.widget_6)
+        self.label_22.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_22.setObjectName("label_22")
+        self.verticalLayout_27.addWidget(self.label_22)
+        self.groceries_bar = QtWidgets.QProgressBar(self.widget_6)
+        self.groceries_bar.setStyleSheet("")
+        self.groceries_bar.setProperty("value", 75)
+        self.groceries_bar.setAlignment(QtCore.Qt.AlignCenter)
+        self.groceries_bar.setObjectName("groceries_bar")
+        self.verticalLayout_27.addWidget(self.groceries_bar)
+        self.label_24 = QtWidgets.QLabel(self.widget_6)
+        self.label_24.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_24.setObjectName("label_24")
+        self.verticalLayout_27.addWidget(self.label_24)
+        self.clothes = QtWidgets.QProgressBar(self.widget_6)
+        self.clothes.setStyleSheet("")
+        self.clothes.setProperty("value", 75)
+        self.clothes.setAlignment(QtCore.Qt.AlignCenter)
+        self.clothes.setObjectName("clothes")
+        self.verticalLayout_27.addWidget(self.clothes)
+        self.label_21 = QtWidgets.QLabel(self.widget_6)
+        self.label_21.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_21.setObjectName("label_21")
+        self.verticalLayout_27.addWidget(self.label_21)
+        self.other = QtWidgets.QProgressBar(self.widget_6)
+        self.other.setStyleSheet("")
+        self.other.setProperty("value", 75)
+        self.other.setAlignment(QtCore.Qt.AlignCenter)
+        self.other.setObjectName("other")
+        self.verticalLayout_27.addWidget(self.other)
         self.verticalLayout_22.addWidget(self.widget_6)
         self.verticalLayout_8.addWidget(self.Monthly_frame)
         self.History_frame = custFrame(self.page)
@@ -714,8 +803,10 @@ class Ui_MainWindow(object):
         self.History_frame.setLineWidth(0)
         self.History_frame.setObjectName("History_frame")
         self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.History_frame)
+        self.verticalLayout_23.setContentsMargins(-1, 14, -1, -1)
         self.verticalLayout_23.setObjectName("verticalLayout_23")
         self.label_4 = QtWidgets.QLabel(self.History_frame)
+        self.label_4.setMinimumSize(QtCore.QSize(61, 21))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(11)
@@ -726,9 +817,14 @@ class Ui_MainWindow(object):
         self.label_4.setStyleSheet("color:#fff")
         self.label_4.setObjectName("label_4")
         self.verticalLayout_23.addWidget(self.label_4)
-        self.widget_5 = QtWidgets.QWidget(self.History_frame)
-        self.widget_5.setObjectName("widget_5")
-        self.verticalLayout_23.addWidget(self.widget_5)
+        self.scrollArea_3 = QtWidgets.QScrollArea(self.History_frame)
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollArea_3.setObjectName("scrollArea_3")
+        self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 213, 305))
+        self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_23.addWidget(self.scrollArea_3)
         self.verticalLayout_8.addWidget(self.History_frame)
         self.horizontalLayout_6.addLayout(self.verticalLayout_8)
         self.verticalLayout_10.addLayout(self.horizontalLayout_6)
@@ -758,8 +854,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.setContentsMargins(-1, 0, -1, 0)
         self.verticalLayout_18.setSpacing(6)
         self.verticalLayout_18.setObjectName("verticalLayout_18")
-        spacerItem11 = QtWidgets.QSpacerItem(20, 93, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        self.verticalLayout_18.addItem(spacerItem11)
+        spacerItem10 = QtWidgets.QSpacerItem(20, 93, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_18.addItem(spacerItem10)
         self.widget_10 = QtWidgets.QWidget(self.page_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -781,10 +877,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_17.setSpacing(0)
         self.verticalLayout_17.setObjectName("verticalLayout_17")
         self.horizontalLayout_18 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_18.setContentsMargins(5, -1, -1, -1)
+        self.horizontalLayout_18.setSpacing(18)
         self.horizontalLayout_18.setObjectName("horizontalLayout_18")
-        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_18.addItem(spacerItem12)
-        self.pushButton_5 = QtWidgets.QPushButton(self.widget_10)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_18.addItem(spacerItem11)
+        self.pushButton_5 = Button(self.widget_10)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -804,12 +902,77 @@ class Ui_MainWindow(object):
 "font: 3pt \"Century Gothic\";")
         self.pushButton_5.setObjectName("pushButton_5")
         self.horizontalLayout_18.addWidget(self.pushButton_5)
+        self.pushButton_12 = Button(self.widget_10)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
+        self.pushButton_12.setSizePolicy(sizePolicy)
+        self.pushButton_12.setMinimumSize(QtCore.QSize(105, 28))
+        self.pushButton_12.setStyleSheet("QPushButton{\n"
+"    border: 1px solid;\n"
+"    border-color:#fff;\n"
+"    border-radius: 7px;\n"
+"color:#fff;\n"
+"}\n"
+"QPushButton:hover{\n"
+"color:rgb(22, 201, 236);\n"
+"border-color:rgb(22, 201, 236);\n"
+"}\n"
+"font: 3pt \"Century Gothic\";")
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.horizontalLayout_18.addWidget(self.pushButton_12)
         self.verticalLayout_17.addLayout(self.horizontalLayout_18)
         self.horizontalLayout_19.addLayout(self.verticalLayout_17)
         self.verticalLayout_18.addWidget(self.widget_10)
-        spacerItem13 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        self.verticalLayout_18.addItem(spacerItem13)
-        self.Monthly_frame_6 = QtWidgets.QFrame(self.page_2)
+        spacerItem12 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_18.addItem(spacerItem12)
+        self.horizontalLayout_28 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_28.setContentsMargins(22, -1, -1, -1)
+        self.horizontalLayout_28.setObjectName("horizontalLayout_28")
+        self.group_3 = QtWidgets.QComboBox(self.page_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.group_3.sizePolicy().hasHeightForWidth())
+        self.group_3.setSizePolicy(sizePolicy)
+        self.group_3.setMinimumSize(QtCore.QSize(112, 4))
+        self.group_3.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.group_3.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.group_3.setFont(font)
+        self.group_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.group_3.setStyleSheet("*{color:#fff;\n"
+"background-color: rgb(45, 63, 109);\n"
+"border-radius:8px;}\n"
+"QComboBox{\n"
+"    padding-left: 20px;\n"
+"\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    \n"
+"    image: url(:/icon/icons/chevron-down.svg);\n"
+"    width: 16px;\n"
+"    height: 16px;\n"
+"    border: none;\n"
+"    padding: 3px\n"
+"}\n"
+"\n"
+"")
+        self.group_3.setEditable(False)
+        self.group_3.setIconSize(QtCore.QSize(20, 20))
+        self.group_3.setObjectName("group_3")
+        self.group_3.addItem("")
+        self.horizontalLayout_28.addWidget(self.group_3)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_28.addItem(spacerItem13)
+        self.verticalLayout_18.addLayout(self.horizontalLayout_28)
+        self.Monthly_frame_6 = custFrame(self.page_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -827,8 +990,8 @@ class Ui_MainWindow(object):
 "QLineEdit{\n"
 "border-bottom-color: rgb(255, 255, 255);\n"
 "}")
-        self.Monthly_frame_6.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.Monthly_frame_6.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.Monthly_frame_6.setFrameShape(custFrame.NoFrame)
+        self.Monthly_frame_6.setFrameShadow(custFrame.Plain)
         self.Monthly_frame_6.setLineWidth(0)
         self.Monthly_frame_6.setObjectName("Monthly_frame_6")
         self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.Monthly_frame_6)
@@ -838,7 +1001,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 376, 459))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_16.addWidget(self.scrollArea)
@@ -857,7 +1020,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_13.setContentsMargins(-1, 20, -1, 20)
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
-        self.overview_frame_6 = QtWidgets.QFrame(self.widget_11)
+        self.overview_frame_6 = custFrame(self.widget_11)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -875,8 +1038,8 @@ class Ui_MainWindow(object):
 "QLineEdit{\n"
 "border-bottom-color: rgb(255, 255, 255);\n"
 "}")
-        self.overview_frame_6.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.overview_frame_6.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.overview_frame_6.setFrameShape(custFrame.NoFrame)
+        self.overview_frame_6.setFrameShadow(custFrame.Plain)
         self.overview_frame_6.setLineWidth(0)
         self.overview_frame_6.setObjectName("overview_frame_6")
         self.label_47 = QtWidgets.QLabel(self.overview_frame_6)
@@ -893,7 +1056,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.addWidget(self.overview_frame_6)
         spacerItem15 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_13.addItem(spacerItem15)
-        self.overview_frame_5 = QtWidgets.QFrame(self.widget_11)
+        self.overview_frame_5 = custFrame(self.widget_11)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -911,8 +1074,8 @@ class Ui_MainWindow(object):
 "QLineEdit{\n"
 "border-bottom-color: rgb(255, 255, 255);\n"
 "}")
-        self.overview_frame_5.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.overview_frame_5.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.overview_frame_5.setFrameShape(custFrame.NoFrame)
+        self.overview_frame_5.setFrameShadow(custFrame.Plain)
         self.overview_frame_5.setLineWidth(0)
         self.overview_frame_5.setObjectName("overview_frame_5")
         self.label_45 = QtWidgets.QLabel(self.overview_frame_5)
@@ -929,7 +1092,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.addWidget(self.overview_frame_5)
         self.horizontalLayout_21.addLayout(self.horizontalLayout_13)
         self.verticalLayout_19.addLayout(self.horizontalLayout_21)
-        self.Monthly_frame_5 = QtWidgets.QFrame(self.widget_11)
+        self.Monthly_frame_5 = custFrame(self.widget_11)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -947,21 +1110,10 @@ class Ui_MainWindow(object):
 "QLineEdit{\n"
 "border-bottom-color: rgb(255, 255, 255);\n"
 "}")
-        self.Monthly_frame_5.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.Monthly_frame_5.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.Monthly_frame_5.setFrameShape(custFrame.NoFrame)
+        self.Monthly_frame_5.setFrameShadow(custFrame.Plain)
         self.Monthly_frame_5.setLineWidth(0)
         self.Monthly_frame_5.setObjectName("Monthly_frame_5")
-        self.label_46 = QtWidgets.QLabel(self.Monthly_frame_5)
-        self.label_46.setGeometry(QtCore.QRect(30, 30, 92, 21))
-        font = QtGui.QFont()
-        font.setFamily("Century Gothic")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_46.setFont(font)
-        self.label_46.setStyleSheet("color:#fff")
-        self.label_46.setObjectName("label_46")
         self.verticalLayout_19.addWidget(self.Monthly_frame_5)
         spacerItem16 = QtWidgets.QSpacerItem(20, 54, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         self.verticalLayout_19.addItem(spacerItem16)
@@ -970,8 +1122,12 @@ class Ui_MainWindow(object):
         self.changingwidget.addWidget(self.page_2)
         self.page_3 = QtWidgets.QWidget()
         self.page_3.setObjectName("page_3")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.page_3)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.horizontalLayout_26 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_26.setObjectName("horizontalLayout_26")
         self.label_9 = QtWidgets.QLabel(self.page_3)
-        self.label_9.setGeometry(QtCore.QRect(20, 10, 141, 20))
+        self.label_9.setMinimumSize(QtCore.QSize(161, 41))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(12)
@@ -983,6 +1139,230 @@ class Ui_MainWindow(object):
 "\n"
 "font: 75 12pt \"Century Gothic\";")
         self.label_9.setObjectName("label_9")
+        self.horizontalLayout_26.addWidget(self.label_9)
+        spacerItem17 = QtWidgets.QSpacerItem(698, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_26.addItem(spacerItem17)
+        self.verticalLayout_30.addLayout(self.horizontalLayout_26)
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_25.setContentsMargins(20, 20, 20, 6)
+        self.horizontalLayout_25.setSpacing(20)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.Monthly_frame_2 = custFrame(self.page_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Monthly_frame_2.sizePolicy().hasHeightForWidth())
+        self.Monthly_frame_2.setSizePolicy(sizePolicy)
+        self.Monthly_frame_2.setMinimumSize(QtCore.QSize(231, 305))
+        self.Monthly_frame_2.setMaximumSize(QtCore.QSize(4420, 120000))
+        self.Monthly_frame_2.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
+"border-radius: 40px;\n"
+"pading-left: 20px;}\n"
+"QComboBox::down-arrow {\n"
+"    image:url(:/icon/icons/chevron-down.svg);\n"
+"    width: 0;\n"
+"}\n"
+"QLineEdit{\n"
+"border-bottom-color: rgb(255, 255, 255);\n"
+"}")
+        self.Monthly_frame_2.setFrameShape(custFrame.NoFrame)
+        self.Monthly_frame_2.setFrameShadow(custFrame.Plain)
+        self.Monthly_frame_2.setLineWidth(0)
+        self.Monthly_frame_2.setObjectName("Monthly_frame_2")
+        self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.Monthly_frame_2)
+        self.verticalLayout_28.setObjectName("verticalLayout_28")
+        self.widget_15 = QtWidgets.QWidget(self.Monthly_frame_2)
+        self.widget_15.setStyleSheet("")
+        self.widget_15.setObjectName("widget_15")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.widget_15)
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.group_2 = QtWidgets.QComboBox(self.widget_15)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.group_2.sizePolicy().hasHeightForWidth())
+        self.group_2.setSizePolicy(sizePolicy)
+        self.group_2.setMinimumSize(QtCore.QSize(112, 4))
+        self.group_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.group_2.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.group_2.setFont(font)
+        self.group_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.group_2.setStyleSheet("*{color:#fff;\n"
+"background-color: rgb(45, 63, 109);\n"
+"border-radius:8px;}\n"
+"QComboBox{\n"
+"    padding-left: 20px;\n"
+"\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    \n"
+"    image: url(:/icon/icons/chevron-down.svg);\n"
+"    width: 16px;\n"
+"    height: 16px;\n"
+"    border: none;\n"
+"    padding: 3px\n"
+"}\n"
+"\n"
+"")
+        self.group_2.setEditable(False)
+        self.group_2.setIconSize(QtCore.QSize(20, 20))
+        self.group_2.setObjectName("group_2")
+        self.group_2.addItem("")
+        self.horizontalLayout_24.addWidget(self.group_2)
+        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_24.addItem(spacerItem18)
+        self.verticalLayout_29.addLayout(self.horizontalLayout_24)
+        self.label_5 = QtWidgets.QLabel(self.widget_15)
+        self.label_5.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_29.addWidget(self.label_5, 0, QtCore.Qt.AlignBottom)
+        self.food_bar_2 = QtWidgets.QProgressBar(self.widget_15)
+        self.food_bar_2.setMinimumSize(QtCore.QSize(0, 28))
+        self.food_bar_2.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
+        self.food_bar_2.setProperty("value", 75)
+        self.food_bar_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.food_bar_2.setObjectName("food_bar_2")
+        self.verticalLayout_29.addWidget(self.food_bar_2)
+        self.label_16 = QtWidgets.QLabel(self.widget_15)
+        self.label_16.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_16.setObjectName("label_16")
+        self.verticalLayout_29.addWidget(self.label_16, 0, QtCore.Qt.AlignBottom)
+        self.travel_2 = QtWidgets.QProgressBar(self.widget_15)
+        self.travel_2.setMinimumSize(QtCore.QSize(0, 28))
+        self.travel_2.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
+        self.travel_2.setProperty("value", 75)
+        self.travel_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.travel_2.setObjectName("travel_2")
+        self.verticalLayout_29.addWidget(self.travel_2, 0, QtCore.Qt.AlignTop)
+        self.label_17 = QtWidgets.QLabel(self.widget_15)
+        self.label_17.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_17.setObjectName("label_17")
+        self.verticalLayout_29.addWidget(self.label_17, 0, QtCore.Qt.AlignBottom)
+        self.groceries = QtWidgets.QProgressBar(self.widget_15)
+        self.groceries.setMinimumSize(QtCore.QSize(0, 28))
+        self.groceries.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
+        self.groceries.setProperty("value", 75)
+        self.groceries.setAlignment(QtCore.Qt.AlignCenter)
+        self.groceries.setObjectName("groceries")
+        self.verticalLayout_29.addWidget(self.groceries)
+        self.label_18 = QtWidgets.QLabel(self.widget_15)
+        self.label_18.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_18.setObjectName("label_18")
+        self.verticalLayout_29.addWidget(self.label_18, 0, QtCore.Qt.AlignBottom)
+        self.clothes_2 = QtWidgets.QProgressBar(self.widget_15)
+        self.clothes_2.setMinimumSize(QtCore.QSize(0, 28))
+        self.clothes_2.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
+        self.clothes_2.setProperty("value", 75)
+        self.clothes_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.clothes_2.setObjectName("clothes_2")
+        self.verticalLayout_29.addWidget(self.clothes_2)
+        self.label_19 = QtWidgets.QLabel(self.widget_15)
+        self.label_19.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_19.setObjectName("label_19")
+        self.verticalLayout_29.addWidget(self.label_19)
+        self.other_2 = QtWidgets.QProgressBar(self.widget_15)
+        self.other_2.setMinimumSize(QtCore.QSize(0, 28))
+        self.other_2.setStyleSheet("QProgressBar{\n"
+"border:1px solid;\n"
+"border-radius: 8px;\n"
+"    border-color: rgb(45, 63, 109);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
+"padding-left: 2px;\n"
+"border-radius:8px;}\n"
+"")
+        self.other_2.setProperty("value", 75)
+        self.other_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.other_2.setObjectName("other_2")
+        self.verticalLayout_29.addWidget(self.other_2)
+        spacerItem19 = QtWidgets.QSpacerItem(20, 50, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_29.addItem(spacerItem19)
+        self.verticalLayout_28.addWidget(self.widget_15)
+        self.horizontalLayout_25.addWidget(self.Monthly_frame_2)
+        self.Monthly_frame_3 = custFrame(self.page_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Monthly_frame_3.sizePolicy().hasHeightForWidth())
+        self.Monthly_frame_3.setSizePolicy(sizePolicy)
+        self.Monthly_frame_3.setMinimumSize(QtCore.QSize(231, 305))
+        self.Monthly_frame_3.setMaximumSize(QtCore.QSize(4420, 120000))
+        self.Monthly_frame_3.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
+"border-radius: 40px;\n"
+"pading-left: 20px;}\n"
+"QComboBox::down-arrow {\n"
+"    image:url(:/icon/icons/chevron-down.svg);\n"
+"    width: 0;\n"
+"}\n"
+"QLineEdit{\n"
+"border-bottom-color: rgb(255, 255, 255);\n"
+"}")
+        self.Monthly_frame_3.setFrameShape(custFrame.NoFrame)
+        self.Monthly_frame_3.setFrameShadow(custFrame.Plain)
+        self.Monthly_frame_3.setLineWidth(0)
+        self.Monthly_frame_3.setObjectName("Monthly_frame_3")
+        self.horizontalLayout_27 = QtWidgets.QHBoxLayout(self.Monthly_frame_3)
+        self.horizontalLayout_27.setObjectName("horizontalLayout_27")
+        spacerItem20 = QtWidgets.QSpacerItem(233, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_27.addItem(spacerItem20)
+        self.widget_16 = QtWidgets.QWidget(self.Monthly_frame_3)
+        self.widget_16.setStyleSheet("")
+        self.widget_16.setObjectName("widget_16")
+        self.horizontalLayout_27.addWidget(self.widget_16)
+        self.horizontalLayout_25.addWidget(self.Monthly_frame_3)
+        self.horizontalLayout_25.setStretch(0, 4)
+        self.horizontalLayout_25.setStretch(1, 2)
+        self.verticalLayout_30.addLayout(self.horizontalLayout_25)
         self.changingwidget.addWidget(self.page_3)
         self.page_4 = QtWidgets.QWidget()
         self.page_4.setObjectName("page_4")
@@ -1022,8 +1402,8 @@ class Ui_MainWindow(object):
         self.label_6.setStyleSheet("color:#fff")
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_12.addWidget(self.label_6)
-        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_12.addItem(spacerItem17)
+        spacerItem21 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_12.addItem(spacerItem21)
         self.verticalLayout_2.addLayout(self.horizontalLayout_12)
         self.amount_2 = QtWidgets.QLineEdit(self.widget_9)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -1056,8 +1436,8 @@ class Ui_MainWindow(object):
         self.yourwallets.setStyleSheet("color:#fff")
         self.yourwallets.setObjectName("yourwallets")
         self.horizontalLayout_14.addWidget(self.yourwallets)
-        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_14.addItem(spacerItem18)
+        spacerItem22 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_14.addItem(spacerItem22)
         self.verticalLayout_2.addLayout(self.horizontalLayout_14)
         self.widget = QtWidgets.QWidget(self.widget_9)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
@@ -1080,8 +1460,8 @@ class Ui_MainWindow(object):
         self.removeaccounts.setStyleSheet("color:#fff")
         self.removeaccounts.setObjectName("removeaccounts")
         self.horizontalLayout_15.addWidget(self.removeaccounts)
-        spacerItem19 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem19)
+        spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem23)
         self.verticalLayout_2.addLayout(self.horizontalLayout_15)
         self.removeaccount = Button(self.widget_9)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -1113,8 +1493,8 @@ class Ui_MainWindow(object):
         self.removeaccount.setObjectName("removeaccount")
         self.verticalLayout_2.addWidget(self.removeaccount)
         self.horizontalLayout_17.addWidget(self.widget_9)
-        spacerItem20 = QtWidgets.QSpacerItem(11, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_17.addItem(spacerItem20)
+        spacerItem24 = QtWidgets.QSpacerItem(11, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_17.addItem(spacerItem24)
         self.widget_8 = QtWidgets.QWidget(self.page_4)
         self.widget_8.setObjectName("widget_8")
         self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.widget_8)
@@ -1123,8 +1503,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        spacerItem21 = QtWidgets.QSpacerItem(643, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem21)
+        spacerItem25 = QtWidgets.QSpacerItem(643, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_16.addItem(spacerItem25)
         self.signout = Button(self.widget_8)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1150,35 +1530,124 @@ class Ui_MainWindow(object):
 "")
         self.signout.setObjectName("signout")
         self.horizontalLayout_16.addWidget(self.signout)
-        spacerItem22 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem22)
+        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_16.addItem(spacerItem26)
         self.verticalLayout_3.addLayout(self.horizontalLayout_16)
-        spacerItem23 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem23)
+        spacerItem27 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem27)
         self.verticalLayout_14.addLayout(self.verticalLayout_3)
         self.horizontalLayout_17.addWidget(self.widget_8)
         self.verticalLayout_15.addLayout(self.horizontalLayout_17)
         self.changingwidget.addWidget(self.page_4)
         self.page_5 = QtWidgets.QWidget()
         self.page_5.setObjectName("page_5")
-        self.label_11 = QtWidgets.QLabel(self.page_5)
-        self.label_11.setGeometry(QtCore.QRect(10, 10, 141, 20))
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.page_5)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.widget_14 = QtWidgets.QWidget(self.page_5)
+        self.widget_14.setStyleSheet("*{\n"
+"    font: 13pt \"Century Gothic\";\n"
+"    color:#fff;}\n"
+"\n"
+"QPushButton{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(42, 33, 113, 255), stop:1 rgba(62, 200, 169, 252));\n"
+"border-radius: 10px;\n"
+"                }\n"
+"QPushButton::hover{\n"
+"color:rgb(112, 236, 255);}")
+        self.widget_14.setObjectName("widget_14")
+        self.horizontalLayout_20 = QtWidgets.QHBoxLayout(self.widget_14)
+        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
+        self.widget_12 = QtWidgets.QWidget(self.widget_14)
+        self.widget_12.setStyleSheet("")
+        self.widget_12.setObjectName("widget_12")
+        self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.widget_12)
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.label_11 = QtWidgets.QLabel(self.widget_12)
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
-        font.setPointSize(12)
+        font.setPointSize(13)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
         self.label_11.setFont(font)
         self.label_11.setStyleSheet("color: rgb(255, 255, 255);\n"
 "\n"
-"font: 75 12pt \"Century Gothic\";")
+"font: 75 13pt \"Century Gothic\";")
         self.label_11.setObjectName("label_11")
+        self.verticalLayout_24.addWidget(self.label_11, 0, QtCore.Qt.AlignTop)
+        self.pushButton_2 = Button(self.widget_12)
+        self.pushButton_2.setEnabled(True)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout_24.addWidget(self.pushButton_2)
+        self.pushButton_3 = Button(self.widget_12)
+        self.pushButton_3.setEnabled(True)
+        self.pushButton_3.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.verticalLayout_24.addWidget(self.pushButton_3)
+        self.pushButton_4 = Button(self.widget_12)
+        self.pushButton_4.setEnabled(True)
+        self.pushButton_4.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.verticalLayout_24.addWidget(self.pushButton_4)
+        self.label_14 = QtWidgets.QLabel(self.widget_12)
+        self.label_14.setObjectName("label_14")
+        self.verticalLayout_24.addWidget(self.label_14)
+        self.pushButton_6 = Button(self.widget_12)
+        self.pushButton_6.setEnabled(True)
+        self.pushButton_6.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_6.setObjectName("pushButton_6")
+        self.verticalLayout_24.addWidget(self.pushButton_6)
+        self.pushButton_7 = Button(self.widget_12)
+        self.pushButton_7.setEnabled(True)
+        self.pushButton_7.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_7.setObjectName("pushButton_7")
+        self.verticalLayout_24.addWidget(self.pushButton_7)
+        self.pushButton_8 = Button(self.widget_12)
+        self.pushButton_8.setEnabled(True)
+        self.pushButton_8.setMinimumSize(QtCore.QSize(437, 59))
+        self.pushButton_8.setObjectName("pushButton_8")
+        self.verticalLayout_24.addWidget(self.pushButton_8)
+        self.label_15 = QtWidgets.QLabel(self.widget_12)
+        self.label_15.setObjectName("label_15")
+        self.verticalLayout_24.addWidget(self.label_15)
+        self.pushButton_11 = Button(self.widget_12)
+        self.pushButton_11.setEnabled(True)
+        self.pushButton_11.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.verticalLayout_24.addWidget(self.pushButton_11)
+        self.pushButton_9 = Button(self.widget_12)
+        self.pushButton_9.setEnabled(True)
+        self.pushButton_9.setMinimumSize(QtCore.QSize(400, 59))
+        self.pushButton_9.setObjectName("pushButton_9")
+        self.verticalLayout_24.addWidget(self.pushButton_9)
+        self.pushButton_10 = Button(self.widget_12)
+        self.pushButton_10.setEnabled(True)
+        self.pushButton_10.setMinimumSize(QtCore.QSize(0, 59))
+        self.pushButton_10.setObjectName("pushButton_10")
+        self.verticalLayout_24.addWidget(self.pushButton_10)
+        self.horizontalLayout_20.addWidget(self.widget_12)
+        self.widget_13 = QtWidgets.QWidget(self.widget_14)
+        self.widget_13.setObjectName("widget_13")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.widget_13)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.scrollArea_2 = QtWidgets.QScrollArea(self.widget_13)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollArea_2.setObjectName("scrollArea_2")
+        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 372, 734))
+        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_25.addWidget(self.scrollArea_2)
+        self.horizontalLayout_20.addWidget(self.widget_13)
+        self.horizontalLayout_23.addWidget(self.widget_14)
         self.changingwidget.addWidget(self.page_5)
         self.page_6 = QtWidgets.QWidget()
         self.page_6.setObjectName("page_6")
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.page_6)
+        self.verticalLayout_26.setObjectName("verticalLayout_26")
         self.label_12 = QtWidgets.QLabel(self.page_6)
-        self.label_12.setGeometry(QtCore.QRect(10, 10, 141, 20))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(12)
@@ -1190,16 +1659,63 @@ class Ui_MainWindow(object):
 "\n"
 "font: 75 12pt \"Century Gothic\";")
         self.label_12.setObjectName("label_12")
+        self.verticalLayout_26.addWidget(self.label_12)
+        self.textBrowser = QtWidgets.QTextBrowser(self.page_6)
+        self.textBrowser.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(75)
+        font.setStrikeOut(False)
+        font.setKerning(False)
+        self.textBrowser.setFont(font)
+        self.textBrowser.setAcceptDrops(True)
+        self.textBrowser.setStyleSheet("QTextBrowser {\n"
+"            background-color:rgb(27, 40, 74);\n"
+"            color:rgb(119, 133, 171);\n"
+"            font-family: Century Gothic, sans-serif;\n"
+"            font-size: 14px;\n"
+"            border: 1px solid #cccccc;\n"
+"            border-radius: 5px;\n"
+"            padding: 10px;\n"
+"        }\n"
+"        \n"
+"        /* Customizing the scrollbar */\n"
+"        QScrollBar:vertical {\n"
+"            border: 1px solid #cccccc;\n"
+"            background:#2f4784; /* Background color of the scrollbar */\n"
+"            width:15px; /* Width of the scrollbar */\n"
+"        }\n"
+"        \n"
+"        QScrollBar::handle:vertical {\n"
+"            background: #1f2e55; /* Color of the scrollbar handle */\n"
+"            min-height: 20px; /* Minimum height of the scrollbar handle */\n"
+"        }\n"
+"        \n"
+"        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"            border: none;\n"
+"            background: none;\n"
+"        }")
+        self.textBrowser.setFrameShape(custFrame.StyledPanel)
+        self.textBrowser.setFrameShadow(custFrame.Sunken)
+        self.textBrowser.setObjectName("textBrowser")
+        self.verticalLayout_26.addWidget(self.textBrowser)
         self.changingwidget.addWidget(self.page_6)
         self.verticalLayout_7.addWidget(self.changingwidget)
         self.horizontalLayout_4.addWidget(self.mainwidget)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.changingwidget.setCurrentIndex(3)
+        self.changingwidget.setCurrentIndex(1)
         self.comboBox_3.setCurrentIndex(0)
-        self.group_.setCurrentIndex(-1)
-        self.comboBox_2.setCurrentIndex(-1)
+        self.group_.setCurrentIndex(0)
+        self.comboBox_2.setCurrentIndex(0)
+        self.group_1.setCurrentIndex(0)
+        self.group_3.setCurrentIndex(0)
+        self.group_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1222,25 +1738,44 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "   Overview"))
         self.label_2.setText(_translate("MainWindow", "Expense Statistics"))
         self.comboBox_3.setItemText(0, _translate("MainWindow", "Last 7 days"))
-        self.comboBox_3.setItemText(1, _translate("MainWindow", "Last month"))
-        self.comboBox_3.setItemText(2, _translate("MainWindow", "Last Year"))
+        self.comboBox_3.setItemText(1, _translate("MainWindow", "This month"))
+        self.comboBox_3.setItemText(2, _translate("MainWindow", "This year"))
         self.label.setText(_translate("MainWindow", "   Add Expenses"))
-        self.group_.setItemText(0, _translate("MainWindow", "Item1"))
-        self.group_.setItemText(1, _translate("MainWindow", "Item 2"))
+        self.group_.setCurrentText(_translate("MainWindow", "Wallet1"))
+        self.group_.setItemText(0, _translate("MainWindow", "Wallet1"))
         self.amount.setPlaceholderText(_translate("MainWindow", "Amount"))
-        self.comboBox_2.setItemText(0, _translate("MainWindow", "Item1"))
-        self.comboBox_2.setItemText(1, _translate("MainWindow", "Item 2"))
+        self.comboBox_2.setItemText(0, _translate("MainWindow", "Food"))
+        self.comboBox_2.setItemText(1, _translate("MainWindow", "Travel"))
+        self.comboBox_2.setItemText(2, _translate("MainWindow", "Clothes"))
+        self.comboBox_2.setItemText(3, _translate("MainWindow", "Groceries"))
+        self.comboBox_2.setItemText(4, _translate("MainWindow", "Others"))
+        self.group_1.setCurrentText(_translate("MainWindow", "Income"))
+        self.group_1.setItemText(0, _translate("MainWindow", "Income"))
+        self.group_1.setItemText(1, _translate("MainWindow", "Expense"))
         self.description.setPlaceholderText(_translate("MainWindow", "Description"))
         self.pushButton.setText(_translate("MainWindow", "Save"))
-        self.label_5.setText(_translate("MainWindow", "This month"))
-        self.label_4.setText(_translate("MainWindow", "History"))
+        self.label_23.setText(_translate("MainWindow", "     Food"))
+        self.label_20.setText(_translate("MainWindow", "     travel"))
+        self.label_22.setText(_translate("MainWindow", "     groceries"))
+        self.label_24.setText(_translate("MainWindow", "     clothes"))
+        self.label_21.setText(_translate("MainWindow", "     other"))
+        self.label_4.setText(_translate("MainWindow", "     History"))
         self.label_8.setText(_translate("MainWindow", "Wallets"))
         self.label_13.setText(_translate("MainWindow", "Transactions"))
-        self.pushButton_5.setText(_translate("MainWindow", "Add Transaction"))
+        self.pushButton_5.setText(_translate("MainWindow", "Rename wallet"))
+        self.pushButton_12.setText(_translate("MainWindow", "Add wallet"))
+        self.group_3.setCurrentText(_translate("MainWindow", "Wallet1"))
+        self.group_3.setItemText(0, _translate("MainWindow", "Wallet1"))
         self.label_47.setText(_translate("MainWindow", "Balance 2"))
         self.label_45.setText(_translate("MainWindow", "Balance"))
-        self.label_46.setText(_translate("MainWindow", "This month"))
         self.label_9.setText(_translate("MainWindow", "Categories"))
+        self.group_2.setCurrentText(_translate("MainWindow", "Wallet1"))
+        self.group_2.setItemText(0, _translate("MainWindow", "Wallet1"))
+        self.label_5.setText(_translate("MainWindow", "     Food"))
+        self.label_16.setText(_translate("MainWindow", "     travel"))
+        self.label_17.setText(_translate("MainWindow", "     groceries"))
+        self.label_18.setText(_translate("MainWindow", "     clothes"))
+        self.label_19.setText(_translate("MainWindow", "     other"))
         self.label_10.setText(_translate("MainWindow", "Settings"))
         self.label_6.setText(_translate("MainWindow", "Salary Day"))
         self.amount_2.setPlaceholderText(_translate("MainWindow", "Amount"))
@@ -1249,7 +1784,72 @@ class Ui_MainWindow(object):
         self.removeaccount.setText(_translate("MainWindow", "Remove Account"))
         self.signout.setText(_translate("MainWindow", "Sign Out"))
         self.label_11.setText(_translate("MainWindow", "Help"))
+        self.pushButton_2.setText(_translate("MainWindow", "How to create an account"))
+        self.pushButton_3.setText(_translate("MainWindow", "How to delete an account"))
+        self.pushButton_4.setText(_translate("MainWindow", "How to change account name"))
+        self.label_14.setText(_translate("MainWindow", "Getting started"))
+        self.pushButton_6.setText(_translate("MainWindow", "Home tab"))
+        self.pushButton_7.setText(_translate("MainWindow", "Stats tab"))
+        self.pushButton_8.setText(_translate("MainWindow", "How to add an income and expense"))
+        self.label_15.setText(_translate("MainWindow", "Wallet management"))
+        self.pushButton_11.setText(_translate("MainWindow", "How to remove wallet"))
+        self.pushButton_9.setText(_translate("MainWindow", "How to add money to wallet"))
+        self.pushButton_10.setText(_translate("MainWindow", "How to change wallet name"))
         self.label_12.setText(_translate("MainWindow", "Info"))
+        self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Century Gothic\',\'sans-serif\'; font-size:14px; font-weight:600; font-style:normal;\">\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Account Information</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Name: [User\'s Name]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Email: [User\'s Email Address]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">User ID: [Unique User ID]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Joined Since: [Account Creation Date]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Expense Categories</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Default Categories:</span></li>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Groceries</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Utilities</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Rent</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Entertainment</span></li></ul>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Custom Categories: [Add Custom Categories]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Budgeting Information</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Set Budget:</span></li>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Monthly: [$X]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Weekly: [$Y]</span></li></ul>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Budget Status:</span></li></ul>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">[Graph/Chart Showing Budget Allocation vs. Expenditure]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Currency Settings</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Default Currency: [Currency]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Change Currency: [Select Currency]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Data Backup and Sync</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Backup Options:</span></li>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Cloud Backup: [Enabled/Disabled]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Local Backup: [Enabled/Disabled]</span></li></ul>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Sync Across Devices: [Enabled/Disabled]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Security Settings</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Authentication:</span></li>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Password Protection: [Enabled/Disabled]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Biometric Authentication: [Enabled/Disabled]</span></li></ul>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Two-Factor Authentication: [Enabled/Disabled]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Privacy Settings: [Data Sharing Preferences]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Support and Help</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">FAQ: [Link to FAQ Section]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Customer Support:</span></li>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Email: [support@yourapp.com]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Chat: [Live Chat Support]</span></li></ul>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">User Manual: [Accessible within the App]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">About the Application</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Version: [Current Version Number]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Release Notes: [Link to Release Notes]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">About Us: [Brief Overview of the Development Team/Company]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Privacy Policy and Terms of Service</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Privacy Policy: [Link to Privacy Policy]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Terms of Service: [Link to Terms of Service]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Accept Terms: [Checkbox to Accept Terms]</span></li></ul>\n"
+"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Feedback and Suggestions</span></h4>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Feedback Form: [Provide Feedback/Suggestions]</span></li>\n"
+"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Rate Us: [Link to Rate/Review the App]</span></li></ul>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\"><br /></span></p></body></html>"))
 import resources_rc
 
 
