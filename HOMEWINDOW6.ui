@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1550</width>
-    <height>1058</height>
+    <width>1180</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -631,7 +631,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1589,11 +1589,15 @@ border-bottom-color: rgb(255, 255, 255);
 border:1px solid;
 border-radius: 8px;
 	border-color: rgb(45, 63, 109);
+color: rgb(255, 255, 255);
 }
 QProgressBar::chunk {
             background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));
 padding-left: 2px;
-border-radius:8px;}
+border-radius:8px;
+}
+
+
 </string>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_27">
@@ -1604,7 +1608,7 @@ border-radius:8px;}
 font: 8pt &quot;Century Gothic&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>     Food</string>
+                        <string>   Dinning Out</string>
                        </property>
                       </widget>
                      </item>
@@ -1628,7 +1632,7 @@ font: 8pt &quot;Century Gothic&quot;;</string>
 font: 8pt &quot;Century Gothic&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>     travel</string>
+                        <string>    Travel and Transportation</string>
                        </property>
                       </widget>
                      </item>
@@ -1652,7 +1656,7 @@ font: 8pt &quot;Century Gothic&quot;;</string>
 font: 8pt &quot;Century Gothic&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>     groceries</string>
+                        <string>    Groceries</string>
                        </property>
                       </widget>
                      </item>
@@ -1676,12 +1680,60 @@ font: 8pt &quot;Century Gothic&quot;;</string>
 font: 8pt &quot;Century Gothic&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>     clothes</string>
+                        <string>    Clothes and Accessories</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QProgressBar" name="clothes">
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <property name="value">
+                        <number>75</number>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_25">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>    Health  and Fitness</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="health_bar">
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <property name="value">
+                        <number>75</number>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_26">
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>     Entertainment</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="other_4">
                        <property name="styleSheet">
                         <string notr="true"/>
                        </property>
@@ -1803,8 +1855,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>637</width>
-                       <height>395</height>
+                       <width>321</width>
+                       <height>305</height>
                       </rect>
                      </property>
                     </widget>
@@ -2185,8 +2237,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>635</width>
-                       <height>671</height>
+                       <width>82</width>
+                       <height>383</height>
                       </rect>
                      </property>
                     </widget>
@@ -3487,8 +3539,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>854</width>
-                      <height>942</height>
+                      <width>16</width>
+                      <height>16</height>
                      </rect>
                     </property>
                    </widget>

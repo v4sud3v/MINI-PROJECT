@@ -15,7 +15,7 @@ from custom_widgets_classes import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1139, 850)
+        MainWindow.resize(1180, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1068, 850))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
@@ -714,11 +714,15 @@ class Ui_MainWindow(object):
 "border:1px solid;\n"
 "border-radius: 8px;\n"
 "    border-color: rgb(45, 63, 109);\n"
+"color: rgb(255, 255, 255);\n"
 "}\n"
 "QProgressBar::chunk {\n"
 "            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));\n"
 "padding-left: 2px;\n"
-"border-radius:8px;}\n"
+"border-radius:8px;\n"
+"}\n"
+"\n"
+"\n"
 "")
         self.widget_6.setObjectName("widget_6")
         self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.widget_6)
@@ -767,6 +771,28 @@ class Ui_MainWindow(object):
         self.clothes.setAlignment(QtCore.Qt.AlignCenter)
         self.clothes.setObjectName("clothes")
         self.verticalLayout_27.addWidget(self.clothes)
+        self.label_25 = QtWidgets.QLabel(self.widget_6)
+        self.label_25.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_25.setObjectName("label_25")
+        self.verticalLayout_27.addWidget(self.label_25)
+        self.health_bar = QtWidgets.QProgressBar(self.widget_6)
+        self.health_bar.setStyleSheet("")
+        self.health_bar.setProperty("value", 75)
+        self.health_bar.setAlignment(QtCore.Qt.AlignCenter)
+        self.health_bar.setObjectName("health_bar")
+        self.verticalLayout_27.addWidget(self.health_bar)
+        self.label_26 = QtWidgets.QLabel(self.widget_6)
+        self.label_26.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 8pt \"Century Gothic\";")
+        self.label_26.setObjectName("label_26")
+        self.verticalLayout_27.addWidget(self.label_26)
+        self.other_4 = QtWidgets.QProgressBar(self.widget_6)
+        self.other_4.setStyleSheet("")
+        self.other_4.setProperty("value", 75)
+        self.other_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.other_4.setObjectName("other_4")
+        self.verticalLayout_27.addWidget(self.other_4)
         self.label_21 = QtWidgets.QLabel(self.widget_6)
         self.label_21.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 8pt \"Century Gothic\";")
@@ -821,7 +847,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 213, 305))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 321, 305))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.verticalLayout_23.addWidget(self.scrollArea_3)
@@ -1001,7 +1027,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 376, 459))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 82, 383))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_16.addWidget(self.scrollArea)
@@ -1405,24 +1431,9 @@ class Ui_MainWindow(object):
         spacerItem21 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_12.addItem(spacerItem21)
         self.verticalLayout_2.addLayout(self.horizontalLayout_12)
-        self.amount_2 = QtWidgets.QLineEdit(self.widget_9)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.amount_2.sizePolicy().hasHeightForWidth())
-        self.amount_2.setSizePolicy(sizePolicy)
-        self.amount_2.setMinimumSize(QtCore.QSize(214, 26))
-        self.amount_2.setWhatsThis("")
-        self.amount_2.setStyleSheet("#amount_2{\n"
-"border-bottom-color: rgb(255, 255, 255);\n"
-"border-bottom: 1px solid;\n"
-"color: rgb(255, 255, 255);\n"
-"border-color:rgba(255, 255, 255,100);\n"
-"}\n"
-"    \n"
-"    ")
-        self.amount_2.setObjectName("amount_2")
-        self.verticalLayout_2.addWidget(self.amount_2)
+        self.dateEdit = QtWidgets.QDateEdit(self.widget_9)
+        self.dateEdit.setObjectName("dateEdit")
+        self.verticalLayout_2.addWidget(self.dateEdit)
         self.horizontalLayout_14 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.yourwallets = QtWidgets.QLabel(self.widget_9)
@@ -1503,7 +1514,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        spacerItem25 = QtWidgets.QSpacerItem(643, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem25 = QtWidgets.QSpacerItem(417, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_16.addItem(spacerItem25)
         self.signout = Button(self.widget_8)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
@@ -1511,7 +1522,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.signout.sizePolicy().hasHeightForWidth())
         self.signout.setSizePolicy(sizePolicy)
-        self.signout.setMinimumSize(QtCore.QSize(90, 28))
+        self.signout.setMinimumSize(QtCore.QSize(200, 28))
         self.signout.setStyleSheet("QPushButton{\n"
 "    border: 1px solid;\n"
 "    border-color:#fff;\n"
@@ -1636,7 +1647,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 372, 734))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 16, 16))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.verticalLayout_25.addWidget(self.scrollArea_2)
@@ -1709,7 +1720,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.changingwidget.setCurrentIndex(1)
+        self.changingwidget.setCurrentIndex(0)
         self.comboBox_3.setCurrentIndex(0)
         self.group_.setCurrentIndex(0)
         self.comboBox_2.setCurrentIndex(0)
@@ -1754,10 +1765,12 @@ class Ui_MainWindow(object):
         self.group_1.setItemText(1, _translate("MainWindow", "Expense"))
         self.description.setPlaceholderText(_translate("MainWindow", "Description"))
         self.pushButton.setText(_translate("MainWindow", "Save"))
-        self.label_23.setText(_translate("MainWindow", "     Food"))
-        self.label_20.setText(_translate("MainWindow", "     travel"))
-        self.label_22.setText(_translate("MainWindow", "     groceries"))
-        self.label_24.setText(_translate("MainWindow", "     clothes"))
+        self.label_23.setText(_translate("MainWindow", "   Dinning Out"))
+        self.label_20.setText(_translate("MainWindow", "    Travel and Transportation"))
+        self.label_22.setText(_translate("MainWindow", "    Groceries"))
+        self.label_24.setText(_translate("MainWindow", "    Clothes and Accessories"))
+        self.label_25.setText(_translate("MainWindow", "    Health  and Fitness"))
+        self.label_26.setText(_translate("MainWindow", "     Entertainment"))
         self.label_21.setText(_translate("MainWindow", "     other"))
         self.label_4.setText(_translate("MainWindow", "     History"))
         self.label_8.setText(_translate("MainWindow", "Wallets"))
@@ -1778,7 +1791,6 @@ class Ui_MainWindow(object):
         self.label_19.setText(_translate("MainWindow", "     other"))
         self.label_10.setText(_translate("MainWindow", "Settings"))
         self.label_6.setText(_translate("MainWindow", "Salary Day"))
-        self.amount_2.setPlaceholderText(_translate("MainWindow", "Amount"))
         self.yourwallets.setText(_translate("MainWindow", "Your Wallets"))
         self.removeaccounts.setText(_translate("MainWindow", "Remove Accounts"))
         self.removeaccount.setText(_translate("MainWindow", "Remove Account"))

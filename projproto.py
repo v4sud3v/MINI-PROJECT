@@ -21,7 +21,6 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.conn = self.create_connection()
         self.init_table()
-        #self.show_main()
         self.set_login()
        
 
@@ -35,31 +34,39 @@ class MainWindow(QMainWindow):
         self.login_window.show()
 
     def add_transaction(self):
-        cursor=self.conn.cursor()
-        wallet_name=self.ui.group_.currentText()
-        amount=self.ui.amount.text()
-        description=self.ui.description.text()
-        category=self.ui.comboBox_2.currentText()
-        trans_type=self.ui.group_1.currentText()
-        trans_date=datetime.now().strftime('%d-%m-%Y')
-        cursor.execute("select wallet_id from Wallet where user_id=? and wallet_name=?",(self.current_user.userid,wallet_name))
-        res=cursor.fetchone()
-        wallet_id=res[0]
-        print("wallet id:",wallet_id)
-        cursor.execute("select balance from wallet where wallet_id=?",(wallet_id,))
-        res1=cursor.fetchone()
-        if trans_type=="Income":
-            walletbalance=res1[0]+int(amount)
-        else:
-            walletbalance=res1[0]-int(amount)
-        cursor.execute("update wallet set balance=? where wallet_id=? ;",(walletbalance,wallet_id))
-        self.conn.commit()
-        cursor.execute("insert into Transactions(wallet_id,amount,description,category,transaction_type,transaction_date) values(?,?,?,?,?,?);",(wallet_id,amount,description,category,trans_type,trans_date))
-        self.conn.commit()
-        cursor.execute("select * from wallet;")
-        print(cursor.fetchall())
-        self.ui.amount.clear()
-        self.ui.description.clear()
+        try:
+            cursor=self.conn.cursor()
+            wallet_name=self.ui.group_.currentText()
+            amount=self.ui.amount.text()
+            description=self.ui.description.text()
+            category=self.ui.comboBox_2.currentText()
+            trans_type=self.ui.group_1.currentText()
+            trans_date = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+            cursor.execute("select wallet_id from Wallet where user_id=? and wallet_name=?",(self.current_user.userid,wallet_name))
+            res=cursor.fetchone()
+            wallet_id=res[0]
+            print("wallet id:",wallet_id)
+            cursor.execute("select balance from wallet where wallet_id=?",(wallet_id,))
+            res1=cursor.fetchone()
+            if trans_type=="Income":
+                walletbalance=res1[0]+int(amount)
+            else:
+                walletbalance=res1[0]-int(amount)
+            cursor.execute("update wallet set balance=? where wallet_id=? ;",(walletbalance,wallet_id))
+            self.conn.commit()
+            cursor.execute("insert into Transactions(wallet_id,amount,description,category,transaction_type,transaction_date) values(?,?,?,?,?,?);",(wallet_id,amount,description,category,trans_type,trans_date))
+            self.conn.commit()
+            self.ui.amount.clear()
+            self.ui.description.clear()
+            self.update_categories_progressbar()
+            self.clear_layout(self.ui.scrollArea.layout())
+            self.create_history()
+            
+        except:
+            self.conn.commit()
+            self.ui.amount.clear()
+            QMessageBox.warning(self, "error occorred","Invalid data!")
+
     def check_login(self):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
@@ -77,6 +84,7 @@ class MainWindow(QMainWindow):
         self.showMaximized()
         self.ui.Dashboard_Button.toggled.connect(self.on_Dashboard_Button_toggled)
         self.ui.Dashboard_Button.setChecked(True)
+        self.animations = []
         # Initialize sidebar hidden state
         self.sidebar_hidden = False
 
@@ -84,6 +92,8 @@ class MainWindow(QMainWindow):
         self.windowStateChanged.connect(self.handle_window_state_change)
 
         # Additional initialization code
+        self.expense_cat_list = ['Dining Out', 'Travel & Transportation', 'Groceries', 'Clothing & Accessories', 'Health & Fitness', 'Entertainment','Other']
+        self.income_cat_list = ['Salary', 'Investments', 'Gifts & Donations', 'Rental Income', 'Freelance Work', 'Savings & Interests', 'Other']
         self.initialize_graph()
         self.sidebar_animation_apply()
         self.ui.MenuButton.clicked.connect(self.toggle_sidebar)
@@ -91,8 +101,96 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_3.currentIndexChanged.connect(self.draw_graph)
         self.windowStateChanged.connect(self.handle_window_state_change)
         self.ui.pushButton.clicked.connect(self.add_transaction)
-        
+        self.ui.group_1.currentIndexChanged.connect(self.update_category)
+        self.update_category()
+        self.update_categories_progressbar()
+        self.create_history()
+        self.ui.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.ui.pushButton.clicked.connect(self.create_overview)
+    def clear_layout(self, layout):
+        if layout is not None:
+            while layout.count():
+                child = layout.takeAt(0)
+                if child.widget() is not None:
+                    child.widget().deleteLater()
 
+    def create_history(self):
+        print("create history")
+        
+        # Create a scroll area
+        scroll_area = self.ui.scrollArea_3
+
+        # Create a main widget for the scroll area
+        main_widget = QWidget()
+        main_layout = QVBoxLayout()
+
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT amount, transaction_date, transaction_type, description FROM transactions where wallet_id in(select wallet_id from wallet where user_id=?)ORDER BY transaction_date desc;",(self.current_user.userid,
+        ))
+        values = cursor.fetchall()
+        print(values)
+        if not values:
+            print("No transactions yet")
+            label = QLabel("No transactions yet")
+            label.setStyleSheet("font-size: 16px; color:white;") 
+            label.setAlignment(Qt.AlignCenter) 
+            main_layout.addWidget(label)
+            main_widget.setLayout(main_layout)
+        else:
+            for row in range(len(values)):
+                if row <=5:            
+                    amount, date, trans_type,description = values[row]
+                    date = datetime.strptime(date, "%d-%m-%Y %H:%M:%S").strftime("%b %d, %Y, %H:%M:%S")
+
+
+                    trans_widget = QWidget()
+                    
+                    trans_layout = QVBoxLayout(trans_widget)
+
+                    label1 = QLabel(str(amount))
+                    label1.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label1.setMinimumHeight(20)  # Increase the minimum height of the label
+                    trans_layout.addWidget(label1)
+                    label2 = QLabel(date)
+                    label2.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label2.setMinimumHeight(20)  # Increase the minimum height of the label
+                    trans_layout.addWidget(label2)
+                    label3 = QLabel(description)
+                    label3.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label3.setMinimumHeight(20)  # Increase the minimum height of the label
+                    trans_layout.addWidget(label3)
+
+                    if trans_type == "Expense":
+                        trans_widget.setStyleSheet(
+            "    background-color: rgba(255, 255, 255, 10);\n"
+            "    border: 1px solid rgba(255, 0, 0, 50);\n"
+            "    border-radius: 10px;\n"
+            "    font-size: 18px;\n"  # Increase the font size
+            "    color:white;\n")
+                    else:
+                        trans_widget.setStyleSheet("background-color: rgba(255, 255, 255, 10);\n"
+            "    border: 1px solid rgba(0, 255, 0, 50);\n"
+            "    border-radius: 10px;\n"
+            "    font-size: 18px;\n"  # Increase the font size
+            "    color:white;\n")
+
+                    main_layout.addWidget(trans_widget)
+
+            # Set the main layout as the layout of the main widget
+                main_widget.setLayout(main_layout)
+
+            # Set the main widget as the widget for the scroll area
+        scroll_area.setWidget(main_widget)
+
+    def update_category(self):    
+        trans_type=self.ui.group_1.currentText()
+        if trans_type=="Expense":
+             self.ui.comboBox_2.clear()
+             self.ui.comboBox_2.addItems(self.expense_cat_list)
+        else:
+            self.ui.comboBox_2.clear()
+            self.ui.comboBox_2.addItems(self.income_cat_list)
+        
     def login(self, username, password):
         cursor = self.conn.cursor()
         cursor.execute("SELECT user_id FROM User WHERE username=? AND password=?;", (username, password))
@@ -115,12 +213,43 @@ class MainWindow(QMainWindow):
         except sqlite3.Error as e:
             print(e)
             return None
+    def update_categories_progressbar(self):
+        cursor=self.conn.cursor()
+        expenselis=[]
+        for category in self.expense_cat_list:
+            cursor.execute("select sum(amount) from transactions where category=?",(category,))
+            value=cursor.fetchone()
+            if value[0]==None:
+                value=(0,)
+            expenselis.append(value[0])
+        cursor.execute("select sum(amount) from transactions where transaction_type='Expense' and wallet_id in (select wallet_id from wallet where user_id =?)",(self.current_user.userid,))
+        total=cursor.fetchone()
+        print("total spend:",total)
+        total=total[0]
+        print(expenselis)
+        for amount in expenselis:
+            if total != 0 and total != None:
+                amountpercent = int((amount / total) * 100)
+            else:
+                amountpercent = 0
+            expenselis[expenselis.index(amount)]=amountpercent
+        bar_list=[self.ui.food_bar,self.ui.travel,self.ui.groceries_bar,self.ui.clothes,self.ui.health_bar,self.ui.other_4,self.ui.other]
+        for i in range(len(expenselis)):
+            animation = QPropertyAnimation(bar_list[i], b"value")
+            animation.setDuration(400)  # Set animation duration in milliseconds
+            animation.setStartValue(0)  # Start value
+            animation.setEndValue(expenselis[i])  # End value
+            animation.start()
+            self.animations.append(animation)  # Store the animation
+            bar_list[i].setValue(expenselis[i])
 
+        
     def init_table(self):
         cursor = self.conn.cursor()
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
-        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, wallet_id INTEGER NOT NULL, amount REAL NOT NULL, description TEXT, category TEXT, transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')), transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
+        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
+
         
         cursor.execute(query1)
         cursor.execute(query2)
@@ -157,7 +286,12 @@ class MainWindow(QMainWindow):
         layout_OUT=QHBoxLayout()
         outside_widget=self.ui.widget_7 
         heading_list=["Total spend","You owe","You get back","Settled up"]
-        data_list=[205,3500,600,405]
+        cursor=self.conn.cursor()
+        cursor.execute("select sum(amount) from transactions where transaction_type='Expense' and wallet_id in(select wallet_id from wallet where user_id=?);",(self.current_user.userid,))
+        total_spend=cursor.fetchone()
+        if total_spend[0]==None:
+            total_spend=(0,)
+        data_list=[total_spend[0],3500,600,405]
         for i in range(4):
             layout_in=QVBoxLayout()
             inside_widget=QWidget()
