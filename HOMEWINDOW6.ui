@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1139</width>
-    <height>850</height>
+    <width>1550</width>
+    <height>1058</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1803,8 +1803,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>213</width>
-                       <height>305</height>
+                       <width>637</width>
+                       <height>395</height>
                       </rect>
                      </property>
                     </widget>
@@ -2185,8 +2185,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>376</width>
-                       <height>459</height>
+                       <width>635</width>
+                       <height>671</height>
                       </rect>
                      </property>
                     </widget>
@@ -3024,36 +3024,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="amount_2">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>214</width>
-                    <height>26</height>
-                   </size>
-                  </property>
-                  <property name="whatsThis">
-                   <string/>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#amount_2{
-border-bottom-color: rgb(255, 255, 255);
-border-bottom: 1px solid;
-color: rgb(255, 255, 255);
-border-color:rgba(255, 255, 255,100);
-}
-	
-	</string>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Amount</string>
-                  </property>
-                 </widget>
+                 <widget class="QDateEdit" name="dateEdit"/>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -3214,7 +3185,7 @@ font: 3pt &quot;Century Gothic&quot;;
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>643</width>
+                        <width>417</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -3230,7 +3201,7 @@ font: 3pt &quot;Century Gothic&quot;;
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>90</width>
+                        <width>200</width>
                         <height>28</height>
                        </size>
                       </property>
@@ -3516,8 +3487,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>372</width>
-                      <height>734</height>
+                      <width>854</width>
+                      <height>942</height>
                      </rect>
                     </property>
                    </widget>
