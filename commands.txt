@@ -1,0 +1,6 @@
+pyuic5 -x HOMEWINDOW.ui -o main_window2.py
+
+
+
+
+pyrcc 5 resorce.ui -o recorse.py

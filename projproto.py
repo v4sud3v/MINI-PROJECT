@@ -254,7 +254,7 @@ class MainWindow(QMainWindow):
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
         query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
-        query4 = "CREATE TABLE budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00);"
+        query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00);"
         
         cursor.execute(query1)
         cursor.execute(query2)
@@ -276,17 +276,14 @@ class MainWindow(QMainWindow):
     def on_Wallets_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(1)
 
-    def on_CategoriesButton_toggled(self):
+    def on_Settings_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(2)
 
-    def on_Settings_Button_toggled(self):
+    def on_Help_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(3)
 
-    def on_Help_Button_toggled(self):
-        self.ui.changingwidget.setCurrentIndex(4)
-
     def on_Info_Button_toggled(self):
-        self.ui.changingwidget.setCurrentIndex(5)
+        self.ui.changingwidget.setCurrentIndex(4)
 
     def create_overview(self):
         cursor=self.conn.cursor()
@@ -298,24 +295,24 @@ class MainWindow(QMainWindow):
         total_balance=cursor.fetchone()
 
         if total_balance[0]==None:
-            self.ui.getbackamount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+            self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
         else:
-            self.ui.getbackamount.setText(f'<center><span style="font-size: 15pt;">{total_balance[0]}$</span></center>')
-        self.ui.getbackamount.setAlignment(Qt.AlignCenter)
+            self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">{total_balance[0]}$</span></center>')
+        self.ui.getbackamount_4.setAlignment(Qt.AlignCenter)
     
         if total_income[0]==None:
-            self.ui.owe_amount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+            self.ui.owe_amount_4.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
         else:
-            self.ui.owe_amount.setText(f'<center><span style="font-size: 15pt;">{total_income[0]}$</span></center>')
-        self.ui.owe_amount.setAlignment(Qt.AlignCenter)
+            self.ui.owe_amount_4.setText(f'<center><span style="font-size: 15pt;">{total_income[0]}$</span></center>')
+        self.ui.owe_amount_4.setAlignment(Qt.AlignCenter)
         if total_spend[0]==None:
-            self.ui.spend_amount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+            self.ui.spend_amount_4.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
         else:
-            self.ui.spend_amount.setText(f'<center><span style="font-size: 15pt;">{total_spend[0]}$</span></center>')
-        self.ui.spend_amount.setAlignment(Qt.AlignCenter)
+            self.ui.spend_amount_4.setText(f'<center><span style="font-size: 15pt;">{total_spend[0]}$</span></center>')
+        self.ui.spend_amount_4.setAlignment(Qt.AlignCenter)
        
-        self.ui.label_34.setText('<center><span style="font-size: 15pt;">405$</span></center>')
-        self.ui.label_34.setAlignment(Qt.AlignCenter)
+        self.ui.label_43.setText('<center><span style="font-size: 15pt;">405$</span></center>')
+        self.ui.label_43.setAlignment(Qt.AlignCenter)
 
        
 

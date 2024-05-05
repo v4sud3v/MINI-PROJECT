@@ -6,9 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
+    <width>1090</width>
+    <height>878</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
     <width>1068</width>
     <height>850</height>
-   </rect>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Century Gothic</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -91,34 +102,6 @@ background-color: rgb(12, 20, 43);
            <property name="spacing">
             <number>12</number>
            </property>
-           <item>
-            <widget class="QLabel" name="icon">
-             <property name="minimumSize">
-              <size>
-               <width>31</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>31</width>
-               <height>31</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image: url(:/icon/icon2/alert-circle.svg);</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="margin">
-              <number>-1</number>
-             </property>
-             <property name="indent">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QLabel" name="Expenzio">
              <property name="minimumSize">
@@ -276,53 +259,6 @@ color: rgb(255, 255, 255);</string>
              </property>
              <property name="default">
               <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="CategoriesButton">
-             <property name="minimumSize">
-              <size>
-               <width>175</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Century Gothic</family>
-               <pointsize>11</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="toolTip">
-              <string>category wise report </string>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="text">
-              <string>  Categories   </string>
-             </property>
-             <property name="icon">
-              <iconset resource="resources.qrc">
-               <normaloff>:/icon/icon2/folder.svg</normaloff>:/icon/icon2/folder.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>25</width>
-               <height>25</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <property name="autoExclusive">
-              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -578,32 +514,6 @@ color: rgb(255, 255, 255);</string>
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="bellButton">
-              <property name="minimumSize">
-               <size>
-                <width>36</width>
-                <height>36</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:transparent;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="resources.qrc">
-                <normaloff>:/icon/icons/bell.svg</normaloff>:/icon/icons/bell.svg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="accountButton">
               <property name="minimumSize">
                <size>
@@ -618,7 +528,7 @@ color: rgb(255, 255, 255);</string>
 	border-radius: 17px;
 }
 
-font: 3pt &quot;Century Gothic&quot;;</string>
+</string>
               </property>
               <property name="text">
                <string/>
@@ -755,7 +665,7 @@ border-bottom-color: rgb(255, 255, 255);
                  <property name="lineWidth">
                   <number>0</number>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_21">
+                 <layout class="QVBoxLayout" name="verticalLayout_21" stretch="1,5">
                   <item>
                    <widget class="QLabel" name="label_3">
                     <property name="font">
@@ -776,20 +686,141 @@ border-bottom-color: rgb(255, 255, 255);
                    </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_7">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
+                   <widget class="QWidget" name="widget_7" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);</string>
                     </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="widget_7" native="true"/>
+                    <layout class="QHBoxLayout" name="horizontalLayout_35">
+                     <item>
+                      <widget class="QWidget" name="widget_31" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>127</width>
+                         <height>99</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_46">
+                        <item>
+                         <widget class="QLabel" name="spend_amount_4">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0$&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_42">
+                          <property name="minimumSize">
+                           <size>
+                            <width>109</width>
+                            <height>37</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total spent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget_33" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>128</width>
+                         <height>99</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_48">
+                        <item>
+                         <widget class="QLabel" name="owe_amount_4">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0$&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_46">
+                          <property name="minimumSize">
+                           <size>
+                            <width>110</width>
+                            <height>37</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Earned&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget_34" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>127</width>
+                         <height>99</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_49">
+                        <item>
+                         <widget class="QLabel" name="getbackamount_4">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0$&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_48">
+                          <property name="minimumSize">
+                           <size>
+                            <width>109</width>
+                            <height>37</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Balance&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget_32" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>127</width>
+                         <height>99</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_47">
+                        <item>
+                         <widget class="QLabel" name="label_43">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0$&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_44">
+                          <property name="minimumSize">
+                           <size>
+                            <width>109</width>
+                            <height>37</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Goal Budget&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -970,12 +1001,12 @@ QComboBox::drop-down {
                       </item>
                       <item>
                        <property name="text">
-                        <string>Last month</string>
+                        <string>This month</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>Last Year</string>
+                        <string>This year</string>
                        </property>
                       </item>
                      </widget>
@@ -1176,10 +1207,10 @@ QComboBox::drop-down {
                              <bool>false</bool>
                             </property>
                             <property name="currentText">
-                             <string/>
+                             <string>Wallet1</string>
                             </property>
                             <property name="currentIndex">
-                             <number>-1</number>
+                             <number>0</number>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -1189,12 +1220,7 @@ QComboBox::drop-down {
                             </property>
                             <item>
                              <property name="text">
-                              <string>Item1</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Item 2</string>
+                              <string>Wallet1</string>
                              </property>
                             </item>
                            </widget>
@@ -1285,7 +1311,7 @@ QComboBox::drop-down {
                              <bool>false</bool>
                             </property>
                             <property name="currentIndex">
-                             <number>-1</number>
+                             <number>0</number>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -1295,12 +1321,27 @@ QComboBox::drop-down {
                             </property>
                             <item>
                              <property name="text">
-                              <string>Item1</string>
+                              <string>Food</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
-                              <string>Item 2</string>
+                              <string>Travel</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Clothes</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Groceries</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Others</string>
                              </property>
                             </item>
                            </widget>
@@ -1313,20 +1354,88 @@ QComboBox::drop-down {
                            <number>6</number>
                           </property>
                           <item>
-                           <spacer name="horizontalSpacer_5">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
+                           <widget class="QComboBox" name="group_1">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
                             </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::Expanding</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
+                            <property name="minimumSize">
                              <size>
                               <width>112</width>
+                              <height>4</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="sizeIncrement">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Century Gothic</family>
+                              <pointsize>9</pointsize>
+                              <weight>50</weight>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#fff;
+background-color: rgb(45, 63, 109);
+border-radius:8px;}
+QComboBox{
+	padding-left: 20px;
+
+}
+QComboBox::drop-down {
+	
+	image: url(:/icon/icons/chevron-down.svg);
+    width: 16px;
+    height: 16px;
+	border: none;
+	padding: 3px
+}
+
+</string>
+                            </property>
+                            <property name="editable">
+                             <bool>false</bool>
+                            </property>
+                            <property name="currentText">
+                             <string>Income</string>
+                            </property>
+                            <property name="currentIndex">
+                             <number>0</number>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>20</width>
                               <height>20</height>
                              </size>
                             </property>
-                           </spacer>
+                            <item>
+                             <property name="text">
+                              <string>Income</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Expense</string>
+                             </property>
+                            </item>
+                           </widget>
                           </item>
                           <item>
                            <widget class="QLineEdit" name="description">
@@ -1507,7 +1616,21 @@ QComboBox::down-arrow {
 }
 QLineEdit{
 border-bottom-color: rgb(255, 255, 255);
-}</string>
+}
+QProgressBar{
+border:1px solid;
+border-radius: 8px;
+	border-color: rgb(45, 63, 109);
+color: rgb(255, 255, 255);
+}
+QProgressBar::chunk {
+            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));
+padding-left: 3px;
+border-radius:8px;
+}
+
+
+</string>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::NoFrame</enum>
@@ -1519,27 +1642,188 @@ border-bottom-color: rgb(255, 255, 255);
                   <number>0</number>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_22">
+                  <property name="spacing">
+                   <number>3</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
                   <item>
-                   <widget class="QLabel" name="label_5">
-                    <property name="font">
-                     <font>
-                      <family>Century Gothic</family>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <italic>false</italic>
-                      <bold>false</bold>
-                     </font>
-                    </property>
+                   <widget class="QLabel" name="label_23">
                     <property name="styleSheet">
-                     <string notr="true">color:#fff</string>
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>This month</string>
+                     <string>   Dinning Out</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QWidget" name="widget_6" native="true"/>
+                   <widget class="QProgressBar" name="food_bar">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_20">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>    Travel and Transportation</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="travel">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_22">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>    Groceries</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="groceries_bar">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_24">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>    Clothes and Accessories</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="clothes">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_49">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>    Health  and Fitness</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="health_bar">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_50">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>     Entertainment</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="other_4">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_21">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>     other</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="other">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="value">
+                     <number>75</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -1586,8 +1870,17 @@ border-bottom-color: rgb(255, 255, 255);
                   <number>0</number>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_23">
+                  <property name="topMargin">
+                   <number>14</number>
+                  </property>
                   <item>
                    <widget class="QLabel" name="label_4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>61</width>
+                      <height>21</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Century Gothic</family>
@@ -1601,12 +1894,26 @@ border-bottom-color: rgb(255, 255, 255);
                      <string notr="true">color:#fff</string>
                     </property>
                     <property name="text">
-                     <string>History</string>
+                     <string>     History</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QWidget" name="widget_5" native="true"/>
+                   <widget class="QScrollArea" name="scrollArea_3">
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>231</width>
+                       <height>305</height>
+                      </rect>
+                     </property>
+                    </widget>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -1720,6 +2027,12 @@ font: 9pt &quot;Century Gothic&quot;;</string>
                     </property>
                     <item>
                      <layout class="QHBoxLayout" name="horizontalLayout_18">
+                      <property name="spacing">
+                       <number>18</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>5</number>
+                      </property>
                       <item>
                        <spacer name="horizontalSpacer_17">
                         <property name="orientation">
@@ -1764,7 +2077,39 @@ border-color:rgb(22, 201, 236);
 font: 3pt &quot;Century Gothic&quot;;</string>
                         </property>
                         <property name="text">
-                         <string>Add Transaction</string>
+                         <string>Rename wallet</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pushButton_12">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>105</width>
+                          <height>28</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+color:#fff;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+font: 3pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>Add wallet</string>
                         </property>
                        </widget>
                       </item>
@@ -1790,6 +2135,105 @@ font: 3pt &quot;Century Gothic&quot;;</string>
                   </size>
                  </property>
                 </spacer>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_28">
+                 <property name="leftMargin">
+                  <number>22</number>
+                 </property>
+                 <item>
+                  <widget class="QComboBox" name="group_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>112</width>
+                     <height>4</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="sizeIncrement">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Century Gothic</family>
+                     <pointsize>9</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="layoutDirection">
+                    <enum>Qt::LeftToRight</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">*{color:#fff;
+background-color: rgb(45, 63, 109);
+border-radius:8px;}
+QComboBox{
+	padding-left: 20px;
+
+}
+QComboBox::drop-down {
+	
+	image: url(:/icon/icons/chevron-down.svg);
+    width: 16px;
+    height: 16px;
+	border: none;
+	padding: 3px
+}
+
+</string>
+                   </property>
+                   <property name="editable">
+                    <bool>false</bool>
+                   </property>
+                   <property name="currentText">
+                    <string>Wallet1</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Wallet1</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_20">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
                </item>
                <item>
                 <widget class="QFrame" name="Monthly_frame_6">
@@ -2096,31 +2540,198 @@ border-bottom-color: rgb(255, 255, 255);
                   <property name="lineWidth">
                    <number>0</number>
                   </property>
-                  <widget class="QLabel" name="label_46">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>30</y>
-                     <width>92</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Century Gothic</family>
-                     <pointsize>11</pointsize>
-                     <weight>50</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:#fff</string>
-                   </property>
-                   <property name="text">
-                    <string>This month</string>
-                   </property>
-                  </widget>
+                  <layout class="QVBoxLayout" name="verticalLayout_29">
+                   <item>
+                    <widget class="QWidget" name="widget_15" native="true">
+                     <property name="styleSheet">
+                      <string notr="true">QProgressBar{
+border:1px solid;
+border-radius: 8px;
+	border-color: rgb(45, 63, 109);
+color: rgb(255, 255, 255);
+}
+QProgressBar::chunk {
+            background-color:qlineargradient(spread:pad, x1:0.016, y1:0.351955, x2:1, y2:0.455, stop:0 rgba(0, 49, 185, 255), stop:1 rgba(218, 32, 175, 255));
+padding-left: 2px;
+border-radius:8px;
+}
+
+
+</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_28">
+                      <item>
+                       <widget class="QLabel" name="label_51">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>   Dinning Out</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="food_bar_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_52">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>    Travel and Transportation</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="travel_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_53">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>    Groceries</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="groceries_bar_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_54">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>    Clothes and Accessories</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="clothes_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_55">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>    Health  and Fitness</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="health_bar_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_56">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>     Entertainment</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="other_5">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_57">
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(255, 255, 255);
+font: 8pt &quot;Century Gothic&quot;;</string>
+                        </property>
+                        <property name="text">
+                         <string>     other</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QProgressBar" name="other_2">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="value">
+                         <number>75</number>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                 <item>
@@ -2145,35 +2756,6 @@ border-bottom-color: rgb(255, 255, 255);
             </layout>
            </item>
           </layout>
-         </widget>
-         <widget class="QWidget" name="page_3">
-          <widget class="QLabel" name="label_9">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>10</y>
-             <width>141</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);
-
-font: 75 12pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Categories</string>
-           </property>
-          </widget>
          </widget>
          <widget class="QWidget" name="page_4">
           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -2246,36 +2828,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="amount_2">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>214</width>
-                    <height>26</height>
-                   </size>
-                  </property>
-                  <property name="whatsThis">
-                   <string/>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#amount_2{
-border-bottom-color: rgb(255, 255, 255);
-border-bottom: 1px solid;
-color: rgb(255, 255, 255);
-border-color:rgba(255, 255, 255,100);
-}
-	
-	</string>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Amount</string>
-                  </property>
-                 </widget>
+                 <widget class="QDateEdit" name="dateEdit"/>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -2436,7 +2989,7 @@ font: 3pt &quot;Century Gothic&quot;;
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>643</width>
+                        <width>417</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -2452,7 +3005,7 @@ font: 3pt &quot;Century Gothic&quot;;
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>90</width>
+                        <width>200</width>
                         <height>28</height>
                        </size>
                       </property>
@@ -2520,62 +3073,375 @@ border-color:rgb(22, 201, 236);
           </layout>
          </widget>
          <widget class="QWidget" name="page_5">
-          <widget class="QLabel" name="label_11">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>141</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);
+          <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <item>
+            <widget class="QWidget" name="widget_14" native="true">
+             <property name="styleSheet">
+              <string notr="true">*{
+	font: 13pt &quot;Century Gothic&quot;;
+	color:#fff;}
 
-font: 75 12pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Help</string>
-           </property>
-          </widget>
+QPushButton{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(42, 33, 113, 255), stop:1 rgba(62, 200, 169, 252));
+border-radius: 10px;
+                }
+QPushButton::hover{
+color:rgb(112, 236, 255);}</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_20">
+              <item>
+               <widget class="QWidget" name="widget_12" native="true">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_24">
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QLabel" name="label_11">
+                   <property name="font">
+                    <font>
+                     <family>Century Gothic</family>
+                     <pointsize>13</pointsize>
+                     <weight>9</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+
+font: 75 13pt &quot;Century Gothic&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>Help</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_2">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to create an account</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_3">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to delete an account</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_4">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to change account name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_14">
+                   <property name="text">
+                    <string>Getting started</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_6">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Home tab</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_7">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Stats tab</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_8">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>437</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to add an income and expense</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="text">
+                    <string>Wallet management</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_11">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to remove wallet</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_9">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to add money to wallet</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_10">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>59</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>How to change wallet name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_13" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_25">
+                 <item>
+                  <widget class="QScrollArea" name="scrollArea_2">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>98</width>
+                      <height>28</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_6">
-          <widget class="QLabel" name="label_12">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>141</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);
+          <layout class="QVBoxLayout" name="verticalLayout_26">
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="font">
+              <font>
+               <family>Century Gothic</family>
+               <pointsize>12</pointsize>
+               <weight>9</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);
 
 font: 75 12pt &quot;Century Gothic&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Info</string>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string>Info</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextBrowser" name="textBrowser">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Century Gothic</family>
+               <pointsize>-1</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
+               <kerning>false</kerning>
+              </font>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QTextBrowser {
+            background-color:rgb(27, 40, 74);
+            color:rgb(119, 133, 171);
+            font-family: Century Gothic, sans-serif;
+            font-size: 14px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        /* Customizing the scrollbar */
+        QScrollBar:vertical {
+            border: 1px solid #cccccc;
+            background:#2f4784; /* Background color of the scrollbar */
+            width:15px; /* Width of the scrollbar */
+        }
+        
+        QScrollBar::handle:vertical {
+            background: #1f2e55; /* Color of the scrollbar handle */
+            min-height: 20px; /* Minimum height of the scrollbar handle */
+        }
+        
+        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+            border: none;
+            background: none;
+        }</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="html">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Century Gothic','sans-serif'; font-size:14px; font-weight:600; font-style:normal;&quot;&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Account Information&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Name: [User's Name]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Email: [User's Email Address]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;User ID: [Unique User ID]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Joined Since: [Account Creation Date]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Expense Categories&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Default Categories:&lt;/span&gt;&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Groceries&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Utilities&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Rent&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Entertainment&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Custom Categories: [Add Custom Categories]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Budgeting Information&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Set Budget:&lt;/span&gt;&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Monthly: [$X]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Weekly: [$Y]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Budget Status:&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;[Graph/Chart Showing Budget Allocation vs. Expenditure]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Currency Settings&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Default Currency: [Currency]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Change Currency: [Select Currency]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Data Backup and Sync&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Backup Options:&lt;/span&gt;&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Cloud Backup: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Local Backup: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Sync Across Devices: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Security Settings&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Authentication:&lt;/span&gt;&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Password Protection: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Biometric Authentication: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Two-Factor Authentication: [Enabled/Disabled]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Privacy Settings: [Data Sharing Preferences]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Support and Help&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;FAQ: [Link to FAQ Section]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Customer Support:&lt;/span&gt;&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Email: [support@yourapp.com]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Chat: [Live Chat Support]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;User Manual: [Accessible within the App]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;About the Application&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Version: [Current Version Number]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Release Notes: [Link to Release Notes]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;About Us: [Brief Overview of the Development Team/Company]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Privacy Policy and Terms of Service&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Privacy Policy: [Link to Privacy Policy]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Terms of Service: [Link to Terms of Service]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Accept Terms: [Checkbox to Accept Terms]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;h4 style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt;&quot;&gt;Feedback and Suggestions&lt;/span&gt;&lt;/h4&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Feedback Form: [Provide Feedback/Suggestions]&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Rate Us: [Link to Rate/Review the App]&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:9pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
@@ -2587,6 +3453,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
  </widget>
  <resources>
   <include location="resources.qrc"/>
+  <include location="imageresources.qrc"/>
  </resources>
  <connections/>
 </ui>
