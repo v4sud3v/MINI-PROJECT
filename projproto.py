@@ -61,6 +61,7 @@ class MainWindow(QMainWindow):
             self.update_categories_progressbar()
             self.clear_layout(self.ui.scrollArea.layout())
             self.create_history()
+            self.create_overview()
             
         except:
             self.conn.commit()
@@ -106,7 +107,10 @@ class MainWindow(QMainWindow):
         self.update_categories_progressbar()
         self.create_history()
         self.ui.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.ui.pushButton.clicked.connect(self.create_overview)
+        self.ui.scrollArea_3.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)    
+
+
+
     def clear_layout(self, layout):
         if layout is not None:
             while layout.count():
@@ -195,13 +199,14 @@ class MainWindow(QMainWindow):
         cursor = self.conn.cursor()
         cursor.execute("SELECT user_id FROM User WHERE username=? AND password=?;", (username, password))
         result = cursor.fetchone()
-        print
         if result:
             self.current_user = user(result[0])
-            cursor.execute("SELECT * from Wallet;")
+            cursor.execute("SELECT * from Wallet WHERE user_id=?;", (self.current_user.userid,))
             wallet_exist=cursor.fetchone()
             if wallet_exist==None:
                 cursor.execute("insert into Wallet (user_id,wallet_name,balance)values(?,?,?)",(self.current_user.userid,"Wallet1",0))
+                cursor.execute("insert into budget_table (user_id,budget_amount)values(?,?)",(self.current_user.userid,0))
+                self.conn.commit()
             return True
         else:
             return False
@@ -249,11 +254,12 @@ class MainWindow(QMainWindow):
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
         query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
-
+        query4 = "CREATE TABLE budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00);"
         
         cursor.execute(query1)
         cursor.execute(query2)
         cursor.execute(query3)
+        cursor.execute(query4)
         
         # Check if admin user exists
         cursor.execute("SELECT * FROM User WHERE username = 'admin';")
@@ -283,29 +289,35 @@ class MainWindow(QMainWindow):
         self.ui.changingwidget.setCurrentIndex(5)
 
     def create_overview(self):
-        layout_OUT=QHBoxLayout()
-        outside_widget=self.ui.widget_7 
-        heading_list=["Total spend","You owe","You get back","Settled up"]
         cursor=self.conn.cursor()
         cursor.execute("select sum(amount) from transactions where transaction_type='Expense' and wallet_id in(select wallet_id from wallet where user_id=?);",(self.current_user.userid,))
         total_spend=cursor.fetchone()
+        cursor.execute("select sum(amount) from transactions where transaction_type='Income' and wallet_id in(select wallet_id from wallet where user_id=?);",(self.current_user.userid,))
+        total_income=cursor.fetchone()
+        cursor.execute("select sum(balance) from wallet where user_id=?;",(self.current_user.userid,))
+        total_balance=cursor.fetchone()
+
+        if total_balance[0]==None:
+            self.ui.getbackamount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+        else:
+            self.ui.getbackamount.setText(f'<center><span style="font-size: 15pt;">{total_balance[0]}$</span></center>')
+        self.ui.getbackamount.setAlignment(Qt.AlignCenter)
+    
+        if total_income[0]==None:
+            self.ui.owe_amount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+        else:
+            self.ui.owe_amount.setText(f'<center><span style="font-size: 15pt;">{total_income[0]}$</span></center>')
+        self.ui.owe_amount.setAlignment(Qt.AlignCenter)
         if total_spend[0]==None:
-            total_spend=(0,)
-        data_list=[total_spend[0],3500,600,405]
-        for i in range(4):
-            layout_in=QVBoxLayout()
-            inside_widget=QWidget()
-            data=QLabel(f'{data_list[i]}$')
-            heading=QLabel(f'{heading_list[i]}')
-            data.setStyleSheet("*{color:rgb(255,255,255);\n"
- "font: 15pt 'MS Shell Dlg 2';}")
-            heading.setStyleSheet("*{color: rgb(116, 131, 169);\n"
- "font: 10pt 'MS Shell Dlg 2';}")
-            inside_widget.setLayout(layout_in)
-            layout_in.addWidget(data)
-            layout_in.addWidget(heading)
-            layout_OUT.addWidget(inside_widget)
-        outside_widget.setLayout(layout_OUT)
+            self.ui.spend_amount.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
+        else:
+            self.ui.spend_amount.setText(f'<center><span style="font-size: 15pt;">{total_spend[0]}$</span></center>')
+        self.ui.spend_amount.setAlignment(Qt.AlignCenter)
+       
+        self.ui.label_34.setText('<center><span style="font-size: 15pt;">405$</span></center>')
+        self.ui.label_34.setAlignment(Qt.AlignCenter)
+
+       
 
     def sidebar_animation_apply(self):
         # Define sidebar animation
