@@ -1908,8 +1908,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>235</width>
-                       <height>305</height>
+                       <width>100</width>
+                       <height>30</height>
                       </rect>
                      </property>
                     </widget>
@@ -2236,6 +2236,22 @@ QComboBox::drop-down {
                 </layout>
                </item>
                <item>
+                <spacer name="verticalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Preferred</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>7</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <widget class="QFrame" name="Monthly_frame_6">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -2291,7 +2307,7 @@ border-bottom-color: rgb(255, 255, 255);
                        <x>0</x>
                        <y>0</y>
                        <width>344</width>
-                       <height>491</height>
+                       <height>478</height>
                       </rect>
                      </property>
                     </widget>
@@ -3345,8 +3361,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>16</width>
-                      <height>16</height>
+                      <width>98</width>
+                      <height>28</height>
                      </rect>
                     </property>
                    </widget>

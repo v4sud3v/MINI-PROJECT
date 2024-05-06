@@ -212,7 +212,10 @@ class MainWindow(QMainWindow):
     def display_widget(self):
         # Simulated database query (replace with actual query)
         cursor = self.conn.cursor()
-        cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions")
+        wallname=self.ui.group_3.currentText()
+        cursor.execute("SELECT wallet_id from wallet where wallet_name=? and user_id=?",(wallname,self.current_user.userid))
+        wallet_id=cursor.fetchone()
+        cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions where wallet_id=?",(wallet_id))
         wallet_data = cursor.fetchall()
 
         # Find the Monthly_frame_6 inside changingwidget
@@ -272,11 +275,22 @@ class MainWindow(QMainWindow):
                 scroll_area.setWidget(data_widget)
     
     def wallet_balance(self):
+        # Get the current wallet name
+        wall_name = self.ui.group_3.currentText()
+    
+        # Fetch the balance from the database
         cursor = self.conn.cursor()
-        wall_name=self.ui.group_3.currentText()
         cursor.execute("SELECT balance FROM Wallet WHERE wallet_name = ?", (wall_name,))
         balance = cursor.fetchone()
-        return balance[0]
+    
+        # Close the cursor
+        cursor.close()
+    
+        # Update the QLabel with the balance
+        if balance is not None:
+            self.ui.getbackamount_5.setText(f'<center><span style="font-size: 15pt;">{balance[0]}$</span></center>')
+        else:
+            self.ui.getbackamount_5.setText("0")
 
 
 
@@ -325,13 +339,14 @@ class MainWindow(QMainWindow):
         self.ui.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.scrollArea_3.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)    
         self.display_widget()
+        self.ui.group_3.currentIndexChanged.connect(self.display_widget)
         self.ui.pushButton_12.clicked.connect(self.add_wallet)
         self.update_wallets()
         self.ui.pushButton_5.clicked.connect(self.rename_wallet)
         self.ui.Wallets_Button.toggled.connect(self.update_Wallets_progressbar)
         self.ui.Wallets_Button.toggled.connect(self.update_categories_progressbar) 
-
-
+        self.ui.Wallets_Button.toggled.connect(self.wallet_balance)
+        self.ui.group_3.currentIndexChanged.connect(self.wallet_balance)
     def clear_layout(self, layout):
         if layout is not None:
             while layout.count():
