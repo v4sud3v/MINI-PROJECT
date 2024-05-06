@@ -90,11 +90,16 @@ class MainWindow(QMainWindow):
         # Close the cursor
         cursor.close()
     
+        # Get the wallet names that are already in the combo boxes
+        existing_wallets_1 = [self.ui.group_.itemText(i) for i in range(self.ui.group_.count())]
+        existing_wallets_2 = [self.ui.group_3.itemText(i) for i in range(self.ui.group_3.count())]
+        self.ui.group_.clear()
+        self.ui.group_3.clear()
         # Add the wallet names to the combo boxes if they're not already there
         for wallet_name in wallet_names:
-            if self.ui.group_.findText(wallet_name) == -1:
+            if wallet_name not in existing_wallets_1:
                 self.ui.group_.addItem(wallet_name)
-            if self.ui.group_3.findText(wallet_name) == -1:
+            if wallet_name not in existing_wallets_2:
                 self.ui.group_3.addItem(wallet_name)
 
 
@@ -150,6 +155,7 @@ class MainWindow(QMainWindow):
 
         # Update the wallet in the database
         cursor.execute("UPDATE Wallet SET wallet_name = ? WHERE wallet_name = ?", (new_wallet_name, old_wallet_name))
+        print(f"Updated {cursor.rowcount} rows")
 
         # Commit the changes and close the cursor
         self.conn.commit()
@@ -263,6 +269,14 @@ class MainWindow(QMainWindow):
 
                 # Set the layout for the scroll area's content
                 scroll_area.setWidget(data_widget)
+    
+    def wallet_balance(self):
+        cursor = self.conn.cursor()
+        wall_name=self.ui.group_3.currentText()
+        cursor.execute("SELECT balance FROM Wallet WHERE wallet_name = ?", (wall_name,))
+        balance = cursor.fetchone()
+        return balance[0]
+
 
 
     def check_login(self):
