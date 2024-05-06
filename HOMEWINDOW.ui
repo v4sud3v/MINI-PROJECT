@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1908,7 +1908,7 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>231</width>
+                       <width>235</width>
                        <height>305</height>
                       </rect>
                      </property>
@@ -2290,8 +2290,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>100</width>
-                       <height>30</height>
+                       <width>344</width>
+                       <height>491</height>
                       </rect>
                      </property>
                     </widget>
@@ -2384,31 +2384,58 @@ border-bottom-color: rgb(255, 255, 255);
                       <property name="lineWidth">
                        <number>0</number>
                       </property>
-                      <widget class="QLabel" name="label_47">
-                       <property name="geometry">
-                        <rect>
-                         <x>30</x>
-                         <y>20</y>
-                         <width>121</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Century Gothic</family>
-                         <pointsize>11</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color:#fff</string>
-                       </property>
-                       <property name="text">
-                        <string>Balance 2</string>
-                       </property>
-                      </widget>
+                      <layout class="QVBoxLayout" name="verticalLayout_27">
+                       <item>
+                        <widget class="QLabel" name="label_47">
+                         <property name="font">
+                          <font>
+                           <family>Century Gothic</family>
+                           <pointsize>11</pointsize>
+                           <weight>50</weight>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#label_47 {
+    padding: 5px;
+	color:#fff
+}
+
+</string>
+                         </property>
+                         <property name="text">
+                          <string>Balance 2</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="getbackamount_5">
+                         <property name="styleSheet">
+                          <string notr="true">color:rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="text">
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0$&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>8</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                     <item>
@@ -2468,31 +2495,58 @@ border-bottom-color: rgb(255, 255, 255);
                       <property name="lineWidth">
                        <number>0</number>
                       </property>
-                      <widget class="QLabel" name="label_45">
-                       <property name="geometry">
-                        <rect>
-                         <x>30</x>
-                         <y>20</y>
-                         <width>121</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Century Gothic</family>
-                         <pointsize>11</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color:#fff</string>
-                       </property>
-                       <property name="text">
-                        <string>Balance</string>
-                       </property>
-                      </widget>
+                      <layout class="QVBoxLayout" name="verticalLayout_30">
+                       <item>
+                        <widget class="QLabel" name="label_45">
+                         <property name="font">
+                          <font>
+                           <family>Century Gothic</family>
+                           <pointsize>11</pointsize>
+                           <weight>50</weight>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#label_45 {
+    padding: 5px;
+	color:#fff
+}
+
+</string>
+                         </property>
+                         <property name="text">
+                          <string>Days Before Salary</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="getbackamount_6">
+                         <property name="styleSheet">
+                          <string notr="true">color:rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="text">
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_8">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>8</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                    </layout>
@@ -3291,8 +3345,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>98</width>
-                      <height>28</height>
+                      <width>16</width>
+                      <height>16</height>
                      </rect>
                     </property>
                    </widget>

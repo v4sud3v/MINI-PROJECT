@@ -35,10 +35,10 @@ class MainWindow(QMainWindow):
         self.login_ui.Password_Entry_2.setEchoMode(QLineEdit.Password)
         self.login_window.show()
     
-    def add_wallet(self, user_id):
+    def add_wallet(self):
         # Create a QDialog
         dialog = QDialog(self)
-    
+
         # Set the dialog's window color and border radius
         dialog.setStyleSheet("""
             QWidget {
@@ -49,40 +49,44 @@ class MainWindow(QMainWindow):
                 color: white;
             }
         """)
-    
+
         layout = QVBoxLayout(dialog)
-    
+
         # Add a QLabel
         label = QLabel("Enter wallet name:", dialog)
         layout.addWidget(label)
-    
+
         lineEdit = QLineEdit(dialog)
         layout.addWidget(lineEdit)
-    
+
         button = QPushButton("OK", dialog)
         button.clicked.connect(dialog.accept)
         layout.addWidget(button)
-    
+
         # Show the dialog and get the entered wallet name
         if dialog.exec_():
             wallet_name = lineEdit.text()
-    
-            # Add the wallet to the database
+
+            # Get the ID of the current user
             cursor = self.conn.cursor()
-            cursor.execute("INSERT INTO Wallet (user_id, wallet_name) VALUES (?, ?)", (user_id, wallet_name))
-    
+            cursor.execute("SELECT user_id FROM User WHERE user_id = ?", (self.current_user.userid,))
+            use_id = cursor.fetchone()[0]
+
+            # Add the wallet to the database
+            cursor.execute("INSERT INTO Wallet (user_id, wallet_name) VALUES (?, ?)", (use_id, wallet_name))
+
             # Commit the changes and close the cursor
             self.conn.commit()
             cursor.close()
-    
+
             # Update the combo boxes
             self.ui.group_.addItem(wallet_name)
             self.ui.group_3.addItem(wallet_name)
-
+    
     def update_wallets(self):
         # Fetch all the wallets from the database
         cursor = self.conn.cursor()
-        cursor.execute("SELECT wallet_name FROM Wallet")
+        cursor.execute("SELECT wallet_name FROM Wallet where user_id=?;", (self.current_user.userid,))
     
         # Get all the wallet names
         wallet_names = [row[0] for row in cursor.fetchall()]
@@ -90,17 +94,14 @@ class MainWindow(QMainWindow):
         # Close the cursor
         cursor.close()
     
-        # Get the wallet names that are already in the combo boxes
-        existing_wallets_1 = [self.ui.group_.itemText(i) for i in range(self.ui.group_.count())]
-        existing_wallets_2 = [self.ui.group_3.itemText(i) for i in range(self.ui.group_3.count())]
+        
         self.ui.group_.clear()
         self.ui.group_3.clear()
         # Add the wallet names to the combo boxes if they're not already there
-        for wallet_name in wallet_names:
-            if wallet_name not in existing_wallets_1:
-                self.ui.group_.addItem(wallet_name)
-            if wallet_name not in existing_wallets_2:
-                self.ui.group_3.addItem(wallet_name)
+       
+        self.ui.group_.addItems(wallet_names)
+            
+        self.ui.group_3.addItems(wallet_names)
 
 
     def rename_wallet(self):
@@ -279,6 +280,7 @@ class MainWindow(QMainWindow):
 
 
 
+
     def check_login(self):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
@@ -318,6 +320,7 @@ class MainWindow(QMainWindow):
         self.update_category()
         self.update_categories_progressbar()
         self.update_Wallets_progressbar()
+        self.ui.group_3.currentIndexChanged.connect(self.update_Wallets_progressbar)
         self.create_history()
         self.ui.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.scrollArea_3.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)    
