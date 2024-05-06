@@ -102,7 +102,6 @@ class statframe(custFrame):
          self.hcounter=int((windowh)/5/self.repeatationtime)
          self.xcounter=int((windoww)/9/self.repeatationtime)
          self.ycounter=int((windowh)/9/self.repeatationtime)
-         print(self.xcounter)
 
      def timerEvent(self,e) -> None:
         delaytime=65

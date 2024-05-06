@@ -8,11 +8,13 @@ import sqlite3
 from pyqtgraph import AxisItem, DateAxisItem
 from datetime import datetime, timedelta
 from login import Ui_MainWindow as login_class
+from calendar import monthrange
 from main_window2 import Ui_MainWindow
 
 class user:
     def __init__(self, userid):
         self.userid = userid
+        self.budget = 1000
 
 class MainWindow(QMainWindow):
     windowStateChanged = pyqtSignal()
@@ -45,7 +47,7 @@ class MainWindow(QMainWindow):
             cursor.execute("select wallet_id from Wallet where user_id=? and wallet_name=?",(self.current_user.userid,wallet_name))
             res=cursor.fetchone()
             wallet_id=res[0]
-            print("wallet id:",wallet_id)
+
             cursor.execute("select balance from wallet where wallet_id=?",(wallet_id,))
             res1=cursor.fetchone()
             if trans_type=="Income":
@@ -72,7 +74,7 @@ class MainWindow(QMainWindow):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
         if self.login(username, password):
-            print('yes')
+   
             self.login_window.close()
             self.show_main()
         else:
@@ -118,8 +120,9 @@ class MainWindow(QMainWindow):
                 if child.widget() is not None:
                     child.widget().deleteLater()
 
+
     def create_history(self):
-        print("create history")
+        
         
         # Create a scroll area
         scroll_area = self.ui.scrollArea_3
@@ -132,9 +135,9 @@ class MainWindow(QMainWindow):
         cursor.execute("SELECT amount, transaction_date, transaction_type, description FROM transactions where wallet_id in(select wallet_id from wallet where user_id=?)ORDER BY transaction_date desc;",(self.current_user.userid,
         ))
         values = cursor.fetchall()
-        print(values)
+
         if not values:
-            print("No transactions yet")
+            
             label = QLabel("No transactions yet")
             label.setStyleSheet("font-size: 16px; color:white;") 
             label.setAlignment(Qt.AlignCenter) 
@@ -229,9 +232,9 @@ class MainWindow(QMainWindow):
             expenselis.append(value[0])
         cursor.execute("select sum(amount) from transactions where transaction_type='Expense' and wallet_id in (select wallet_id from wallet where user_id =?)",(self.current_user.userid,))
         total=cursor.fetchone()
-        print("total spend:",total)
+      
         total=total[0]
-        print(expenselis)
+
         for amount in expenselis:
             if total != 0 and total != None:
                 amountpercent = int((amount / total) * 100)
@@ -253,7 +256,7 @@ class MainWindow(QMainWindow):
         cursor = self.conn.cursor()
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
-        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
+        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%d-%m-%Y %H:%M', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
         query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00);"
         
         cursor.execute(query1)
@@ -264,7 +267,7 @@ class MainWindow(QMainWindow):
         # Check if admin user exists
         cursor.execute("SELECT * FROM User WHERE username = 'admin';")
         admin_exists = cursor.fetchone()
-        print(admin_exists)
+    
         if not admin_exists:
             cursor.execute("INSERT INTO User (username, password) VALUES (?, ?);", ('admin', '1234')) 
         self.conn.commit()
@@ -311,8 +314,9 @@ class MainWindow(QMainWindow):
             self.ui.spend_amount_4.setText(f'<center><span style="font-size: 15pt;">{total_spend[0]}$</span></center>')
         self.ui.spend_amount_4.setAlignment(Qt.AlignCenter)
        
-        self.ui.label_43.setText('<center><span style="font-size: 15pt;">405$</span></center>')
+        self.ui.label_43.setText(f'<center><span style="font-size: 15pt;">{self.current_user.budget}$</span></center>')
         self.ui.label_43.setAlignment(Qt.AlignCenter)
+        self.draw_graph()
 
        
 
@@ -389,7 +393,37 @@ class MainWindow(QMainWindow):
     def handle_window_state_change(self): 
         self.sidebar_hidden = False 
         self.findsize()
+    def last_7_days():
+        # Get today's date
+        today = datetime.now().date()
+        
+        # Create a list to store the dates
+        dates = []
 
+        # Loop through the last 7 days
+        for i in range(6, -1, -1):
+            # Subtract days from today to get previous dates
+            date = today - timedelta(days=i)
+            dates.append(date)
+        
+        return dates
+
+    # Test the function
+    def initialize_graph(self):
+        # Create a plot widget for the line graph
+        self.plot_widget = pg.PlotWidget()
+        self.plot_layout = QVBoxLayout(self.ui.widget_3)
+        self.months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        self.plot_layout.addWidget(self.plot_widget)
+        self.plot_layout.setContentsMargins(0, 0, 30,0)
+        self.ui.widget_3.setLayout(self.plot_layout)
+
+        # Set size policy for plot widget to Expanding
+        self.plot_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        self.plot_widget.setBackground(None)
+        
+        self.draw_graph()
     def last_seven_days(self):
         # Get the current system date
         current_date = datetime.now().date()
@@ -407,31 +441,13 @@ class MainWindow(QMainWindow):
             days.append(day_name)
 
         return days[::-1]
-
-    def initialize_graph(self):
-        # Create a plot widget for the line graph
-        self.plot_widget = pg.PlotWidget()
-        self.plot_layout = QVBoxLayout(self.ui.widget_3)
-        self.months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-        self.plot_layout.addWidget(self.plot_widget)
-        self.plot_layout.setContentsMargins(0, 0, 30,0)
-        self.ui.widget_3.setLayout(self.plot_layout)
-
-        # Set size policy for plot widget to Expanding
-        self.plot_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-
-        self.days = self.last_seven_days()
-        self.plot_widget.setBackground(None)
-        
-        self.draw_graph()
-
     def draw_graph(self):
         # Set view range for x and y axes
         self.plot_widget.setXRange(0, 30)
         self.plot_widget.setYRange(0, 20)
 
         # Adjust view limits
-        self.plot_widget.setLimits(xMin=0, xMax=12, yMin=0, yMax=100)
+        self.plot_widget.setLimits(xMin=0, xMax=31, yMin=0, yMax=1000000000)
 
         # Disable x-axis zooming
         self.plot_widget.setMouseEnabled(x=False, y=True)
@@ -441,7 +457,7 @@ class MainWindow(QMainWindow):
         self.plot_widget.setTitle(heading)
 
         # Create a gradient for the plot line
-        gradient = QLinearGradient(0, 0, 0, 40)
+        gradient = QLinearGradient(0, 0, 0, self.current_user.budget)
         gradient.setColorAt(0.0, QColor('#0d00ff'))
         gradient.setColorAt(1.0, QColor('#f000bc'))
         pen = QPen(gradient, 1)
@@ -453,24 +469,74 @@ class MainWindow(QMainWindow):
         # Set up date axis
         date_axis = DateAxisItem(orientation='bottom')
         self.plot_widget.setAxisItems({'bottom': date_axis})
+        cursor=self.conn.cursor()
 
+
+      
+        # Initialize days7 as an empty list
+        days7 = []
+        
+        # Get the dates for the last 7 days
+        dates = [(datetime.now() - timedelta(days=i)).strftime('%d-%m-%Y') for i in range(7)]
+        
+        # Execute the query for each date
+        cursor = self.conn.cursor()
+        for date in dates:
+            cursor.execute("SELECT SUM(amount) FROM Transactions WHERE transaction_type='Expense' and transaction_date LIKE ? AND wallet_id IN (SELECT wallet_id FROM Wallet WHERE user_id = ?);", (f'%{date}%', self.current_user.userid))
+            result = cursor.fetchone()
+            days7.append(result)
+        
+        now = datetime.now()
+        year = now.year
+        month = now.month
+        _, num_days = monthrange(year, month)
+
+        months_data=[]
+        months_dates= [(datetime(year, month, day)).strftime('%d-%m-%Y') for day in range(1, num_days+1)]
+        for date in months_dates:
+            cursor.execute("SELECT SUM(amount) FROM Transactions WHERE transaction_type='Expense' and transaction_date LIKE ? AND wallet_id IN (SELECT wallet_id FROM Wallet WHERE user_id = ?);", (f'%{date}%', self.current_user.userid))
+            result = cursor.fetchone()
+            months_data.append(result)
+        year_data=[]
+        for i in range(1,13):
+            if i<10:
+                i=f'0{i}'
+            cursor.execute("SELECT SUM(amount) FROM Transactions WHERE transaction_type='Expense' and transaction_date LIKE ? AND wallet_id IN (SELECT wallet_id FROM Wallet WHERE user_id = ?);", (f'%-{i}-%', self.current_user.userid))
+            result = cursor.fetchone()
+            year_data.append(result)
         if heading == "Last 7 days":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.days[i]}') for i in range(0, 7)]])
-            x = np.array([0, 1, 2, 3, 4, 5, 6])
-            y = np.array([2, 30, 5, 35, 25, 37, 20])
+            # Use actual day names for x-axis labels
+            x_labels = self.last_seven_days()
+            for i in range(len(days7)):
+                days7[i] = days7[i][0] if days7[i][0] is not None else 0
+                days7=days7[::-1]   
+            x = np.arange(7)  # Use the actual day of the week as x-values
+            y = np.array(days7)
             self.plot = self.plot_widget.plot(x, y, pen=pen)
+            self.plot_widget.getAxis('bottom').setTicks([[(i, label) for i, label in enumerate(x_labels)]])
             self.plot_widget.setLabel('bottom', 'Day')
+
         elif heading == "This month":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'week{i+1}') for i in range(0, 5)]])
-            x = np.array([0, 1, 2, 3])
-            y = np.array([4, 5, 11, 40])
+            # Extract day of the week from transaction date
+            x_labels = [date.split('-')[0] for date in months_dates]
+            for i in range(len(months_data)):
+                months_data[i] = months_data[i][0] if months_data[i][0] is not None else 0
+            x=np.arange(len(months_dates))
+            y = np.array(months_data)
             self.plot = self.plot_widget.plot(x, y, pen=pen)
-            self.plot_widget.setLabel('bottom', 'week')
+            self.plot_widget.getAxis('bottom').setTicks([[(i, label) for i, label in enumerate(x_labels)]])
+            self.plot_widget.setLabel('bottom', 'Day')
+
         elif heading == "This year":
-            self.plot_widget.getAxis('bottom').setTicks([[(i, f'{self.months[i]}') for i in range(0, 12)]])
-            x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
-            y = np.array([45, 5, 20, 80, 2, 35, 25, 4, 5, 11, 40, 4])
+            # Use month names for x-axis labels
+            x_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            x = np.arange(12)  # Use the month index as x-values
+            for i in range(len(year_data)):
+                year_data[i] = year_data[i][0] if year_data[i][0] is not None else 0
+            
+            y = np.array(year_data)
             self.plot = self.plot_widget.plot(x, y, pen=pen)
+            self.plot_widget.getAxis('bottom').setTicks([[(i, label) for i, label in enumerate(x_labels)]])
             self.plot_widget.setLabel('bottom', 'months')
 
         # Auto-range the plot
