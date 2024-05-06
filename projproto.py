@@ -34,6 +34,138 @@ class MainWindow(QMainWindow):
         self.login_ui.loginButton_2.clicked.connect(self.check_login)
         self.login_ui.Password_Entry_2.setEchoMode(QLineEdit.Password)
         self.login_window.show()
+    
+    def add_wallet(self, user_id):
+        # Create a QDialog
+        dialog = QDialog(self)
+    
+        # Set the dialog's window color and border radius
+        dialog.setStyleSheet("""
+            QWidget {
+                background-color: #1c2948;
+                border-radius: 20px;
+            }
+            QLabel, QLineEdit, QPushButton {
+                color: white;
+            }
+        """)
+    
+        layout = QVBoxLayout(dialog)
+    
+        # Add a QLabel
+        label = QLabel("Enter wallet name:", dialog)
+        layout.addWidget(label)
+    
+        lineEdit = QLineEdit(dialog)
+        layout.addWidget(lineEdit)
+    
+        button = QPushButton("OK", dialog)
+        button.clicked.connect(dialog.accept)
+        layout.addWidget(button)
+    
+        # Show the dialog and get the entered wallet name
+        if dialog.exec_():
+            wallet_name = lineEdit.text()
+    
+            # Add the wallet to the database
+            cursor = self.conn.cursor()
+            cursor.execute("INSERT INTO Wallet (user_id, wallet_name) VALUES (?, ?)", (user_id, wallet_name))
+    
+            # Commit the changes and close the cursor
+            self.conn.commit()
+            cursor.close()
+    
+            # Update the combo boxes
+            self.ui.group_.addItem(wallet_name)
+            self.ui.group_3.addItem(wallet_name)
+
+    def update_wallets(self):
+        # Fetch all the wallets from the database
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT wallet_name FROM Wallet")
+    
+        # Get all the wallet names
+        wallet_names = [row[0] for row in cursor.fetchall()]
+    
+        # Close the cursor
+        cursor.close()
+    
+        # Add the wallet names to the combo boxes if they're not already there
+        for wallet_name in wallet_names:
+            if self.ui.group_.findText(wallet_name) == -1:
+                self.ui.group_.addItem(wallet_name)
+            if self.ui.group_3.findText(wallet_name) == -1:
+                self.ui.group_3.addItem(wallet_name)
+
+
+    def rename_wallet(self):
+        # Create a QDialog
+        dialog = QDialog(self)
+
+        # Set the dialog's window color and border radius
+        dialog.setStyleSheet("""
+            QWidget {
+                background-color: #1c2948;
+                border-radius: 20px;
+            }
+            QLabel, QLineEdit, QPushButton {
+                color: white;
+            }
+        """)
+
+        layout = QVBoxLayout(dialog)
+
+        # Add a QLabel and QLineEdit for the old wallet name
+        old_label = QLabel("Enter old wallet name:", dialog)
+        layout.addWidget(old_label)
+
+        old_lineEdit = QLineEdit(dialog)
+        layout.addWidget(old_lineEdit)
+
+        # Add a QLabel and QLineEdit for the new wallet name
+        new_label = QLabel("Enter new wallet name:", dialog)
+        layout.addWidget(new_label)
+
+        new_lineEdit = QLineEdit(dialog)
+        layout.addWidget(new_lineEdit)
+
+        # Add a QLabel for the error message
+        error_label = QLabel("", dialog)
+        error_label.setStyleSheet("color: red;")
+        layout.addWidget(error_label)
+
+        button = QPushButton("OK", dialog)
+        button.clicked.connect(lambda: self.rename_wallet_action(old_lineEdit.text(), new_lineEdit.text(), error_label, dialog))
+        layout.addWidget(button)
+        dialog.exec_()
+
+    def rename_wallet_action(self, old_wallet_name, new_wallet_name, error_label, dialog):
+        # Check if the old wallet name exists in the database
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT 1 FROM Wallet WHERE wallet_name = ?", (old_wallet_name,))
+        if cursor.fetchone() is None:
+            # If the old wallet name does not exist, show an error message
+            error_label.setText("The old wallet name does not exist.")
+            return
+
+        # Update the wallet in the database
+        cursor.execute("UPDATE Wallet SET wallet_name = ? WHERE wallet_name = ?", (new_wallet_name, old_wallet_name))
+
+        # Commit the changes and close the cursor
+        self.conn.commit()
+        cursor.close()
+
+        # Update the combo boxes
+        index = self.ui.group_.findText(old_wallet_name)
+        if index != -1:
+            self.ui.group_.setItemText(index, new_wallet_name)
+
+        index = self.ui.group_3.findText(old_wallet_name)
+        if index != -1:
+            self.ui.group_3.setItemText(index, new_wallet_name)
+
+        # Close the dialog
+        dialog.accept()
 
     def add_transaction(self):
         try:
@@ -70,6 +202,69 @@ class MainWindow(QMainWindow):
             self.ui.amount.clear()
             QMessageBox.warning(self, "error occorred","Invalid data!")
 
+    def display_widget(self):
+        # Simulated database query (replace with actual query)
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions")
+        wallet_data = cursor.fetchall()
+
+        # Find the Monthly_frame_6 inside changingwidget
+        monthly_frame = self.ui.changingwidget.widget(1)  # Assuming Monthly_frame_6 is at index 1
+
+        if monthly_frame is not None:
+            # Find the scroll area inside Monthly_frame_6
+            scroll_area = monthly_frame.findChild(QScrollArea, "scrollArea")
+
+            if scroll_area is not None:
+                # Set scroll area to vertical scrolling
+                scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+                scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+
+                # Make the scroll bar invisible but still functional
+                scroll_area.verticalScrollBar().setStyleSheet("QScrollBar {width:0px;}")
+
+                # Clear previous content
+                content_widget = scroll_area.takeWidget()
+                if content_widget:
+                    content_widget.deleteLater()
+
+                # Create a widget to hold the data entries
+                data_widget = QWidget()
+                data_layout = QVBoxLayout(data_widget)
+                data_widget.setLayout(data_layout)
+
+                # Create widgets for each data entry
+                for entry in wallet_data:
+                    # Format the date
+                    formatted_date = datetime.strptime(entry[5], "%d-%m-%Y %H:%M:%S").strftime("%b %d, %Y")
+
+                    # Create a QLabel for the date and add it to the data_layout
+                    date_label = QLabel(f"{formatted_date}")
+                    date_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px; }")
+                    data_layout.addWidget(date_label)
+
+                    entry_widget = QWidget()
+                    entry_layout = QVBoxLayout(entry_widget)
+
+                    # Set widget border radius and background color
+                    entry_widget.setStyleSheet("QWidget { border-radius: 20px; background-color: rgb(45, 63, 109); }")
+                    entry_widget.setFixedHeight(100)
+                    entry_label = QLabel(f"Wallet ID: {entry[0]}, Amount: {entry[1]:.2f}, Description: {entry[2]}, Category: {entry[3]}, Type: {entry[4]}", entry_widget)
+                    entry_layout.addWidget(entry_label)
+
+                    # Set label color, font, and size
+                    entry_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px; }")
+
+                    entry_widget.setLayout(entry_layout)
+                    data_layout.addWidget(entry_widget)
+
+                    # Add padding between the widgets
+                    data_layout.addSpacing(10)  # Set your desired spacing here
+
+                # Set the layout for the scroll area's content
+                scroll_area.setWidget(data_widget)
+
+
     def check_login(self):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
@@ -104,13 +299,18 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_3.currentIndexChanged.connect(self.draw_graph)
         self.windowStateChanged.connect(self.handle_window_state_change)
         self.ui.pushButton.clicked.connect(self.add_transaction)
+        self.ui.pushButton.clicked.connect(self.display_widget)
         self.ui.group_1.currentIndexChanged.connect(self.update_category)
         self.update_category()
         self.update_categories_progressbar()
+        self.update_Wallets_progressbar()
         self.create_history()
         self.ui.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.scrollArea_3.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)    
-
+        self.display_widget()
+        self.ui.pushButton_12.clicked.connect(self.add_wallet)
+        self.update_wallets()
+        self.ui.pushButton_5.clicked.connect(self.rename_wallet)
 
 
     def clear_layout(self, layout):
@@ -251,6 +451,40 @@ class MainWindow(QMainWindow):
             self.animations.append(animation)  # Store the animation
             bar_list[i].setValue(expenselis[i])
 
+    def update_Wallets_progressbar(self):
+        cursor=self.conn.cursor()
+        expenselis=[]
+        selected_wallet = self.ui.group_3.currentText()  # Fetch the current text from the combobox
+    
+        for category in self.expense_cat_list:
+            cursor.execute("select sum(amount) from transactions,Wallet where category=? and wallet_name=? and wallet_name in(select wallet_name from Wallet where user_id=?)", (category, selected_wallet,self.current_user.userid))
+            value=cursor.fetchone()
+            if value[0]==None:
+                value=(0,)
+            expenselis.append(value[0])
+    
+        cursor.execute("select sum(amount) from transactions t,Wallet w where t.transaction_type='Expense' and w.wallet_name=? and wallet_name in(select wallet_name from Wallet where user_id=?)", (selected_wallet,self.current_user.userid))
+        total=cursor.fetchone()
+        print("total spend:",total)
+        total=total[0]
+        print(expenselis)
+    
+        for amount in expenselis:
+            if total != 0 and total != None:
+                amountpercent = int((amount / total) * 100)
+            else:
+                amountpercent = 0
+            expenselis[expenselis.index(amount)]=amountpercent
+    
+        bar_list=[self.ui.food_bar_2,self.ui.travel_2,self.ui.groceries_bar_2,self.ui.clothes_2,self.ui.health_bar_2,self.ui.other_5,self.ui.other_2]
+        for i in range(len(expenselis)):
+            animation = QPropertyAnimation(bar_list[i], b"value")
+            animation.setDuration(400)  # Set animation duration in milliseconds
+            animation.setStartValue(0)  # Start value
+            animation.setEndValue(expenselis[i])  # End value
+            animation.start()
+            self.animations.append(animation)  # Store the animation
+            bar_list[i].setValue(expenselis[i])
         
     def init_table(self):
         cursor = self.conn.cursor()
