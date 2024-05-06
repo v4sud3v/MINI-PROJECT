@@ -14,7 +14,7 @@ from main_window2 import Ui_MainWindow
 class user:
     def __init__(self, userid):
         self.userid = userid
-        self.budget = 1000
+        self.budget = 0
 
 class MainWindow(QMainWindow):
     windowStateChanged = pyqtSignal()
@@ -328,6 +328,8 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_12.clicked.connect(self.add_wallet)
         self.update_wallets()
         self.ui.pushButton_5.clicked.connect(self.rename_wallet)
+        self.ui.Wallets_Button.toggled.connect(self.update_Wallets_progressbar)
+        self.ui.Wallets_Button.toggled.connect(self.update_categories_progressbar) 
 
 
     def clear_layout(self, layout):
@@ -349,7 +351,7 @@ class MainWindow(QMainWindow):
         main_layout = QVBoxLayout()
 
         cursor = self.conn.cursor()
-        cursor.execute("SELECT amount, transaction_date, transaction_type, description FROM transactions where wallet_id in(select wallet_id from wallet where user_id=?)ORDER BY transaction_date desc;",(self.current_user.userid,
+        cursor.execute("SELECT amount, transaction_date, transaction_type,category,description FROM transactions where wallet_id in(select wallet_id from wallet where user_id=?)ORDER BY transaction_date desc;",(self.current_user.userid,
         ))
         values = cursor.fetchall()
 
@@ -363,7 +365,7 @@ class MainWindow(QMainWindow):
         else:
             for row in range(len(values)):
                 if row <=5:            
-                    amount, date, trans_type,description = values[row]
+                    amount, date, trans_type,category,description = values[row]
                     date = datetime.strptime(date, "%d-%m-%Y %H:%M:%S").strftime("%b %d, %Y, %H:%M:%S")
 
 
@@ -373,27 +375,35 @@ class MainWindow(QMainWindow):
 
                     label1 = QLabel(str(amount))
                     label1.setStyleSheet("font-size: 16px;")  # Increase the font size
-                    label1.setMinimumHeight(20)  # Increase the minimum height of the label
+                    label1.setMinimumHeight(20)
+                    label1.setMaximumHeight(20)  # Increase the minimum height of the label
                     trans_layout.addWidget(label1)
                     label2 = QLabel(date)
                     label2.setStyleSheet("font-size: 16px;")  # Increase the font size
-                    label2.setMinimumHeight(20)  # Increase the minimum height of the label
+                    label2.setMinimumHeight(20) 
+                    label2.setMaximumHeight(20) # Increase the minimum height of the label
                     trans_layout.addWidget(label2)
                     label3 = QLabel(description)
                     label3.setStyleSheet("font-size: 16px;")  # Increase the font size
-                    label3.setMinimumHeight(20)  # Increase the minimum height of the label
+                    label3.setMinimumHeight(20)
+                    label3.setMaximumHeight(20)  # Increase the minimum height of the label
                     trans_layout.addWidget(label3)
+                    label4 = QLabel(category)
+                    label4.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label4.setMinimumHeight(20)
+                    label4.setMaximumHeight(20)  # Increase the minimum height of the label
+                    trans_layout.addWidget(label4)
 
                     if trans_type == "Expense":
                         trans_widget.setStyleSheet(
             "    background-color: rgba(255, 255, 255, 10);\n"
-            "    border: 1px solid rgba(255, 0, 0, 50);\n"
+            "    border: 2px solid rgba(255, 3, 162, 50);\n"
             "    border-radius: 10px;\n"
             "    font-size: 18px;\n"  # Increase the font size
             "    color:white;\n")
                     else:
                         trans_widget.setStyleSheet("background-color: rgba(255, 255, 255, 10);\n"
-            "    border: 1px solid rgba(0, 255, 0, 50);\n"
+            "    border: 2px solid rgba(4, 0, 240, 50);\n"
             "    border-radius: 10px;\n"
             "    font-size: 18px;\n"  # Increase the font size
             "    color:white;\n")
@@ -425,8 +435,15 @@ class MainWindow(QMainWindow):
             wallet_exist=cursor.fetchone()
             if wallet_exist==None:
                 cursor.execute("insert into Wallet (user_id,wallet_name,balance)values(?,?,?)",(self.current_user.userid,"Wallet1",0))
+                self.conn.commit()
+            cursor.execute("select budget_amount from budget_table where user_id=?",(self.current_user.userid,))
+            budget=cursor.fetchone()
+            if budget!=None:
+                self.current_user.budget=budget[0]
                 cursor.execute("insert into budget_table (user_id,budget_amount)values(?,?)",(self.current_user.userid,0))
                 self.conn.commit()
+            else:
+                self.current_user.budget=10000
             return True
         else:
             return False
@@ -472,27 +489,27 @@ class MainWindow(QMainWindow):
         cursor=self.conn.cursor()
         expenselis=[]
         selected_wallet = self.ui.group_3.currentText()  # Fetch the current text from the combobox
-    
+
         for category in self.expense_cat_list:
-            cursor.execute("select sum(amount) from transactions,Wallet where category=? and wallet_name=? and wallet_name in(select wallet_name from Wallet where user_id=?)", (category, selected_wallet,self.current_user.userid))
+            cursor.execute("select sum(amount) from transactions t join Wallet w on t.wallet_id = w.wallet_id where t.category=? and w.wallet_name=? and w.user_id=?", (category, selected_wallet, self.current_user.userid))
             value=cursor.fetchone()
             if value[0]==None:
                 value=(0,)
             expenselis.append(value[0])
-    
-        cursor.execute("select sum(amount) from transactions t,Wallet w where t.transaction_type='Expense' and w.wallet_name=? and wallet_name in(select wallet_name from Wallet where user_id=?)", (selected_wallet,self.current_user.userid))
+
+        cursor.execute("select sum(amount) from transactions t join Wallet w on t.wallet_id = w.wallet_id where t.transaction_type='Expense' and w.wallet_name=? and w.user_id=?", (selected_wallet, self.current_user.userid))
         total=cursor.fetchone()
         print("total spend:",total)
         total=total[0]
         print(expenselis)
-    
+
         for amount in expenselis:
             if total != 0 and total != None:
                 amountpercent = int((amount / total) * 100)
             else:
                 amountpercent = 0
             expenselis[expenselis.index(amount)]=amountpercent
-    
+
         bar_list=[self.ui.food_bar_2,self.ui.travel_2,self.ui.groceries_bar_2,self.ui.clothes_2,self.ui.health_bar_2,self.ui.other_5,self.ui.other_2]
         for i in range(len(expenselis)):
             animation = QPropertyAnimation(bar_list[i], b"value")
