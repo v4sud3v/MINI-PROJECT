@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1090</width>
+    <width>1305</width>
     <height>878</height>
    </rect>
   </property>
@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1908,8 +1908,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>100</width>
-                       <height>30</height>
+                       <width>213</width>
+                       <height>305</height>
                       </rect>
                      </property>
                     </widget>
@@ -2306,8 +2306,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>344</width>
-                       <height>478</height>
+                       <width>82</width>
+                       <height>383</height>
                       </rect>
                      </property>
                     </widget>
@@ -2414,14 +2414,14 @@ border-bottom-color: rgb(255, 255, 255);
                          </property>
                          <property name="styleSheet">
                           <string notr="true">#label_47 {
-    padding: 5px;
+    padding-left: 15px;
 	color:#fff
 }
 
 </string>
                          </property>
                          <property name="text">
-                          <string>Balance 2</string>
+                          <string>Balance </string>
                          </property>
                         </widget>
                        </item>
@@ -2525,7 +2525,7 @@ border-bottom-color: rgb(255, 255, 255);
                          </property>
                          <property name="styleSheet">
                           <string notr="true">#label_45 {
-    padding: 5px;
+     padding-left: 15px;
 	color:#fff
 }
 
@@ -2898,7 +2898,81 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEdit"/>
+                 <widget class="QDateEdit" name="dateEdit">
+                  <property name="styleSheet">
+                   <string notr="true">color:rgb(255, 255, 255)</string>
+                  </property>
+                  <property name="displayFormat">
+                   <string>dd</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_24">
+                  <item>
+                   <spacer name="horizontalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="signout_2">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>28</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+	
+	color: rgb(0, 0, 0);
+	
+	background-color: rgb(255, 255, 255);
+	
+	font: 75 8pt &quot;Century Gothic&quot;;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Set Salary</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_18">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -3050,16 +3124,69 @@ font: 3pt &quot;Century Gothic&quot;;
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_16">
                     <item>
+                     <spacer name="horizontalSpacer_19">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Preferred</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>59</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="signout_3">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>200</width>
+                        <height>28</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+	
+	color: rgb(0, 0, 0);
+	
+	background-color: rgb(255, 255, 255);
+	
+	font: 75 8pt &quot;Century Gothic&quot;;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+</string>
+                      </property>
+                      <property name="text">
+                       <string>Set Budget</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <spacer name="horizontalSpacer_13">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Expanding</enum>
+                       <enum>QSizePolicy::Preferred</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>417</width>
+                        <width>57</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -3119,6 +3246,9 @@ border-color:rgb(22, 201, 236);
                      </spacer>
                     </item>
                    </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_25"/>
                   </item>
                   <item>
                    <spacer name="verticalSpacer">
@@ -3361,8 +3491,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>98</width>
-                      <height>28</height>
+                      <width>609</width>
+                      <height>762</height>
                      </rect>
                     </property>
                    </widget>
