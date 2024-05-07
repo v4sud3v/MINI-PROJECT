@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icon">
+    <file>images/DASH.png</file>
+    <file>images/WALLET.png</file>
     <file>images/5.png</file>
     <file>images/6.png</file>
     <file>images/7.png</file>

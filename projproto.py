@@ -11,6 +11,7 @@ from login import Ui_MainWindow as login_class
 from calendar import monthrange
 from main_window2 import Ui_MainWindow
 from create_account import Ui_Dialog as create_account_class
+from userinfo import  Ui_Dialog as userinfo_class
 class user:
     def __init__(self, userid):
         self.userid = userid
@@ -25,8 +26,7 @@ class MainWindow(QMainWindow):
         self.init_table()
         self.set_login()
        
-
-
+       
     def set_login(self):
         self.login_window= QMainWindow()
         self.login_ui = login_class()
@@ -34,6 +34,7 @@ class MainWindow(QMainWindow):
         self.login_ui.loginButton_2.clicked.connect(self.check_login)
         self.login_ui.Password_Entry_2.setEchoMode(QLineEdit.Password)
         self.login_ui.createButton_2.clicked.connect(self.show_create_account)
+        self.login_ui.forgotButton_2.clicked.connect(self.forgot_password)  
         self.login_window.show()
     
     def add_wallet(self):
@@ -215,6 +216,8 @@ class MainWindow(QMainWindow):
         wallname=self.ui.group_3.currentText()
         cursor.execute("SELECT wallet_id from Wallet where wallet_name=? and user_id=?",(wallname,self.current_user.userid))
         wallet_id=cursor.fetchone()
+        if wallet_id is None:
+            return
         cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions where wallet_id=?", (wallet_id[0],))
         wallet_data = cursor.fetchall()
 
@@ -377,10 +380,75 @@ class MainWindow(QMainWindow):
         self.ui.Wallets_Button.toggled.connect(self.update_categories_progressbar) 
         self.ui.Wallets_Button.toggled.connect(self.wallet_balance)
         self.ui.group_3.currentIndexChanged.connect(self.wallet_balance)
-        self.ui.setsalary.clicked.connect(self.set_salary)
-        self.ui.setbudget.clicked.connect(self.set_budget)
+        self.ui.signout_2.clicked.connect(self.set_salary)
+        self.ui.signout_3.clicked.connect(self.set_budget)
         self.days_b_sal()
         self.ui.dateEdit.dateChanged.connect(self.days_b_sal)
+        self.ui.accountButton.clicked.connect(self.user_info)
+        self.ui.pushButton_2.clicked.connect(self.help1)
+        self.ui.pushButton_3.clicked.connect(self.help2)
+        self.ui.pushButton_4.clicked.connect(self.help3)
+        self.ui.pushButton_6.clicked.connect(self.help4)
+        self.ui.pushButton_7.clicked.connect(self.help5)
+        self.ui.pushButton_8.clicked.connect(self.help6)
+        self.ui.pushButton_9.clicked.connect(self.help7)
+        self.ui.pushButton_10.clicked.connect(self.help8)
+        self.ui.pushButton_11.clicked.connect(self.help9)
+        self.ui.stackedWidget.setCurrentIndex(7)
+    
+    def forgot_password(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Forgot Password")
+        msg.setText("Did you forget your lunch??")
+        msg.setIcon(QMessageBox.Information)
+        msg.exec_()
+    def user_info(self):
+        if hasattr(self, 'user_info_window') and self.user_info_window.isVisible():
+            self.user_info_window.close()
+            return
+    
+        self.user_info_window = QDialog()
+        self.user_info_window.setWindowFlags(Qt.FramelessWindowHint)  # Remove window decorations
+        self.user_info_ui = userinfo_class()
+        self.user_info_ui.setupUi(self.user_info_window)
+        
+        # Set up the animation
+        self.animation = QPropertyAnimation(self.user_info_window, b"geometry")
+        self.animation.setDuration(200)  # Set animation duration in milliseconds
+    
+        # Get the current geometry of the window
+        start_rect = QRect(QApplication.desktop().width(), 95, self.user_info_window.width(), self.user_info_window.height())
+    
+        # Calculate the end geometry of the window
+        end_rect = QRect(QApplication.desktop().width() - self.user_info_window.width(), 95, self.user_info_window.width(), self.user_info_window.height())
+    
+        # Set the start and end values of the animation
+        self.animation.setStartValue(start_rect)
+        self.animation.setEndValue(end_rect)
+    
+        cursor=self.conn.cursor()
+        cursor.execute("select username from user where user_id=?", (self.current_user.userid,))
+        username=cursor.fetchone()
+        self.user_info_ui.Name_.setText(f'Name:{username[0]}')
+        self.user_info_ui.Name_.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.Name_.setAlignment(Qt.AlignCenter)
+    
+        cursor.execute("select salary from budget_table where user_id=?", (self.current_user.userid,))
+        salary=cursor.fetchone()
+        self.user_info_ui.Salary.setText(f'Salary:{str(salary[0])}')
+        self.user_info_ui.Salary.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.Salary.setAlignment(Qt.AlignCenter)
+    
+        cursor.execute("select budget_amount from budget_table where user_id=?", (self.current_user.userid,))
+        budget=cursor.fetchone()
+        self.user_info_ui.label_3.setText(f'Budget:{str(budget[0])}')
+        self.user_info_ui.label_3.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.label_3.setAlignment(Qt.AlignCenter)
+    
+        # Start the animation
+        self.animation.start()
+    
+        self.user_info_window.show()
 
     def clear_layout(self, layout):
         if layout is not None:
@@ -388,6 +456,25 @@ class MainWindow(QMainWindow):
                 child = layout.takeAt(0)
                 if child.widget() is not None:
                     child.widget().deleteLater()
+
+    def help1(self):
+        self.ui.stackedWidget.setCurrentIndex(7)
+    def help2(self):
+        self.ui.stackedWidget.setCurrentIndex(8)
+    def help3(self):
+        self.ui.stackedWidget.setCurrentIndex(0)
+    def help4(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
+    def help5(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
+    def help6(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
+    def help7(self):
+        self.ui.stackedWidget.setCurrentIndex(5)
+    def help8(self):
+        self.ui.stackedWidget.setCurrentIndex(6)
+    def help9(self):
+        self.ui.stackedWidget.setCurrentIndex(4)
 #####################################################################################################################################################################################################################################
 #################SETTİNGS########################################################################################################################################################
     
@@ -486,9 +573,8 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "error occorred","Passwords do not match!")
 
 #######################################################################################################################################################################################################################################
+    
     def create_history(self):
-        
-        
         # Create a scroll area
         scroll_area = self.ui.scrollArea_3
 

@@ -9,13 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from custom_widgets_classes import custFrame, statframe, Button
+from custom_widgets_classes import custFrame, Button, statframe
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1305, 878)
+        MainWindow.resize(1321, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1068, 850))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
@@ -372,7 +372,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.setStretch(0, 1)
         self.verticalLayout_21.setStretch(1, 5)
         self.verticalLayout_9.addWidget(self.overview_frame)
-        self.Statistics_frame = statframe(self.page)
+        self.Statistics_frame = custFrame(self.page)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -872,7 +872,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 376, 305))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.verticalLayout_23.addWidget(self.scrollArea_3)
@@ -1054,7 +1054,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 452, 446))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_16.addWidget(self.scrollArea)
@@ -1325,6 +1325,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
         self.label_6 = QtWidgets.QLabel(self.widget_9)
+        self.label_6.setMaximumSize(QtCore.QSize(93, 21))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(11)
@@ -1346,14 +1347,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_24.setObjectName("horizontalLayout_24")
         spacerItem20 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_24.addItem(spacerItem20)
-        self.setsalary = Button(self.widget_9)
+        self.signout_2 = Button(self.widget_9)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.setsalary.sizePolicy().hasHeightForWidth())
-        self.setsalary.setSizePolicy(sizePolicy)
-        self.setsalary.setMinimumSize(QtCore.QSize(200, 28))
-        self.setsalary.setStyleSheet("QPushButton{\n"
+        sizePolicy.setHeightForWidth(self.signout_2.sizePolicy().hasHeightForWidth())
+        self.signout_2.setSizePolicy(sizePolicy)
+        self.signout_2.setMinimumSize(QtCore.QSize(200, 28))
+        self.signout_2.setStyleSheet("QPushButton{\n"
 "    border: 1px solid;\n"
 "    border-color:#fff;\n"
 "    border-radius: 7px;\n"
@@ -1369,14 +1370,15 @@ class Ui_MainWindow(object):
 "border-color:rgb(22, 201, 236);\n"
 "}\n"
 "")
-        self.setsalary.setObjectName("setsalary")
-        self.horizontalLayout_24.addWidget(self.setsalary)
+        self.signout_2.setObjectName("signout_2")
+        self.horizontalLayout_24.addWidget(self.signout_2)
         spacerItem21 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_24.addItem(spacerItem21)
         self.verticalLayout_2.addLayout(self.horizontalLayout_24)
         self.horizontalLayout_14 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.yourwallets = QtWidgets.QLabel(self.widget_9)
+        self.yourwallets.setMaximumSize(QtCore.QSize(105, 21))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(11)
@@ -1401,6 +1403,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
         self.removeaccounts = QtWidgets.QLabel(self.widget_9)
+        self.removeaccounts.setMaximumSize(QtCore.QSize(167, 21))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(11)
@@ -1456,14 +1459,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
         spacerItem25 = QtWidgets.QSpacerItem(59, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_16.addItem(spacerItem25)
-        self.setbudget = Button(self.widget_8)
+        self.signout_3 = Button(self.widget_8)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.setbudget.sizePolicy().hasHeightForWidth())
-        self.setbudget.setSizePolicy(sizePolicy)
-        self.setbudget.setMinimumSize(QtCore.QSize(200, 28))
-        self.setbudget.setStyleSheet("QPushButton{\n"
+        sizePolicy.setHeightForWidth(self.signout_3.sizePolicy().hasHeightForWidth())
+        self.signout_3.setSizePolicy(sizePolicy)
+        self.signout_3.setMinimumSize(QtCore.QSize(200, 28))
+        self.signout_3.setStyleSheet("QPushButton{\n"
 "    border: 1px solid;\n"
 "    border-color:#fff;\n"
 "    border-radius: 7px;\n"
@@ -1479,8 +1482,8 @@ class Ui_MainWindow(object):
 "border-color:rgb(22, 201, 236);\n"
 "}\n"
 "")
-        self.setbudget.setObjectName("setbudget")
-        self.horizontalLayout_16.addWidget(self.setbudget)
+        self.signout_3.setObjectName("signout_3")
+        self.horizontalLayout_16.addWidget(self.signout_3)
         spacerItem26 = QtWidgets.QSpacerItem(57, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_16.addItem(spacerItem26)
         self.signout = Button(self.widget_8)
@@ -1543,6 +1546,7 @@ class Ui_MainWindow(object):
         self.widget_12.setStyleSheet("")
         self.widget_12.setObjectName("widget_12")
         self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.widget_12)
+        self.verticalLayout_24.setContentsMargins(-1, -1, -1, 21)
         self.verticalLayout_24.setObjectName("verticalLayout_24")
         self.label_11 = QtWidgets.QLabel(self.widget_12)
         font = QtGui.QFont()
@@ -1611,17 +1615,230 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.addWidget(self.widget_12)
         self.widget_13 = QtWidgets.QWidget(self.widget_14)
         self.widget_13.setObjectName("widget_13")
-        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.widget_13)
-        self.verticalLayout_25.setObjectName("verticalLayout_25")
-        self.scrollArea_2 = QtWidgets.QScrollArea(self.widget_13)
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.widget_13)
+        self.verticalLayout_31.setContentsMargins(-1, 0, -1, -1)
+        self.verticalLayout_31.setObjectName("verticalLayout_31")
+        self.stackedWidget = QtWidgets.QStackedWidget(self.widget_13)
+        self.stackedWidget.setObjectName("stackedWidget")
+        self.page_7 = QtWidgets.QWidget()
+        self.page_7.setObjectName("page_7")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.page_7)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.scrollArea_2 = QtWidgets.QScrollArea(self.page_7)
+        self.scrollArea_2.setMinimumSize(QtCore.QSize(700, 700))
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 98, 28))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -250, 677, 1024))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.widget_18 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
+        self.widget_18.setMinimumSize(QtCore.QSize(600, 500))
+        self.widget_18.setStyleSheet("border-image: url(:/icon/images/5.png);")
+        self.widget_18.setObjectName("widget_18")
+        self.verticalLayout_33.addWidget(self.widget_18)
+        self.widget_19 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
+        self.widget_19.setMinimumSize(QtCore.QSize(600, 500))
+        self.widget_19.setStyleSheet("border-image: url(:/icon/images/6.png);")
+        self.widget_19.setObjectName("widget_19")
+        self.verticalLayout_33.addWidget(self.widget_19)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-        self.verticalLayout_25.addWidget(self.scrollArea_2)
+        self.verticalLayout_36.addWidget(self.scrollArea_2)
+        self.stackedWidget.addWidget(self.page_7)
+        self.page_8 = QtWidgets.QWidget()
+        self.page_8.setObjectName("page_8")
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.page_8)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
+        self.scrollArea_4 = QtWidgets.QScrollArea(self.page_8)
+        self.scrollArea_4.setStyleSheet("")
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollArea_4.setObjectName("scrollArea_4")
+        self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 818, 704))
+        self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+        self.verticalLayout_50 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_50.setObjectName("verticalLayout_50")
+        self.widget_28 = QtWidgets.QWidget(self.scrollAreaWidgetContents_4)
+        self.widget_28.setMinimumSize(QtCore.QSize(800, 500))
+        self.widget_28.setStyleSheet("border-image: url(:/icon/images/DASH.png);")
+        self.widget_28.setObjectName("widget_28")
+        self.verticalLayout_50.addWidget(self.widget_28)
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_37.addWidget(self.scrollArea_4)
+        self.stackedWidget.addWidget(self.page_8)
+        self.page_9 = QtWidgets.QWidget()
+        self.page_9.setObjectName("page_9")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.page_9)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.scrollArea_5 = QtWidgets.QScrollArea(self.page_9)
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollArea_5.setObjectName("scrollArea_5")
+        self.scrollAreaWidgetContents_5 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 918, 704))
+        self.scrollAreaWidgetContents_5.setObjectName("scrollAreaWidgetContents_5")
+        self.verticalLayout_51 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_5)
+        self.verticalLayout_51.setObjectName("verticalLayout_51")
+        self.widget_29 = QtWidgets.QWidget(self.scrollAreaWidgetContents_5)
+        self.widget_29.setMinimumSize(QtCore.QSize(900, 500))
+        self.widget_29.setStyleSheet("border-image: url(:/icon/images/WALLET.png);")
+        self.widget_29.setObjectName("widget_29")
+        self.verticalLayout_51.addWidget(self.widget_29)
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
+        self.verticalLayout_38.addWidget(self.scrollArea_5)
+        self.stackedWidget.addWidget(self.page_9)
+        self.page_10 = QtWidgets.QWidget()
+        self.page_10.setObjectName("page_10")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.page_10)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.scrollArea_6 = QtWidgets.QScrollArea(self.page_10)
+        self.scrollArea_6.setWidgetResizable(True)
+        self.scrollArea_6.setObjectName("scrollArea_6")
+        self.scrollAreaWidgetContents_6 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_6.setGeometry(QtCore.QRect(0, 0, 718, 2836))
+        self.scrollAreaWidgetContents_6.setObjectName("scrollAreaWidgetContents_6")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_6)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.widget_20 = QtWidgets.QWidget(self.scrollAreaWidgetContents_6)
+        self.widget_20.setMinimumSize(QtCore.QSize(700, 700))
+        self.widget_20.setStyleSheet("border-image: url(:/icon/images/9.png);")
+        self.widget_20.setObjectName("widget_20")
+        self.verticalLayout_34.addWidget(self.widget_20)
+        self.widget_21 = QtWidgets.QWidget(self.scrollAreaWidgetContents_6)
+        self.widget_21.setMinimumSize(QtCore.QSize(700, 700))
+        self.widget_21.setStyleSheet("border-image: url(:/icon/images/10.png);")
+        self.widget_21.setObjectName("widget_21")
+        self.verticalLayout_34.addWidget(self.widget_21)
+        self.widget_22 = QtWidgets.QWidget(self.scrollAreaWidgetContents_6)
+        self.widget_22.setMinimumSize(QtCore.QSize(700, 700))
+        self.widget_22.setStyleSheet("border-image: url(:/icon/images/11.png);")
+        self.widget_22.setObjectName("widget_22")
+        self.verticalLayout_34.addWidget(self.widget_22)
+        self.widget_23 = QtWidgets.QWidget(self.scrollAreaWidgetContents_6)
+        self.widget_23.setMinimumSize(QtCore.QSize(700, 700))
+        self.widget_23.setStyleSheet("border-image: url(:/icon/images/13.png);")
+        self.widget_23.setObjectName("widget_23")
+        self.verticalLayout_34.addWidget(self.widget_23)
+        self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
+        self.verticalLayout_39.addWidget(self.scrollArea_6)
+        self.stackedWidget.addWidget(self.page_10)
+        self.page_11 = QtWidgets.QWidget()
+        self.page_11.setObjectName("page_11")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.page_11)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.scrollArea_7 = QtWidgets.QScrollArea(self.page_11)
+        self.scrollArea_7.setWidgetResizable(True)
+        self.scrollArea_7.setObjectName("scrollArea_7")
+        self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 465, 725))
+        self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
+        self.scrollArea_7.setWidget(self.scrollAreaWidgetContents_7)
+        self.verticalLayout_40.addWidget(self.scrollArea_7)
+        self.stackedWidget.addWidget(self.page_11)
+        self.page_12 = QtWidgets.QWidget()
+        self.page_12.setObjectName("page_12")
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout(self.page_12)
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.scrollArea_8 = QtWidgets.QScrollArea(self.page_12)
+        self.scrollArea_8.setWidgetResizable(True)
+        self.scrollArea_8.setObjectName("scrollArea_8")
+        self.scrollAreaWidgetContents_8 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_8.setGeometry(QtCore.QRect(0, 0, 518, 1024))
+        self.scrollAreaWidgetContents_8.setObjectName("scrollAreaWidgetContents_8")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_8)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.widget_24 = QtWidgets.QWidget(self.scrollAreaWidgetContents_8)
+        self.widget_24.setMinimumSize(QtCore.QSize(500, 500))
+        self.widget_24.setStyleSheet("border-image: url(:/icon/images/14.png);")
+        self.widget_24.setObjectName("widget_24")
+        self.verticalLayout_35.addWidget(self.widget_24)
+        self.widget_25 = QtWidgets.QWidget(self.scrollAreaWidgetContents_8)
+        self.widget_25.setMinimumSize(QtCore.QSize(500, 500))
+        self.widget_25.setStyleSheet("border-image: url(:/icon/images/15.png);")
+        self.widget_25.setObjectName("widget_25")
+        self.verticalLayout_35.addWidget(self.widget_25)
+        self.scrollArea_8.setWidget(self.scrollAreaWidgetContents_8)
+        self.verticalLayout_41.addWidget(self.scrollArea_8)
+        self.stackedWidget.addWidget(self.page_12)
+        self.page_13 = QtWidgets.QWidget()
+        self.page_13.setObjectName("page_13")
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout(self.page_13)
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.scrollArea_9 = QtWidgets.QScrollArea(self.page_13)
+        self.scrollArea_9.setWidgetResizable(True)
+        self.scrollArea_9.setObjectName("scrollArea_9")
+        self.scrollAreaWidgetContents_9 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_9.setGeometry(QtCore.QRect(0, 0, 518, 1024))
+        self.scrollAreaWidgetContents_9.setObjectName("scrollAreaWidgetContents_9")
+        self.verticalLayout_45 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_9)
+        self.verticalLayout_45.setObjectName("verticalLayout_45")
+        self.widget_26 = QtWidgets.QWidget(self.scrollAreaWidgetContents_9)
+        self.widget_26.setMinimumSize(QtCore.QSize(500, 500))
+        self.widget_26.setStyleSheet("border-image: url(:/icon/images/14.png);")
+        self.widget_26.setObjectName("widget_26")
+        self.verticalLayout_45.addWidget(self.widget_26)
+        self.widget_27 = QtWidgets.QWidget(self.scrollAreaWidgetContents_9)
+        self.widget_27.setMinimumSize(QtCore.QSize(500, 500))
+        self.widget_27.setStyleSheet("border-image: url(:/icon/images/16.png);")
+        self.widget_27.setObjectName("widget_27")
+        self.verticalLayout_45.addWidget(self.widget_27)
+        self.scrollArea_9.setWidget(self.scrollAreaWidgetContents_9)
+        self.verticalLayout_42.addWidget(self.scrollArea_9)
+        self.stackedWidget.addWidget(self.page_13)
+        self.page_14 = QtWidgets.QWidget()
+        self.page_14.setObjectName("page_14")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.page_14)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        self.scrollArea_10 = QtWidgets.QScrollArea(self.page_14)
+        self.scrollArea_10.setWidgetResizable(True)
+        self.scrollArea_10.setObjectName("scrollArea_10")
+        self.scrollAreaWidgetContents_10 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_10.setGeometry(QtCore.QRect(0, -6, 532, 1424))
+        self.scrollAreaWidgetContents_10.setObjectName("scrollAreaWidgetContents_10")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_10)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.widget_5 = QtWidgets.QWidget(self.scrollAreaWidgetContents_10)
+        self.widget_5.setMinimumSize(QtCore.QSize(500, 700))
+        self.widget_5.setStyleSheet("border-image: url(:/icon/images/1.png);")
+        self.widget_5.setObjectName("widget_5")
+        self.verticalLayout_25.addWidget(self.widget_5)
+        self.widget_6 = QtWidgets.QWidget(self.scrollAreaWidgetContents_10)
+        self.widget_6.setMinimumSize(QtCore.QSize(500, 700))
+        self.widget_6.setStyleSheet("border-image: url(:/icon/images/2.png);")
+        self.widget_6.setObjectName("widget_6")
+        self.verticalLayout_25.addWidget(self.widget_6)
+        self.scrollArea_10.setWidget(self.scrollAreaWidgetContents_10)
+        self.verticalLayout_43.addWidget(self.scrollArea_10)
+        self.stackedWidget.addWidget(self.page_14)
+        self.page_15 = QtWidgets.QWidget()
+        self.page_15.setObjectName("page_15")
+        self.verticalLayout_44 = QtWidgets.QVBoxLayout(self.page_15)
+        self.verticalLayout_44.setObjectName("verticalLayout_44")
+        self.scrollArea_11 = QtWidgets.QScrollArea(self.page_15)
+        self.scrollArea_11.setWidgetResizable(True)
+        self.scrollArea_11.setObjectName("scrollArea_11")
+        self.scrollAreaWidgetContents_11 = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents_11.setGeometry(QtCore.QRect(0, -250, 718, 1224))
+        self.scrollAreaWidgetContents_11.setObjectName("scrollAreaWidgetContents_11")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_11)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.widget_16 = QtWidgets.QWidget(self.scrollAreaWidgetContents_11)
+        self.widget_16.setMinimumSize(QtCore.QSize(700, 700))
+        self.widget_16.setStyleSheet("border-image: url(:/icon/images/3.png);")
+        self.widget_16.setObjectName("widget_16")
+        self.verticalLayout_32.addWidget(self.widget_16)
+        self.widget_17 = QtWidgets.QWidget(self.scrollAreaWidgetContents_11)
+        self.widget_17.setMinimumSize(QtCore.QSize(500, 500))
+        self.widget_17.setStyleSheet("border-image: url(:/icon/images/4.png);")
+        self.widget_17.setObjectName("widget_17")
+        self.verticalLayout_32.addWidget(self.widget_17)
+        self.scrollArea_11.setWidget(self.scrollAreaWidgetContents_11)
+        self.verticalLayout_44.addWidget(self.scrollArea_11)
+        self.stackedWidget.addWidget(self.page_15)
+        self.verticalLayout_31.addWidget(self.stackedWidget)
         self.horizontalLayout_20.addWidget(self.widget_13)
+        self.horizontalLayout_20.setStretch(0, 3)
+        self.horizontalLayout_20.setStretch(1, 4)
         self.horizontalLayout_23.addWidget(self.widget_14)
         self.changingwidget.addWidget(self.page_5)
         self.page_6 = QtWidgets.QWidget()
@@ -1690,12 +1907,13 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.changingwidget.setCurrentIndex(2)
+        self.changingwidget.setCurrentIndex(4)
         self.comboBox_3.setCurrentIndex(0)
         self.group_.setCurrentIndex(0)
         self.comboBox_2.setCurrentIndex(0)
         self.group_1.setCurrentIndex(0)
         self.group_3.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(8)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1768,79 +1986,50 @@ class Ui_MainWindow(object):
         self.label_10.setText(_translate("MainWindow", "Settings"))
         self.label_6.setText(_translate("MainWindow", "Salary Day"))
         self.dateEdit.setDisplayFormat(_translate("MainWindow", "dd"))
-        self.setsalary.setText(_translate("MainWindow", "Set Salary"))
+        self.signout_2.setText(_translate("MainWindow", "Set Salary"))
         self.yourwallets.setText(_translate("MainWindow", "Your Wallets"))
         self.removeaccounts.setText(_translate("MainWindow", "Remove Accounts"))
         self.removeaccount.setText(_translate("MainWindow", "Remove Account"))
-        self.setbudget.setText(_translate("MainWindow", "Set Budget"))
+        self.signout_3.setText(_translate("MainWindow", "Set Budget"))
         self.signout.setText(_translate("MainWindow", "Sign Out"))
         self.label_11.setText(_translate("MainWindow", "Help"))
         self.pushButton_2.setText(_translate("MainWindow", "How to create an account"))
         self.pushButton_3.setText(_translate("MainWindow", "How to delete an account"))
-        self.pushButton_4.setText(_translate("MainWindow", "How to change account name"))
+        self.pushButton_4.setText(_translate("MainWindow", "How to set budget"))
         self.label_14.setText(_translate("MainWindow", "Getting started"))
-        self.pushButton_6.setText(_translate("MainWindow", "Home tab"))
-        self.pushButton_7.setText(_translate("MainWindow", "Stats tab"))
+        self.pushButton_6.setText(_translate("MainWindow", "Dashboard"))
+        self.pushButton_7.setText(_translate("MainWindow", "Wallet"))
         self.pushButton_8.setText(_translate("MainWindow", "How to add an income and expense"))
         self.label_15.setText(_translate("MainWindow", "Wallet management"))
         self.pushButton_11.setText(_translate("MainWindow", "How to remove wallet"))
-        self.pushButton_9.setText(_translate("MainWindow", "How to add money to wallet"))
+        self.pushButton_9.setText(_translate("MainWindow", "How to add  wallet"))
         self.pushButton_10.setText(_translate("MainWindow", "How to change wallet name"))
         self.label_12.setText(_translate("MainWindow", "Info"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Century Gothic\',\'sans-serif\'; font-size:14px; font-weight:600; font-style:normal;\">\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Account Information</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Name: [User\'s Name]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Email: [User\'s Email Address]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">User ID: [Unique User ID]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Joined Since: [Account Creation Date]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Expense Categories</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Default Categories:</span></li>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Groceries</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Utilities</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Rent</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Entertainment</span></li></ul>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Custom Categories: [Add Custom Categories]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Budgeting Information</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Set Budget:</span></li>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Monthly: [$X]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Weekly: [$Y]</span></li></ul>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Budget Status:</span></li></ul>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">[Graph/Chart Showing Budget Allocation vs. Expenditure]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Currency Settings</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Default Currency: [Currency]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Change Currency: [Select Currency]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Data Backup and Sync</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Backup Options:</span></li>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Cloud Backup: [Enabled/Disabled]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Local Backup: [Enabled/Disabled]</span></li></ul>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Sync Across Devices: [Enabled/Disabled]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Security Settings</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Authentication:</span></li>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Password Protection: [Enabled/Disabled]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Biometric Authentication: [Enabled/Disabled]</span></li></ul>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Two-Factor Authentication: [Enabled/Disabled]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Privacy Settings: [Data Sharing Preferences]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Support and Help</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">FAQ: [Link to FAQ Section]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Customer Support:</span></li>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Email: [support@yourapp.com]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Chat: [Live Chat Support]</span></li></ul>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">User Manual: [Accessible within the App]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">About the Application</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Version: [Current Version Number]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Release Notes: [Link to Release Notes]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">About Us: [Brief Overview of the Development Team/Company]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Privacy Policy and Terms of Service</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Privacy Policy: [Link to Privacy Policy]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Terms of Service: [Link to Terms of Service]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Accept Terms: [Checkbox to Accept Terms]</span></li></ul>\n"
-"<h4 style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt;\">Feedback and Suggestions</span></h4>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Feedback Form: [Provide Feedback/Suggestions]</span></li>\n"
-"<li style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14px;\">Rate Us: [Link to Rate/Review the App]</span></li></ul>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.AppleSystemUIFont\'; font-size:9pt; font-weight:400;\"><br /></span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">USER LOGIN :</span><span style=\" font-size:10pt; font-weight:400;\">The user login tab in the context of the provided sources refers to a feature within expense tracker applications that allows users to securely log in to their accounts. This tab</span><span style=\" font-size:10pt;\"> </span><span style=\" font-size:10pt; font-weight:400;\">typically enables users to access their personal expense data, track their spending, categorize expenses, and manage their financial information. The user login tab is crucial for maintaining privacy and security, as it ensures that only authorized users can view and interact with their expense tracking data.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">DASHBOARD OVERVIEW : </span><span style=\" font-size:10pt; font-weight:400;\">Upon opening the app, users are greeted with a main dashboard displaying a summary of their expenses.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">ADDING A NEW EXPENSE : </span><span style=\" font-size:10pt; font-weight:400;\">Users can easily add a new expense by entering details such as the expense title, amount, and date.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">EXPENSE LIST : </span><span style=\" font-size:10pt; font-weight:400;\">The app displays a list of all expenses added, showing the title, amount, and date of each expense.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">EXPENSE FILTERING : </span><span style=\" font-size:10pt; font-weight:400;\">Users can filter expenses by year to view specific sets of expenses.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">INSIGHTS : </span><span style=\" font-size:10pt; font-weight:400;\">The app provides visual representations of expenses through interactive charts for users to analyze their spending patterns.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">BUDGET PLANNING : </span><span style=\" font-size:10pt; font-weight:400;\">The app allows users to set budgets, plan for specific financial goals, and receive insights on their spending habits to make informed decisions.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">WALLET : </span><span style=\" font-size:10pt; font-weight:400;\">Wallet offers automatic updates, multiple wallets can be created, manual wallets, transaction data from various sources.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">REPORTS AND VISUALISATION : </span><span style=\" font-size:10pt; font-weight:400;\">Users can access insightful reports, graphs, and financial overviews that provide actionable insights into their finances, including income and expense</span><span style=\" font-size:10pt;\"> </span><span style=\" font-size:10pt; font-weight:400;\">reports.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">DATA VALIDATION : </span><span style=\" font-size:10pt; font-weight:400;\">To ensure accuracy, the app validates the information entered, allowing only valid data for expense details.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">TECHNOLOGIES USED : </span><span style=\" font-size:10pt; font-weight:400;\">The app may list the technologies used in its development, such as PYQT, python.</span></p></body></html>"))
 import imageresources_rc
 import resources_rc
 
