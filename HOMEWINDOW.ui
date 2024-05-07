@@ -1908,8 +1908,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>213</width>
-                       <height>305</height>
+                       <width>100</width>
+                       <height>30</height>
                       </rect>
                      </property>
                     </widget>
@@ -2306,8 +2306,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>359</width>
-                       <height>446</height>
+                       <width>100</width>
+                       <height>30</height>
                       </rect>
                      </property>
                     </widget>
@@ -3524,7 +3524,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                  <item>
                   <widget class="QStackedWidget" name="stackedWidget">
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>7</number>
                    </property>
                    <widget class="QWidget" name="page_7">
                     <layout class="QVBoxLayout" name="verticalLayout_36">
@@ -3559,8 +3559,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>354</width>
-                          <height>669</height>
+                          <width>98</width>
+                          <height>28</height>
                          </rect>
                         </property>
                        </widget>
@@ -3685,8 +3685,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>98</width>
-                          <height>28</height>
+                          <width>354</width>
+                          <height>669</height>
                          </rect>
                         </property>
                        </widget>
