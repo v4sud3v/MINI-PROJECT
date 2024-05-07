@@ -357,15 +357,11 @@ class MainWindow(QMainWindow):
                 if child.widget() is not None:
                     child.widget().deleteLater()
 #####################################################################################################################################################################################################################################
-
-    def set_budget(self):
-        # Create a QInputDialog
-        dialog = QInputDialog(self)
+#################SETTİNGS########################################################################################################################################################
     
-        # Set the dialog's window title, label, and default value
+    def set_budget(self):
+        dialog = QDialog(self)
         dialog.setWindowTitle("Set Budget")
-        dialog.setLabelText("Enter your budget:")
-        dialog.setDoubleValue(0.00)
         dialog.setStyleSheet("""
             QWidget {
                 background-color: #1c2948;
@@ -376,9 +372,20 @@ class MainWindow(QMainWindow):
             }
         """)
     
-        # Show the dialog and get the entered budget
+        layout = QVBoxLayout(dialog)
+    
+        label = QLabel("Enter your budget:")
+        layout.addWidget(label)
+    
+        lineEdit = QLineEdit()
+        layout.addWidget(lineEdit)
+    
+        button = QPushButton("OK")
+        button.clicked.connect(dialog.accept)
+        layout.addWidget(button)
+    
         if dialog.exec_():
-            budget = dialog.doubleValue()
+            budget = float(lineEdit.text())
     
             # Update the budget in the database
             cursor = self.conn.cursor()
@@ -393,13 +400,8 @@ class MainWindow(QMainWindow):
             self.create_overview()
     
     def set_salary(self):
-        # Create a QInputDialog
-        dialog = QInputDialog(self)
-    
-        # Set the dialog's window title, label, and default value
+        dialog = QDialog(self)
         dialog.setWindowTitle("Set Salary")
-        dialog.setLabelText("Enter your salary:")
-        dialog.setIntValue(0)
         dialog.setStyleSheet("""
             QWidget {
                 background-color: #1c2948;
@@ -410,15 +412,30 @@ class MainWindow(QMainWindow):
             }
         """)
     
-        # Show the dialog and get the entered salary
+        layout = QVBoxLayout(dialog)
+    
+        label = QLabel("Enter your salary:")
+        layout.addWidget(label)
+    
+        lineEdit = QLineEdit()
+        layout.addWidget(lineEdit)
+    
+        button = QPushButton("OK")
+        button.clicked.connect(dialog.accept)
+        layout.addWidget(button)
+    
         if dialog.exec_():
-            salary = dialog.intValue()
+            salary = int(lineEdit.text())
     
             # Update the salary in the database
             cursor = self.conn.cursor()
             cursor.execute("UPDATE budget_table SET salary = ? WHERE user_id = ?", (salary, self.current_user.userid))
             self.conn.commit()
             cursor.close()
+
+    
+
+
 
 
     def show_create_account(self):
