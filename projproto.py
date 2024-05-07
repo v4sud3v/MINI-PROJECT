@@ -347,6 +347,9 @@ class MainWindow(QMainWindow):
         self.ui.Wallets_Button.toggled.connect(self.update_categories_progressbar) 
         self.ui.Wallets_Button.toggled.connect(self.wallet_balance)
         self.ui.group_3.currentIndexChanged.connect(self.wallet_balance)
+        self.ui.setsalary.clicked.connect(self.set_salary)
+        self.ui.setbudget.clicked.connect(self.set_budget)
+
     def clear_layout(self, layout):
         if layout is not None:
             while layout.count():
@@ -354,7 +357,69 @@ class MainWindow(QMainWindow):
                 if child.widget() is not None:
                     child.widget().deleteLater()
 #####################################################################################################################################################################################################################################
-    def add_budget(self):
+
+    def set_budget(self):
+        # Create a QInputDialog
+        dialog = QInputDialog(self)
+    
+        # Set the dialog's window title, label, and default value
+        dialog.setWindowTitle("Set Budget")
+        dialog.setLabelText("Enter your budget:")
+        dialog.setDoubleValue(0.00)
+        dialog.setStyleSheet("""
+            QWidget {
+                background-color: #1c2948;
+                border-radius: 20px;
+            }
+            QLabel, QLineEdit, QPushButton {
+                color: white;
+            }
+        """)
+    
+        # Show the dialog and get the entered budget
+        if dialog.exec_():
+            budget = dialog.doubleValue()
+    
+            # Update the budget in the database
+            cursor = self.conn.cursor()
+            cursor.execute("UPDATE budget_table SET budget_amount = ? WHERE user_id = ?", (budget, self.current_user.userid))
+            self.conn.commit()
+            cursor.close()
+    
+            # Update the current user's budget
+            self.current_user.budget = budget
+    
+            # Update the overview
+            self.create_overview()
+    
+    def set_salary(self):
+        # Create a QInputDialog
+        dialog = QInputDialog(self)
+    
+        # Set the dialog's window title, label, and default value
+        dialog.setWindowTitle("Set Salary")
+        dialog.setLabelText("Enter your salary:")
+        dialog.setIntValue(0)
+        dialog.setStyleSheet("""
+            QWidget {
+                background-color: #1c2948;
+                border-radius: 20px;
+            }
+            QLabel, QLineEdit, QPushButton {
+                color: white;
+            }
+        """)
+    
+        # Show the dialog and get the entered salary
+        if dialog.exec_():
+            salary = dialog.intValue()
+    
+            # Update the salary in the database
+            cursor = self.conn.cursor()
+            cursor.execute("UPDATE budget_table SET salary = ? WHERE user_id = ?", (salary, self.current_user.userid))
+            self.conn.commit()
+            cursor.close()
+
 
     def show_create_account(self):
         self.create_account_window = QDialog()
@@ -561,7 +626,7 @@ class MainWindow(QMainWindow):
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
         query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%d-%m-%Y %H:%M', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
-        query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00);"
+        query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00,salary INTEGER DEFAULT 0);"
         
         cursor.execute(query1)
         cursor.execute(query2)
