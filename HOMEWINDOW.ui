@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -2306,8 +2306,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>100</width>
-                       <height>30</height>
+                       <width>344</width>
+                       <height>450</height>
                       </rect>
                      </property>
                     </widget>
@@ -3538,8 +3538,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>354</width>
-                          <height>669</height>
+                          <width>63</width>
+                          <height>16</height>
                          </rect>
                         </property>
                        </widget>
