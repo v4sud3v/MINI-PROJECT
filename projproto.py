@@ -213,9 +213,9 @@ class MainWindow(QMainWindow):
         # Simulated database query (replace with actual query)
         cursor = self.conn.cursor()
         wallname=self.ui.group_3.currentText()
-        cursor.execute("SELECT wallet_id from wallet where wallet_name=? and user_id=?",(wallname,self.current_user.userid))
+        cursor.execute("SELECT wallet_id from Wallet where wallet_name=? and user_id=?",(wallname,self.current_user.userid))
         wallet_id=cursor.fetchone()
-        cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions where wallet_id=?",(wallet_id))
+        cursor.execute("SELECT wallet_id, amount, description, category, transaction_type, transaction_date FROM Transactions where wallet_id=?", (wallet_id[0],))
         wallet_data = cursor.fetchall()
 
         # Find the Monthly_frame_6 inside changingwidget
@@ -292,6 +292,36 @@ class MainWindow(QMainWindow):
         else:
             self.ui.getbackamount_5.setText("0")
 
+    def days_b_sal(self):
+        # Get the current date
+        current_date = QDate.currentDate()
+
+        # Fetch the salary day from the database
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT sal_day FROM budget_table WHERE user_id = ?", (self.current_user.userid,))
+        salary_day = cursor.fetchone()[0]
+        cursor.close()
+
+        # If salary_day is None, set it to the current day
+        if salary_day is None:
+            salary_day = current_date.day()
+
+        # Set the salary day to the dateEdit widget
+        self.ui.dateEdit.setDate(QDate(current_date.year(), current_date.month(), salary_day))
+
+        # If the salary day is less than or equal to the current day, add a month to the current date
+        if salary_day <= current_date.day():
+            current_date = current_date.addMonths(1)
+
+        # Set the day of the current date to the salary day
+        salary_date = QDate(current_date.year(), current_date.month(), salary_day)
+
+        # Calculate the days before salary
+        days_before_salary = QDate.currentDate().daysTo(salary_date)
+
+        # Update the QLabel with the days before salary
+        self.ui.getbackamount_6.setText(f'<center><span style="font-size: 15pt;">{days_before_salary} days</span></center>')
+        self.ui.overview_frame_5.update()
 
 
 
@@ -349,6 +379,8 @@ class MainWindow(QMainWindow):
         self.ui.group_3.currentIndexChanged.connect(self.wallet_balance)
         self.ui.setsalary.clicked.connect(self.set_salary)
         self.ui.setbudget.clicked.connect(self.set_budget)
+        self.days_b_sal()
+        self.ui.dateEdit.dateChanged.connect(self.days_b_sal)
 
     def clear_layout(self, layout):
         if layout is not None:
@@ -432,11 +464,6 @@ class MainWindow(QMainWindow):
             cursor.execute("UPDATE budget_table SET salary = ? WHERE user_id = ?", (salary, self.current_user.userid))
             self.conn.commit()
             cursor.close()
-
-    
-
-
-
 
     def show_create_account(self):
         self.create_account_window = QDialog()
@@ -643,7 +670,7 @@ class MainWindow(QMainWindow):
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
         query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
         query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%d-%m-%Y %H:%M', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
-        query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00,salary INTEGER DEFAULT 0);"
+        query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00,salary INTEGER DEFAULT 0,sal_day DATE);"
         
         cursor.execute(query1)
         cursor.execute(query2)
