@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from login import Ui_MainWindow as login_class
 from calendar import monthrange
 from main_window2 import Ui_MainWindow
-
+from create_account import Ui_Dialog as create_account_class
 class user:
     def __init__(self, userid):
         self.userid = userid
@@ -33,6 +33,7 @@ class MainWindow(QMainWindow):
         self.login_ui.setupUi(self.login_window)
         self.login_ui.loginButton_2.clicked.connect(self.check_login)
         self.login_ui.Password_Entry_2.setEchoMode(QLineEdit.Password)
+        self.login_ui.createButton_2.clicked.connect(self.show_create_account)
         self.login_window.show()
     
     def add_wallet(self):
@@ -156,7 +157,6 @@ class MainWindow(QMainWindow):
 
         # Update the wallet in the database
         cursor.execute("UPDATE Wallet SET wallet_name = ? WHERE wallet_name = ?", (new_wallet_name, old_wallet_name))
-        print(f"Updated {cursor.rowcount} rows")
 
         # Commit the changes and close the cursor
         self.conn.commit()
@@ -353,8 +353,30 @@ class MainWindow(QMainWindow):
                 child = layout.takeAt(0)
                 if child.widget() is not None:
                     child.widget().deleteLater()
+#####################################################################################################################################################################################################################################
+    def add_budget(self):
 
+    def show_create_account(self):
+        self.create_account_window = QDialog()
+        self.create_account_ui = create_account_class()        
+        self.create_account_ui.setupUi(self.create_account_window)
+        self.create_account_ui.pushButton.clicked.connect(self.create_account)
+        self.create_account_ui.amount_2.setEchoMode(QLineEdit.Password)
+        self.create_account_ui.amount_3.setEchoMode(QLineEdit.Password)
+        self.create_account_window.show()
+    def create_account(self):
+        user_name=self.create_account_ui.Name.text()
+        password=self.create_account_ui.amount_2.text()
+        password2=self.create_account_ui.amount_3.text()
+        if password==password2:
+            cursor=self.conn.cursor()
+            cursor.execute("insert into User(username,password) values(?,?)",(user_name,password))
+            self.conn.commit()
+            self.create_account_window.close()
+        else:
+            QMessageBox.warning(self, "error occorred","Passwords do not match!")
 
+#######################################################################################################################################################################################################################################
     def create_history(self):
         
         
@@ -389,22 +411,22 @@ class MainWindow(QMainWindow):
                     trans_layout = QVBoxLayout(trans_widget)
 
                     label1 = QLabel(str(amount))
-                    label1.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label1.setStyleSheet("font-size: 16px;border:none;background-color:transparent;")  # Increase the font size
                     label1.setMinimumHeight(20)
                     label1.setMaximumHeight(20)  # Increase the minimum height of the label
                     trans_layout.addWidget(label1)
                     label2 = QLabel(date)
-                    label2.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label2.setStyleSheet("font-size: 16px;border:none;background-color:transparent;")  # Increase the font size
                     label2.setMinimumHeight(20) 
                     label2.setMaximumHeight(20) # Increase the minimum height of the label
                     trans_layout.addWidget(label2)
                     label3 = QLabel(description)
-                    label3.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label3.setStyleSheet("font-size: 16px;border:none;background-color:transparent;")  # Increase the font size
                     label3.setMinimumHeight(20)
                     label3.setMaximumHeight(20)  # Increase the minimum height of the label
                     trans_layout.addWidget(label3)
                     label4 = QLabel(category)
-                    label4.setStyleSheet("font-size: 16px;")  # Increase the font size
+                    label4.setStyleSheet("font-size: 16px;border:none;background-color:transparent;")  # Increase the font size
                     label4.setMinimumHeight(20)
                     label4.setMaximumHeight(20)  # Increase the minimum height of the label
                     trans_layout.addWidget(label4)
@@ -455,9 +477,9 @@ class MainWindow(QMainWindow):
             budget=cursor.fetchone()
             if budget!=None:
                 self.current_user.budget=budget[0]
-                cursor.execute("insert into budget_table (user_id,budget_amount)values(?,?)",(self.current_user.userid,0))
-                self.conn.commit()
             else:
+                cursor.execute("insert into budget_table (user_id,budget_amount)values(?,?)",(self.current_user.userid,10000))
+                self.conn.commit()
                 self.current_user.budget=10000
             return True
         else:
@@ -516,7 +538,6 @@ class MainWindow(QMainWindow):
         total=cursor.fetchone()
         print("total spend:",total)
         total=total[0]
-        print(expenselis)
 
         for amount in expenselis:
             if total != 0 and total != None:
@@ -554,7 +575,7 @@ class MainWindow(QMainWindow):
         if not admin_exists:
             cursor.execute("INSERT INTO User (username, password) VALUES (?, ?);", ('admin', '1234')) 
         self.conn.commit()
-        #####################################################################################################################
+        #####################################################################################################################################################################################################################################
     #UI stuff 
     def on_Dashboard_Button_toggled(self):
         self.ui.changingwidget.setCurrentIndex(0)

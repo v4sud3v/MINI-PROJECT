@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1190</width>
+    <width>908</width>
     <height>817</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
+    <width>818</width>
+    <height>817</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>908</width>
     <height>817</height>
    </size>
   </property>
@@ -22,7 +28,7 @@
   <property name="styleSheet">
    <string notr="true">#centralwidget{
 
-border-image: url(:/images/images/alexander-grey-eRqhocTrSdU-unsplash.jpg);
+	border-image: url(:/images/images/Default_a_darkblue_themed_image_for_wallpaper_related_to_expen_2.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -49,7 +55,7 @@ border-radius:30px;
 QPushButton{
 background-color:rgba(0,0,0,100);
 color:#fff;
-border-radius:4px;
+border-radius:10px;
 padding:3px}
 QPushButton:hover{
 color:rgb(35, 197, 255);
@@ -417,6 +423,114 @@ padding:10px;
          </widget>
         </item>
         <item>
+         <widget class="QWidget" name="widget_3" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_6" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>191</width>
+               <height>191</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>191</width>
+               <height>191</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:6px solid;
+border-color: rgb(255, 255, 255);
+
+border-radius:95px</string>
+             </property>
+             <widget class="QWidget" name="widget_5" native="true">
+              <property name="geometry">
+               <rect>
+                <x>5</x>
+                <y>-1</y>
+                <width>181</width>
+                <height>171</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>181</width>
+                <height>171</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>181</width>
+                <height>171</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">image: url(:/icon/icons/user.svg);
+border:none;</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <spacer name="verticalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>168</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>154</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>32</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
          <widget class="QWidget" name="widget_2" native="true">
           <property name="styleSheet">
            <string notr="true"/>
@@ -425,72 +539,6 @@ padding:10px;
            <property name="topMargin">
             <number>31</number>
            </property>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>128</number>
-             </property>
-             <property name="topMargin">
-              <number>24</number>
-             </property>
-             <item alignment="Qt::AlignBottom">
-              <widget class="QFrame" name="frame">
-               <property name="minimumSize">
-                <size>
-                 <width>240</width>
-                 <height>240</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(255, 255, 255);
-border-radius:120px;
-border-image: url(:/images/images/iconimage-removebg-preview.png);</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer">
-               <property name="minimumSize">
-                <size>
-                 <width>241</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>238</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>336</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -503,6 +551,7 @@ border-image: url(:/images/images/iconimage-removebg-preview.png);</string>
  </widget>
  <resources>
   <include location="imageresources.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

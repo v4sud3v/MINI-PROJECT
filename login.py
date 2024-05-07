@@ -14,11 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1190, 817)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 817))
+        MainWindow.resize(908, 817)
+        MainWindow.setMinimumSize(QtCore.QSize(818, 817))
+        MainWindow.setMaximumSize(QtCore.QSize(908, 817))
         MainWindow.setStyleSheet("#centralwidget{\n"
 "\n"
-"border-image: url(:/images/images/alexander-grey-eRqhocTrSdU-unsplash.jpg);\n"
+"    border-image: url(:/images/images/Default_a_darkblue_themed_image_for_wallpaper_related_to_expen_2.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -37,7 +38,7 @@ class Ui_MainWindow(object):
 "QPushButton{\n"
 "background-color:rgba(0,0,0,100);\n"
 "color:#fff;\n"
-"border-radius:4px;\n"
+"border-radius:10px;\n"
 "padding:3px}\n"
 "QPushButton:hover{\n"
 "color:rgb(35, 197, 255);\n"
@@ -195,30 +196,44 @@ class Ui_MainWindow(object):
 "}")
         self.loginlabel_2.setObjectName("loginlabel_2")
         self.verticalLayout_3.addWidget(self.loginlabel_2)
+        self.widget_3 = QtWidgets.QWidget(self.centralwidget)
+        self.widget_3.setObjectName("widget_3")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.widget_3)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        spacerItem8 = QtWidgets.QSpacerItem(0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_4.addItem(spacerItem8)
+        self.widget_6 = QtWidgets.QWidget(self.widget_3)
+        self.widget_6.setMinimumSize(QtCore.QSize(191, 191))
+        self.widget_6.setMaximumSize(QtCore.QSize(191, 191))
+        self.widget_6.setStyleSheet("border:6px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"\n"
+"border-radius:95px")
+        self.widget_6.setObjectName("widget_6")
+        self.widget_5 = QtWidgets.QWidget(self.widget_6)
+        self.widget_5.setGeometry(QtCore.QRect(5, -1, 181, 171))
+        self.widget_5.setMinimumSize(QtCore.QSize(181, 171))
+        self.widget_5.setMaximumSize(QtCore.QSize(181, 171))
+        self.widget_5.setStyleSheet("image: url(:/icon/icons/user.svg);\n"
+"border:none;")
+        self.widget_5.setObjectName("widget_5")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget_5)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem9 = QtWidgets.QSpacerItem(0, 168, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.horizontalLayout_2.addItem(spacerItem9)
+        spacerItem10 = QtWidgets.QSpacerItem(154, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem10)
+        self.horizontalLayout_4.addWidget(self.widget_6)
+        spacerItem11 = QtWidgets.QSpacerItem(32, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_4.addItem(spacerItem11)
+        self.verticalLayout_3.addWidget(self.widget_3)
         self.widget_2 = QtWidgets.QWidget(self.centralwidget)
         self.widget_2.setStyleSheet("")
         self.widget_2.setObjectName("widget_2")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.widget_2)
         self.verticalLayout_5.setContentsMargins(-1, 31, -1, -1)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setContentsMargins(128, 24, -1, -1)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.frame = QtWidgets.QFrame(self.widget_2)
-        self.frame.setMinimumSize(QtCore.QSize(240, 240))
-        self.frame.setStyleSheet("background-color:rgb(255, 255, 255);\n"
-"border-radius:120px;\n"
-"border-image: url(:/images/images/iconimage-removebg-preview.png);")
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignBottom)
-        spacerItem8 = QtWidgets.QSpacerItem(241, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem8)
-        self.verticalLayout_5.addLayout(self.horizontalLayout_2)
-        spacerItem9 = QtWidgets.QSpacerItem(20, 336, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_5.addItem(spacerItem9)
         self.verticalLayout_3.addWidget(self.widget_2)
         self.horizontalLayout.addLayout(self.verticalLayout_3)
         self.horizontalLayout_3.addLayout(self.horizontalLayout)
@@ -237,6 +252,7 @@ class Ui_MainWindow(object):
         self.createButton_2.setText(_translate("MainWindow", "Create new"))
         self.loginlabel_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Log in to your </span></p><p><span style=\" font-size:18pt; font-weight:600;\">account</span></p></body></html>"))
 import imageresources_rc
+import resources_rc
 
 
 if __name__ == "__main__":
