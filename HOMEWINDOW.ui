@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1908,8 +1908,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>462</width>
-                       <height>305</height>
+                       <width>100</width>
+                       <height>30</height>
                       </rect>
                      </property>
                     </widget>
@@ -2307,7 +2307,7 @@ border-bottom-color: rgb(255, 255, 255);
                        <x>0</x>
                        <y>0</y>
                        <width>521</width>
-                       <height>446</height>
+                       <height>450</height>
                       </rect>
                      </property>
                     </widget>
@@ -2859,7 +2859,7 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
                  <number>30</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>270</number>
+                 <number>160</number>
                 </property>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -3030,7 +3030,28 @@ border-color:rgb(22, 201, 236);
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_52">
+                   <item>
+                    <widget class="QWidget" name="widget_30" native="true"/>
+                   </item>
+                  </layout>
                  </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_10">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Preferred</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>11</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -3508,7 +3529,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                  <item>
                   <widget class="QStackedWidget" name="stackedWidget">
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>3</number>
                    </property>
                    <widget class="QWidget" name="page_7">
                     <layout class="QVBoxLayout" name="verticalLayout_36">
@@ -3528,7 +3549,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>677</width>
+                          <width>681</width>
                           <height>1024</height>
                          </rect>
                         </property>
@@ -3578,10 +3599,10 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_4">
                         <property name="geometry">
                          <rect>
-                          <x>0</x>
+                          <x>-211</x>
                           <y>0</y>
                           <width>818</width>
-                          <height>704</height>
+                          <height>708</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_50">
@@ -3614,10 +3635,10 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_5">
                         <property name="geometry">
                          <rect>
-                          <x>0</x>
+                          <x>-249</x>
                           <y>0</y>
                           <width>918</width>
-                          <height>704</height>
+                          <height>708</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_51">
@@ -3650,7 +3671,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_6">
                         <property name="geometry">
                          <rect>
-                          <x>0</x>
+                          <x>-128</x>
                           <y>0</y>
                           <width>718</width>
                           <height>2836</height>
@@ -3727,8 +3748,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>98</width>
-                          <height>28</height>
+                          <width>607</width>
+                          <height>725</height>
                          </rect>
                         </property>
                        </widget>

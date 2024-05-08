@@ -295,37 +295,82 @@ class MainWindow(QMainWindow):
         else:
             self.ui.getbackamount_5.setText("0")
 
+    def update_salary_day(self, date=None):
+        # If no date is provided, use the date from the dateEdit widget
+        if date is None:
+            date = self.ui.dateEdit.date()
+
+        # Update the salary day in the database
+        cursor = self.conn.cursor()
+        cursor.execute("UPDATE budget_table SET sal_day = ? WHERE user_id = ?", (date.day(), self.current_user.userid))
+        self.conn.commit()
+        cursor.close()
+
+        # Update the days before salary
+        self.days_b_sal()
+    
     def days_b_sal(self):
         # Get the current date
         current_date = QDate.currentDate()
-
+    
         # Fetch the salary day from the database
         cursor = self.conn.cursor()
         cursor.execute("SELECT sal_day FROM budget_table WHERE user_id = ?", (self.current_user.userid,))
         salary_day = cursor.fetchone()[0]
         cursor.close()
-
+    
         # If salary_day is None, set it to the current day
         if salary_day is None:
             salary_day = current_date.day()
-
-        # Set the salary day to the dateEdit widget
-        self.ui.dateEdit.setDate(QDate(current_date.year(), current_date.month(), salary_day))
-
+    
         # If the salary day is less than or equal to the current day, add a month to the current date
         if salary_day <= current_date.day():
             current_date = current_date.addMonths(1)
-
+    
         # Set the day of the current date to the salary day
         salary_date = QDate(current_date.year(), current_date.month(), salary_day)
-
+    
+        # Set the date of the QDateEdit widget to the salary day
+        self.ui.dateEdit.setDate(salary_date)
+    
         # Calculate the days before salary
         days_before_salary = QDate.currentDate().daysTo(salary_date)
-
+    
         # Update the QLabel with the days before salary
         self.ui.getbackamount_6.setText(f'<center><span style="font-size: 15pt;">{days_before_salary} days</span></center>')
         self.ui.overview_frame_5.update()
+    def display_wallet(self):
+        # Simulated database query (replace with actual query)
+        cursor = self.conn.cursor()
+        wallname=self.ui.group_3.currentText()
+        cursor.execute("SELECT wallet_name, balance FROM Wallet where wallet_name=? and user_id=?", (wallname, self.current_user.userid))
+        wallet_data = cursor.fetchall()
 
+        # Find the widget
+        widget = self.ui.widget  # Replace with the actual QWidget
+        widget_30 = widget.findChild(QWidget, "widget_30")  # Replace with the actual QWidget
+
+        # Clear previous content
+        while widget_30.layout().count():
+            child = widget_30.layout().takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+
+        # Create a QVBoxLayout for the widget_30
+        widget_30_layout = QVBoxLayout(widget_30)
+
+        # Create widgets for each data entry
+        for entry in wallet_data:
+            # Create a QLabel for the wallet name and balance and add it to the widget_30_layout
+            wallet_label = QLabel(f"Wallet Name: {entry[0]}, Balance: {entry[1]:.2f}")
+            wallet_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px; }")
+            widget_30_layout.addWidget(wallet_label)
+
+            # Add padding between the widgets
+            widget_30_layout.addSpacing(10)  # Set your desired spacing here
+
+        # Set the layout for the widget_30
+        widget_30.setLayout(widget_30_layout)
 
 
     def check_login(self):
@@ -383,6 +428,7 @@ class MainWindow(QMainWindow):
         self.ui.signout_2.clicked.connect(self.set_salary)
         self.ui.signout_3.clicked.connect(self.set_budget)
         self.days_b_sal()
+        self.ui.dateEdit.dateChanged.connect(self.update_salary_day)
         self.ui.dateEdit.dateChanged.connect(self.days_b_sal)
         self.ui.accountButton.clicked.connect(self.user_info)
         self.ui.pushButton_2.clicked.connect(self.help1)
