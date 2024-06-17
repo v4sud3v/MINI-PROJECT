@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">	background-color: rgb(23, 34, 63);</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1908,8 +1908,8 @@ border-bottom-color: rgb(255, 255, 255);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>100</width>
-                       <height>30</height>
+                       <width>213</width>
+                       <height>305</height>
                       </rect>
                      </property>
                     </widget>
@@ -1946,6 +1946,128 @@ font: 75 12pt &quot;Century Gothic&quot;;</string>
               <string>Wallets</string>
              </property>
             </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_18">
+             <property name="spacing">
+              <number>18</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer_17">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Expanding</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>105</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+color:#fff;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+font: 3pt &quot;Century Gothic&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Rename wallet</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="removewallet">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>105</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+color:#fff;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+font: 3pt &quot;Century Gothic&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Remove wallet</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_12">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>105</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border: 1px solid;
+	border-color:#fff;
+	border-radius: 7px;
+color:#fff;
+}
+QPushButton:hover{
+color:rgb(22, 201, 236);
+border-color:rgb(22, 201, 236);
+}
+font: 3pt &quot;Century Gothic&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Add wallet</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -2025,96 +2147,6 @@ font: 9pt &quot;Century Gothic&quot;;</string>
                     <property name="spacing">
                      <number>0</number>
                     </property>
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_18">
-                      <property name="spacing">
-                       <number>18</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>5</number>
-                      </property>
-                      <item>
-                       <spacer name="horizontalSpacer_17">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                         <enum>QSizePolicy::Expanding</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>40</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="pushButton_5">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>105</width>
-                          <height>28</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
-	border: 1px solid;
-	border-color:#fff;
-	border-radius: 7px;
-color:#fff;
-}
-QPushButton:hover{
-color:rgb(22, 201, 236);
-border-color:rgb(22, 201, 236);
-}
-font: 3pt &quot;Century Gothic&quot;;</string>
-                        </property>
-                        <property name="text">
-                         <string>Rename wallet</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="pushButton_12">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>105</width>
-                          <height>28</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
-	border: 1px solid;
-	border-color:#fff;
-	border-radius: 7px;
-color:#fff;
-}
-QPushButton:hover{
-color:rgb(22, 201, 236);
-border-color:rgb(22, 201, 236);
-}
-font: 3pt &quot;Century Gothic&quot;;</string>
-                        </property>
-                        <property name="text">
-                         <string>Add wallet</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
                    </layout>
                   </item>
                  </layout>
@@ -2307,7 +2339,7 @@ border-bottom-color: rgb(255, 255, 255);
                        <x>0</x>
                        <y>0</y>
                        <width>521</width>
-                       <height>450</height>
+                       <height>410</height>
                       </rect>
                      </property>
                     </widget>
@@ -3549,7 +3581,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>681</width>
+                          <width>677</width>
                           <height>1024</height>
                          </rect>
                         </property>
@@ -3599,10 +3631,10 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_4">
                         <property name="geometry">
                          <rect>
-                          <x>-211</x>
+                          <x>0</x>
                           <y>0</y>
                           <width>818</width>
-                          <height>708</height>
+                          <height>518</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_50">
@@ -3635,10 +3667,10 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_5">
                         <property name="geometry">
                          <rect>
-                          <x>-249</x>
+                          <x>0</x>
                           <y>0</y>
                           <width>918</width>
-                          <height>708</height>
+                          <height>518</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_51">
@@ -3671,7 +3703,7 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                        <widget class="QWidget" name="scrollAreaWidgetContents_6">
                         <property name="geometry">
                          <rect>
-                          <x>-128</x>
+                          <x>0</x>
                           <y>0</y>
                           <width>718</width>
                           <height>2836</height>
@@ -3748,8 +3780,8 @@ font: 75 13pt &quot;Century Gothic&quot;;</string>
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>607</width>
-                          <height>725</height>
+                          <width>59</width>
+                          <height>16</height>
                          </rect>
                         </property>
                        </widget>

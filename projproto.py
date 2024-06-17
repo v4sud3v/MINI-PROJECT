@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
        
     def set_login(self):
         self.login_window= QMainWindow()
+        self.login_window.setWindowTitle('login')
         self.login_ui = login_class()
         self.login_ui.setupUi(self.login_window)
         self.login_ui.loginButton_2.clicked.connect(self.check_login)
@@ -191,9 +192,9 @@ class MainWindow(QMainWindow):
             cursor.execute("select balance from wallet where wallet_id=?",(wallet_id,))
             res1=cursor.fetchone()
             if trans_type=="Income":
-                walletbalance=res1[0]+int(amount)
+                walletbalance = format(res1[0] + float(amount), '.2f')
             else:
-                walletbalance=res1[0]-int(amount)
+                walletbalance = format(res1[0] - float(amount), '.2f')
             cursor.execute("update wallet set balance=? where wallet_id=? ;",(walletbalance,wallet_id))
             self.conn.commit()
             cursor.execute("insert into Transactions(wallet_id,amount,description,category,transaction_type,transaction_date) values(?,?,?,?,?,?);",(wallet_id,amount,description,category,trans_type,trans_date))
@@ -308,6 +309,32 @@ class MainWindow(QMainWindow):
 
         # Update the days before salary
         self.days_b_sal()
+    def remove_wallet(self):
+        # Create a QMessageBox
+        msg = QMessageBox()
+        msg.setWindowTitle("Remove Wallet")
+        msg.setText("Are you sure you want to remove this wallet?")
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
+
+        # Connect the buttonClicked signal to a slot that closes the message box
+        msg.buttonClicked.connect(lambda: msg.done(0))
+
+        if msg.exec_() == QMessageBox.Yes:
+            # User clicked 'Yes', so remove the wallet
+            cursor = self.conn.cursor()
+            cursor.execute("DELETE FROM Wallet WHERE wallet_name = ?", (self.ui.group_3.currentText(),))
+            self.conn.commit()
+            cursor.close()
+
+            # Update the combo boxes
+            self.update_wallets()
+            self.ui.group_3.setCurrentIndex(0)
+            self.wallet_balance()
+            self.display_widget()
+            self.update_Wallets_progressbar()
+            self.update_categories_progressbar()
     
     def days_b_sal(self):
         # Get the current date
@@ -339,6 +366,9 @@ class MainWindow(QMainWindow):
         # Update the QLabel with the days before salary
         self.ui.getbackamount_6.setText(f'<center><span style="font-size: 15pt;">{days_before_salary} days</span></center>')
         self.ui.overview_frame_5.update()
+    def sign_out(self):
+        self.close()
+        self.set_login()
     def display_wallet(self):
         # Simulated database query (replace with actual query)
         cursor = self.conn.cursor()
@@ -351,10 +381,12 @@ class MainWindow(QMainWindow):
         widget_30 = widget.findChild(QWidget, "widget_30")  # Replace with the actual QWidget
 
         # Clear previous content
-        while widget_30.layout().count():
-            child = widget_30.layout().takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
+
+        if 'widget_30' in globals() and widget_30.layout() is not None:
+            while widget_30.layout().count():
+                child = widget_30.layout().takeAt(0)
+                if child.widget():
+                    child.widget().deleteLater()
 
         # Create a QVBoxLayout for the widget_30
         widget_30_layout = QVBoxLayout(widget_30)
@@ -363,7 +395,8 @@ class MainWindow(QMainWindow):
         for entry in wallet_data:
             # Create a QLabel for the wallet name and balance and add it to the widget_30_layout
             wallet_label = QLabel(f"Wallet Name: {entry[0]}, Balance: {entry[1]:.2f}")
-            wallet_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px; }")
+            wallet_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px;}")
+            wallet_label.setFixedHeight(100)
             widget_30_layout.addWidget(wallet_label)
 
             # Add padding between the widgets
@@ -372,7 +405,49 @@ class MainWindow(QMainWindow):
         # Set the layout for the widget_30
         widget_30.setLayout(widget_30_layout)
 
+    def remove_account(self):
+        # Create a QMessageBox
+        msg = QMessageBox()
+        msg.setWindowTitle("Remove Account")
+        msg.setText("Are you sure you want to remove your account?")
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
 
+        # Connect the buttonClicked signal to a slot that closes the message box
+        msg.buttonClicked.connect(lambda: msg.done(0))
+
+        if msg.exec_() == QMessageBox.Yes:
+            # User clicked 'Yes', so remove their details from all tables
+            cursor = self.conn.cursor()
+            cursor.execute("DELETE FROM wallet WHERE user_id=?", (self.current_user.userid,))
+            cursor.execute("DELETE FROM User WHERE user_id=?", (self.current_user.userid,))
+            cursor.execute("DELETE FROM Transactions WHERE wallet_id in (select wallet_id from user where user_id=?)", (self.current_user.userid,))
+            cursor.execute("DELETE FROM budget_table WHERE user_id=?", (self.current_user.userid,))
+            
+            # Commit the changes and close the connection
+            self.conn.commit()
+            self.conn.close()
+
+            # Close the main window and open the login window
+            self.close()
+            self.set_login()
+            
+        
+
+        # Show the QMessageBox and get the result
+        result = msg.exec_()
+
+        # If the user clicked Yes, remove the account
+        if result == QMessageBox.Yes:
+            # Remove the account from the database
+            cursor = self.conn.cursor()
+            cursor.execute("DELETE FROM User WHERE user_id = ?", (self.current_user.userid,))
+            self.conn.commit()
+            cursor.close()
+
+            # Close the application
+            self.close()
     def check_login(self):
         username = self.login_ui.NameEntry_2.text()
         password = self.login_ui.Password_Entry_2.text()
@@ -382,6 +457,7 @@ class MainWindow(QMainWindow):
             self.show_main()
         else:
             QMessageBox.warning(self, "Login Failed", "Invalid username or password. Please try again.")
+    
 
     def show_main(self):
         self.ui = Ui_MainWindow()
@@ -441,6 +517,9 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_10.clicked.connect(self.help8)
         self.ui.pushButton_11.clicked.connect(self.help9)
         self.ui.stackedWidget.setCurrentIndex(7)
+        self.ui.Settings_Button.toggled.connect(self.display_wallet)
+        self.ui.removeaccount.clicked.connect(self.remove_account)
+        self.ui.signout.clicked.connect(self.sign_out)
     
     def forgot_password(self):
         msg = QMessageBox()
@@ -600,6 +679,7 @@ class MainWindow(QMainWindow):
 
     def show_create_account(self):
         self.create_account_window = QDialog()
+        self.create_account_window.setWindowTitle('Create Account')
         self.create_account_ui = create_account_class()        
         self.create_account_ui.setupUi(self.create_account_window)
         self.create_account_ui.pushButton.clicked.connect(self.create_account)
@@ -737,12 +817,12 @@ class MainWindow(QMainWindow):
         cursor=self.conn.cursor()
         expenselis=[]
         for category in self.expense_cat_list:
-            cursor.execute("select sum(amount) from transactions where category=?",(category,))
+            cursor.execute("SELECT SUM(amount) FROM transactions WHERE category=? AND wallet_id IN (SELECT wallet_id FROM Wallet WHERE user_id = ?)", (category, self.current_user.userid))
             value=cursor.fetchone()
             if value[0]==None:
                 value=(0,)
             expenselis.append(value[0])
-        cursor.execute("select sum(amount) from transactions where transaction_type='Expense' and wallet_id in (select wallet_id from wallet where user_id =?)",(self.current_user.userid,))
+        cursor.execute("SELECT SUM(amount) FROM Transactions WHERE transaction_type='Expense' AND wallet_id IN (SELECT wallet_id FROM Wallet WHERE user_id = ?)", (self.current_user.userid,))
         total=cursor.fetchone()
       
         total=total[0]
@@ -754,6 +834,7 @@ class MainWindow(QMainWindow):
                 amountpercent = 0
             expenselis[expenselis.index(amount)]=amountpercent
         bar_list=[self.ui.food_bar,self.ui.travel,self.ui.groceries_bar,self.ui.clothes,self.ui.health_bar,self.ui.other_4,self.ui.other]
+        print("expense:",expenselis)
         for i in range(len(expenselis)):
             animation = QPropertyAnimation(bar_list[i], b"value")
             animation.setDuration(400)  # Set animation duration in milliseconds
@@ -800,8 +881,8 @@ class MainWindow(QMainWindow):
     def init_table(self):
         cursor = self.conn.cursor()
         query1 = "CREATE TABLE IF NOT EXISTS User (user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL);"
-        query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance REAL NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
-        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT,wallet_id INTEGER NOT NULL,amount REAL NOT NULL,description TEXT,category TEXT,transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')),transaction_date TEXT DEFAULT (strftime('%d-%m-%Y %H:%M', 'now')),FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
+        query2 = "CREATE TABLE IF NOT EXISTS Wallet (wallet_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, wallet_name TEXT NOT NULL, balance DECIMAL(10, 2) NOT NULL DEFAULT 0, FOREIGN KEY (user_id) REFERENCES User(user_id));"
+        query3 = "CREATE TABLE IF NOT EXISTS Transactions (transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, wallet_id INTEGER NOT NULL, amount DECIMAL(10, 2) NOT NULL, description TEXT, category TEXT, transaction_type TEXT NOT NULL CHECK(transaction_type IN ('Income', 'Expense')), transaction_date TEXT DEFAULT (strftime('%d-%m-%Y %H:%M', 'now')), FOREIGN KEY (wallet_id) REFERENCES Wallet(wallet_id));"
         query4 = "CREATE TABLE IF NOT EXISTS budget_table (user_id INT,budget_amount DECIMAL(10, 2) DEFAULT 0.00,salary INTEGER DEFAULT 0,sal_day DATE);"
         
         cursor.execute(query1)
@@ -841,11 +922,12 @@ class MainWindow(QMainWindow):
         total_income=cursor.fetchone()
         cursor.execute("select sum(balance) from wallet where user_id=?;",(self.current_user.userid,))
         total_balance=cursor.fetchone()
+        print("total_balace",total_balance[0])
 
         if total_balance[0]==None:
             self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
         else:
-            self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">{total_balance[0]}$</span></center>')
+            self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">{format(total_balance[0],'.2f')}$</span></center>')
         self.ui.getbackamount_4.setAlignment(Qt.AlignCenter)
     
         if total_income[0]==None:

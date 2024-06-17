@@ -9,8 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from custom_widgets_classes import custFrame, Button, statframe
-
+from custom_widgets_classes import Button, custFrame, statframe 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -372,7 +371,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.setStretch(0, 1)
         self.verticalLayout_21.setStretch(1, 5)
         self.verticalLayout_9.addWidget(self.overview_frame)
-        self.Statistics_frame = custFrame(self.page)
+        self.Statistics_frame = statframe(self.page)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -872,7 +871,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 376, 305))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 213, 305))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.verticalLayout_23.addWidget(self.scrollArea_3)
@@ -897,6 +896,73 @@ class Ui_MainWindow(object):
 "font: 75 12pt \"Century Gothic\";")
         self.label_8.setObjectName("label_8")
         self.verticalLayout_20.addWidget(self.label_8)
+        self.horizontalLayout_18 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_18.setContentsMargins(5, -1, -1, -1)
+        self.horizontalLayout_18.setSpacing(18)
+        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_18.addItem(spacerItem9)
+        self.pushButton_5 = Button(self.page_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
+        self.pushButton_5.setSizePolicy(sizePolicy)
+        self.pushButton_5.setMinimumSize(QtCore.QSize(105, 28))
+        self.pushButton_5.setStyleSheet("QPushButton{\n"
+"    border: 1px solid;\n"
+"    border-color:#fff;\n"
+"    border-radius: 7px;\n"
+"color:#fff;\n"
+"}\n"
+"QPushButton:hover{\n"
+"color:rgb(22, 201, 236);\n"
+"border-color:rgb(22, 201, 236);\n"
+"}\n"
+"font: 3pt \"Century Gothic\";")
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.horizontalLayout_18.addWidget(self.pushButton_5)
+        self.removewallet = Button(self.page_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.removewallet.sizePolicy().hasHeightForWidth())
+        self.removewallet.setSizePolicy(sizePolicy)
+        self.removewallet.setMinimumSize(QtCore.QSize(105, 28))
+        self.removewallet.setStyleSheet("QPushButton{\n"
+"    border: 1px solid;\n"
+"    border-color:#fff;\n"
+"    border-radius: 7px;\n"
+"color:#fff;\n"
+"}\n"
+"QPushButton:hover{\n"
+"color:rgb(22, 201, 236);\n"
+"border-color:rgb(22, 201, 236);\n"
+"}\n"
+"font: 3pt \"Century Gothic\";")
+        self.removewallet.setObjectName("removewallet")
+        self.horizontalLayout_18.addWidget(self.removewallet)
+        self.pushButton_12 = Button(self.page_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
+        self.pushButton_12.setSizePolicy(sizePolicy)
+        self.pushButton_12.setMinimumSize(QtCore.QSize(105, 28))
+        self.pushButton_12.setStyleSheet("QPushButton{\n"
+"    border: 1px solid;\n"
+"    border-color:#fff;\n"
+"    border-radius: 7px;\n"
+"color:#fff;\n"
+"}\n"
+"QPushButton:hover{\n"
+"color:rgb(22, 201, 236);\n"
+"border-color:rgb(22, 201, 236);\n"
+"}\n"
+"font: 3pt \"Century Gothic\";")
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.horizontalLayout_18.addWidget(self.pushButton_12)
+        self.verticalLayout_20.addLayout(self.horizontalLayout_18)
         self.horizontalLayout_22 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_22.setContentsMargins(22, -1, -1, -1)
         self.horizontalLayout_22.setSpacing(20)
@@ -905,8 +971,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.setContentsMargins(-1, 0, -1, 0)
         self.verticalLayout_18.setSpacing(6)
         self.verticalLayout_18.setObjectName("verticalLayout_18")
-        spacerItem9 = QtWidgets.QSpacerItem(20, 93, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        self.verticalLayout_18.addItem(spacerItem9)
+        spacerItem10 = QtWidgets.QSpacerItem(20, 93, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_18.addItem(spacerItem10)
         self.widget_10 = QtWidgets.QWidget(self.page_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -927,53 +993,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_17 = QtWidgets.QVBoxLayout()
         self.verticalLayout_17.setSpacing(0)
         self.verticalLayout_17.setObjectName("verticalLayout_17")
-        self.horizontalLayout_18 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_18.setContentsMargins(5, -1, -1, -1)
-        self.horizontalLayout_18.setSpacing(18)
-        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_18.addItem(spacerItem10)
-        self.pushButton_5 = Button(self.widget_10)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
-        self.pushButton_5.setSizePolicy(sizePolicy)
-        self.pushButton_5.setMinimumSize(QtCore.QSize(105, 28))
-        self.pushButton_5.setStyleSheet("QPushButton{\n"
-"    border: 1px solid;\n"
-"    border-color:#fff;\n"
-"    border-radius: 7px;\n"
-"color:#fff;\n"
-"}\n"
-"QPushButton:hover{\n"
-"color:rgb(22, 201, 236);\n"
-"border-color:rgb(22, 201, 236);\n"
-"}\n"
-"font: 3pt \"Century Gothic\";")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.horizontalLayout_18.addWidget(self.pushButton_5)
-        self.pushButton_12 = Button(self.widget_10)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
-        self.pushButton_12.setSizePolicy(sizePolicy)
-        self.pushButton_12.setMinimumSize(QtCore.QSize(105, 28))
-        self.pushButton_12.setStyleSheet("QPushButton{\n"
-"    border: 1px solid;\n"
-"    border-color:#fff;\n"
-"    border-radius: 7px;\n"
-"color:#fff;\n"
-"}\n"
-"QPushButton:hover{\n"
-"color:rgb(22, 201, 236);\n"
-"border-color:rgb(22, 201, 236);\n"
-"}\n"
-"font: 3pt \"Century Gothic\";")
-        self.pushButton_12.setObjectName("pushButton_12")
-        self.horizontalLayout_18.addWidget(self.pushButton_12)
-        self.verticalLayout_17.addLayout(self.horizontalLayout_18)
         self.horizontalLayout_19.addLayout(self.verticalLayout_17)
         self.verticalLayout_18.addWidget(self.widget_10)
         spacerItem11 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
@@ -1054,7 +1073,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 452, 446))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 521, 410))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_16.addWidget(self.scrollArea)
@@ -1319,7 +1338,7 @@ class Ui_MainWindow(object):
         self.widget_9 = QtWidgets.QWidget(self.page_4)
         self.widget_9.setObjectName("widget_9")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_9)
-        self.verticalLayout_2.setContentsMargins(-1, -1, -1, 270)
+        self.verticalLayout_2.setContentsMargins(-1, -1, -1, 160)
         self.verticalLayout_2.setSpacing(30)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
@@ -1399,7 +1418,14 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
         self.widget.setSizePolicy(sizePolicy)
         self.widget.setObjectName("widget")
+        self.verticalLayout_52 = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout_52.setObjectName("verticalLayout_52")
+        self.widget_30 = QtWidgets.QWidget(self.widget)
+        self.widget_30.setObjectName("widget_30")
+        self.verticalLayout_52.addWidget(self.widget_30)
         self.verticalLayout_2.addWidget(self.widget)
+        spacerItem23 = QtWidgets.QSpacerItem(20, 11, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        self.verticalLayout_2.addItem(spacerItem23)
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
         self.removeaccounts = QtWidgets.QLabel(self.widget_9)
@@ -1414,8 +1440,8 @@ class Ui_MainWindow(object):
         self.removeaccounts.setStyleSheet("color:#fff")
         self.removeaccounts.setObjectName("removeaccounts")
         self.horizontalLayout_15.addWidget(self.removeaccounts)
-        spacerItem23 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem23)
+        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem24)
         self.verticalLayout_2.addLayout(self.horizontalLayout_15)
         self.removeaccount = Button(self.widget_9)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -1447,8 +1473,8 @@ class Ui_MainWindow(object):
         self.removeaccount.setObjectName("removeaccount")
         self.verticalLayout_2.addWidget(self.removeaccount)
         self.horizontalLayout_17.addWidget(self.widget_9)
-        spacerItem24 = QtWidgets.QSpacerItem(11, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_17.addItem(spacerItem24)
+        spacerItem25 = QtWidgets.QSpacerItem(11, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_17.addItem(spacerItem25)
         self.widget_8 = QtWidgets.QWidget(self.page_4)
         self.widget_8.setObjectName("widget_8")
         self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.widget_8)
@@ -1457,8 +1483,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        spacerItem25 = QtWidgets.QSpacerItem(59, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem25)
+        spacerItem26 = QtWidgets.QSpacerItem(59, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_16.addItem(spacerItem26)
         self.signout_3 = Button(self.widget_8)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1484,8 +1510,8 @@ class Ui_MainWindow(object):
 "")
         self.signout_3.setObjectName("signout_3")
         self.horizontalLayout_16.addWidget(self.signout_3)
-        spacerItem26 = QtWidgets.QSpacerItem(57, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem26)
+        spacerItem27 = QtWidgets.QSpacerItem(57, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_16.addItem(spacerItem27)
         self.signout = Button(self.widget_8)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1511,14 +1537,14 @@ class Ui_MainWindow(object):
 "")
         self.signout.setObjectName("signout")
         self.horizontalLayout_16.addWidget(self.signout)
-        spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem27)
+        spacerItem28 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_16.addItem(spacerItem28)
         self.verticalLayout_3.addLayout(self.horizontalLayout_16)
         self.horizontalLayout_25 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_25.setObjectName("horizontalLayout_25")
         self.verticalLayout_3.addLayout(self.horizontalLayout_25)
-        spacerItem28 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_3.addItem(spacerItem28)
+        spacerItem29 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem29)
         self.verticalLayout_14.addLayout(self.verticalLayout_3)
         self.horizontalLayout_17.addWidget(self.widget_8)
         self.verticalLayout_15.addLayout(self.horizontalLayout_17)
@@ -1629,7 +1655,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -250, 677, 1024))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 677, 1024))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_33.setObjectName("verticalLayout_33")
@@ -1655,7 +1681,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollArea_4.setObjectName("scrollArea_4")
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 818, 704))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 818, 518))
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.verticalLayout_50 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_50.setObjectName("verticalLayout_50")
@@ -1675,7 +1701,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollArea_5.setObjectName("scrollArea_5")
         self.scrollAreaWidgetContents_5 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 918, 704))
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 918, 518))
         self.scrollAreaWidgetContents_5.setObjectName("scrollAreaWidgetContents_5")
         self.verticalLayout_51 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_5)
         self.verticalLayout_51.setObjectName("verticalLayout_51")
@@ -1730,7 +1756,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollArea_7.setObjectName("scrollArea_7")
         self.scrollAreaWidgetContents_7 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 465, 725))
+        self.scrollAreaWidgetContents_7.setGeometry(QtCore.QRect(0, 0, 59, 16))
         self.scrollAreaWidgetContents_7.setObjectName("scrollAreaWidgetContents_7")
         self.scrollArea_7.setWidget(self.scrollAreaWidgetContents_7)
         self.verticalLayout_40.addWidget(self.scrollArea_7)
@@ -1793,7 +1819,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollArea_10.setObjectName("scrollArea_10")
         self.scrollAreaWidgetContents_10 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_10.setGeometry(QtCore.QRect(0, -6, 532, 1424))
+        self.scrollAreaWidgetContents_10.setGeometry(QtCore.QRect(0, 0, 518, 1424))
         self.scrollAreaWidgetContents_10.setObjectName("scrollAreaWidgetContents_10")
         self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_10)
         self.verticalLayout_25.setObjectName("verticalLayout_25")
@@ -1818,7 +1844,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollArea_11.setObjectName("scrollArea_11")
         self.scrollAreaWidgetContents_11 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_11.setGeometry(QtCore.QRect(0, -250, 718, 1224))
+        self.scrollAreaWidgetContents_11.setGeometry(QtCore.QRect(0, 0, 718, 1224))
         self.scrollAreaWidgetContents_11.setObjectName("scrollAreaWidgetContents_11")
         self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_32.setObjectName("verticalLayout_32")
@@ -1907,13 +1933,13 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.changingwidget.setCurrentIndex(4)
+        self.changingwidget.setCurrentIndex(1)
         self.comboBox_3.setCurrentIndex(0)
         self.group_.setCurrentIndex(0)
         self.comboBox_2.setCurrentIndex(0)
         self.group_1.setCurrentIndex(0)
         self.group_3.setCurrentIndex(0)
-        self.stackedWidget.setCurrentIndex(8)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1967,9 +1993,10 @@ class Ui_MainWindow(object):
         self.label_21.setText(_translate("MainWindow", "     other"))
         self.label_4.setText(_translate("MainWindow", "     History"))
         self.label_8.setText(_translate("MainWindow", "Wallets"))
-        self.label_13.setText(_translate("MainWindow", "Transactions"))
         self.pushButton_5.setText(_translate("MainWindow", "Rename wallet"))
+        self.removewallet.setText(_translate("MainWindow", "Remove wallet"))
         self.pushButton_12.setText(_translate("MainWindow", "Add wallet"))
+        self.label_13.setText(_translate("MainWindow", "Transactions"))
         self.group_3.setCurrentText(_translate("MainWindow", "Wallet1"))
         self.group_3.setItemText(0, _translate("MainWindow", "Wallet1"))
         self.label_47.setText(_translate("MainWindow", "Balance "))
