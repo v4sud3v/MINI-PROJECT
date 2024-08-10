@@ -627,44 +627,134 @@ class MainWindow(QMainWindow):
         self.user_info_window.setWindowFlags(Qt.FramelessWindowHint)  # Remove window decorations
         self.user_info_ui = userinfo_class()
         self.user_info_ui.setupUi(self.user_info_window)
-        
+    
+        # Set up the opacity effect
+        self.opacity_effect = QGraphicsOpacityEffect()
+        self.user_info_window.setGraphicsEffect(self.opacity_effect)
+    
         # Set up the animation
-        self.animation = QPropertyAnimation(self.user_info_window, b"geometry")
+        self.animation = QPropertyAnimation(self.opacity_effect, b"opacity")
         self.animation.setDuration(200)  # Set animation duration in milliseconds
+        self.animation.setStartValue(0)
+        self.animation.setEndValue(1)
     
-        # Get the current geometry of the window
-        start_rect = QRect(QApplication.desktop().width(), 95, self.user_info_window.width(), self.user_info_window.height())
-    
-        # Calculate the end geometry of the window
-        end_rect = QRect(QApplication.desktop().width() - self.user_info_window.width(), 95, self.user_info_window.width(), self.user_info_window.height())
-    
-        # Set the start and end values of the animation
-        self.animation.setStartValue(start_rect)
-        self.animation.setEndValue(end_rect)
-    
-        cursor=self.conn.cursor()
+        cursor = self.conn.cursor()
         cursor.execute("select username from user where user_id=?", (self.current_user.userid,))
-        username=cursor.fetchone()
+        username = cursor.fetchone()
         self.user_info_ui.Name_.setText(f'Name:{username[0]}')
         self.user_info_ui.Name_.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
         self.user_info_ui.Name_.setAlignment(Qt.AlignCenter)
+
+        letter = username[0][0].upper()
+        self.user_info_ui.profile_pic.setText(letter)
     
         cursor.execute("select salary from budget_table where user_id=?", (self.current_user.userid,))
-        salary=cursor.fetchone()
+        salary = cursor.fetchone()
         self.user_info_ui.Salary.setText(f'Salary:{str(salary[0])}')
         self.user_info_ui.Salary.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
         self.user_info_ui.Salary.setAlignment(Qt.AlignCenter)
     
         cursor.execute("select budget_amount from budget_table where user_id=?", (self.current_user.userid,))
-        budget=cursor.fetchone()
+        budget = cursor.fetchone()
         self.user_info_ui.label_3.setText(f'Budget:{str(budget[0])}')
         self.user_info_ui.label_3.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
         self.user_info_ui.label_3.setAlignment(Qt.AlignCenter)
+    
+        
+        
+        # Get the screen's dimensions
+        screen1 = QDesktopWidget().screenGeometry()
+        screen = self.ui.mainwidget.geometry()
+        screen_width = screen.width()
+        
+        # Calculate the new position
+        new_x = screen_width - self.user_info_window.width() - 30 + screen.x()
+        new_y = 100
+        
+        # Move the window to the new position
+        self.user_info_window.move(new_x, new_y)
+        
+        # Set up the animation
+        self.opacity_effect = QGraphicsOpacityEffect()
+        self.user_info_window.setGraphicsEffect(self.opacity_effect)
+        self.animation = QPropertyAnimation(self.opacity_effect, b"opacity")
+        self.animation.setDuration(200)  # Set animation duration in milliseconds
+        self.animation.setStartValue(0)
+        self.animation.setEndValue(1)
+        
+        cursor = self.conn.cursor()
+        cursor.execute("select username from user where user_id=?", (self.current_user.userid,))
+        username = cursor.fetchone()
+        self.user_info_ui.Name_.setText(f'Name:{username[0]}')
+        self.user_info_ui.Name_.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.Name_.setAlignment(Qt.AlignCenter)
+        
+        cursor.execute("select salary from budget_table where user_id=?", (self.current_user.userid,))
+        salary = cursor.fetchone()
+        self.user_info_ui.Salary.setText(f'Salary:{str(salary[0])}')
+        self.user_info_ui.Salary.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.Salary.setAlignment(Qt.AlignCenter)
+        letter = username[0][0].upper()
+        self.user_info_ui.profile_pic.setText(letter)
+        
+        cursor.execute("select budget_amount from budget_table where user_id=?", (self.current_user.userid,))
+        budget = cursor.fetchone()
+        self.user_info_ui.label_3.setText(f'Budget:{str(budget[0])}')
+        self.user_info_ui.label_3.setStyleSheet("QLabel { color : white; font-size: 14px; font-family: Century Gothic; }")
+        self.user_info_ui.label_3.setAlignment(Qt.AlignCenter)
+        
+        # Start the animation
+        self.animation.start()
+        
+        # Install event filter to detect clicks outside the window
+        self.installEventFilter(self)
     
         # Start the animation
         self.animation.start()
     
         self.user_info_window.show()
+    
+    def clear_layout(self, layout):
+        if layout is not None:
+            while layout.count():
+                child = layout.takeAt(0)
+                if child.widget() is not None:
+                    child.widget().deleteLater()
+    
+    def help1(self):
+        self.ui.stackedWidget.setCurrentIndex(7)
+    
+    def help2(self):
+        self.ui.stackedWidget.setCurrentIndex(8)
+
+        # Start the animation
+        self.animation.start()
+
+        # Install event filter to detect clicks outside the window
+        self.installEventFilter(self)
+
+        self.user_info_window.show()
+
+    def eventFilter(self, source, event):
+        if event.type() == QEvent.MouseButtonPress:
+            if hasattr(self, 'user_info_window') and self.user_info_window.isVisible():
+                if not self.user_info_window.geometry().contains(event.globalPos()):
+                    self.user_info_window.close()
+                    self.removeEventFilter(self)
+        return super().eventFilter(source, event)
+    
+    def clear_layout(self, layout):
+        if layout is not None:
+            while layout.count():
+                child = layout.takeAt(0)
+                if child.widget() is not None:
+                    child.widget().deleteLater()
+    
+    def help1(self):
+        self.ui.stackedWidget.setCurrentIndex(7)
+    
+    def help2(self):
+        self.ui.stackedWidget.setCurrentIndex(8)
 
     def clear_layout(self, layout):
         if layout is not None:
