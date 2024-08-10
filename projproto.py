@@ -176,6 +176,51 @@ class MainWindow(QMainWindow):
         # Close the dialog
         dialog.accept()
 
+    def remove_wallet(self):
+        # Ask the user to enter the wallet name
+        wallet_name, ok = QInputDialog.getText(self, "Remove Wallet", "Enter the wallet name to remove:")
+    
+        if ok and wallet_name:
+            # Check if the wallet exists in the database
+            cursor = self.conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM Wallet WHERE wallet_name = ?", (wallet_name,))
+            wallet_exists = cursor.fetchone()[0]
+    
+            if wallet_exists:
+                # Create a QMessageBox to confirm removal
+                msg = QMessageBox()
+                msg.setWindowTitle("Remove Wallet")
+                msg.setText(f"Are you sure you want to remove the wallet '{wallet_name}'?")
+                msg.setIcon(QMessageBox.Question)
+                msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+                msg.setDefaultButton(QMessageBox.No)
+    
+                # Connect the buttonClicked signal to a slot that closes the message box
+                msg.buttonClicked.connect(lambda: msg.done(0))
+    
+                if msg.exec_() == QMessageBox.Yes:
+                    # User clicked 'Yes', so remove the wallet
+                    cursor.execute("DELETE FROM Wallet WHERE wallet_name = ?", (wallet_name,))
+                    self.conn.commit()
+    
+                    # Update the combo boxes
+                    self.update_wallets()
+                    self.ui.group_3.setCurrentIndex(0)
+                    self.wallet_balance()
+                    self.display_widget()
+                    self.update_Wallets_progressbar()
+                    self.update_categories_progressbar()
+            else:
+                # Wallet does not exist, show an error message
+                error_msg = QMessageBox()
+                error_msg.setWindowTitle("Error")
+                error_msg.setText(f"The wallet '{wallet_name}' does not exist.")
+                error_msg.setIcon(QMessageBox.Warning)
+                error_msg.exec_()
+    
+            cursor.close()
+
+
     def add_transaction(self):
         try:
             cursor=self.conn.cursor()
@@ -309,32 +354,68 @@ class MainWindow(QMainWindow):
 
         # Update the days before salary
         self.days_b_sal()
+
     def remove_wallet(self):
-        # Create a QMessageBox
-        msg = QMessageBox()
-        msg.setWindowTitle("Remove Wallet")
-        msg.setText("Are you sure you want to remove this wallet?")
-        msg.setIcon(QMessageBox.Question)
-        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msg.setDefaultButton(QMessageBox.No)
-
-        # Connect the buttonClicked signal to a slot that closes the message box
-        msg.buttonClicked.connect(lambda: msg.done(0))
-
-        if msg.exec_() == QMessageBox.Yes:
-            # User clicked 'Yes', so remove the wallet
-            cursor = self.conn.cursor()
-            cursor.execute("DELETE FROM Wallet WHERE wallet_name = ?", (self.ui.group_3.currentText(),))
-            self.conn.commit()
-            cursor.close()
-
-            # Update the combo boxes
-            self.update_wallets()
-            self.ui.group_3.setCurrentIndex(0)
-            self.wallet_balance()
-            self.display_widget()
-            self.update_Wallets_progressbar()
-            self.update_categories_progressbar()
+        # Create a QDialog
+        dialog = QDialog(self)
+    
+        # Set the dialog's window color and border radius
+        dialog.setStyleSheet("""
+            QWidget {
+                background-color: #1c2948;
+                border-radius: 20px;
+            }
+            QLabel, QLineEdit, QPushButton {
+                color: white;
+            }
+        """)
+    
+        layout = QVBoxLayout(dialog)
+    
+        # Add a QLabel and QLineEdit for the wallet name
+        wallet_label = QLabel("Enter wallet name to remove:", dialog)
+        layout.addWidget(wallet_label)
+    
+        wallet_lineEdit = QLineEdit(dialog)
+        layout.addWidget(wallet_lineEdit)
+    
+        # Add a QLabel for the error message
+        error_label = QLabel("", dialog)
+        error_label.setStyleSheet("color: red;")
+        layout.addWidget(error_label)
+    
+        button = QPushButton("OK", dialog)
+        button.clicked.connect(lambda: self.remove_wallet_action(wallet_lineEdit.text(), error_label, dialog))
+        layout.addWidget(button)
+        dialog.exec_()
+    
+    def remove_wallet_action(self, wallet_name, error_label, dialog):
+        # Check if the wallet name exists in the database
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT 1 FROM Wallet WHERE wallet_name = ?", (wallet_name,))
+        if cursor.fetchone() is None:
+            # If the wallet name does not exist, show an error message
+            error_label.setText("The wallet name does not exist.")
+            return
+    
+        # Remove the wallet from the database
+        cursor.execute("DELETE FROM Wallet WHERE wallet_name = ?", (wallet_name,))
+    
+        # Commit the changes and close the cursor
+        self.conn.commit()
+        cursor.close()
+    
+        # Update the combo boxes
+        index = self.ui.group_.findText(wallet_name)
+        if index != -1:
+            self.ui.group_.removeItem(index)
+    
+        index = self.ui.group_3.findText(wallet_name)
+        if index != -1:
+            self.ui.group_3.removeItem(index)
+    
+        # Close the dialog
+        dialog.accept()
     
     def days_b_sal(self):
         # Get the current date
@@ -506,6 +587,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_12.clicked.connect(self.add_wallet)
         self.update_wallets()
         self.ui.pushButton_5.clicked.connect(self.rename_wallet)
+        self.ui.removewallet.clicked.connect(self.remove_wallet)
         self.ui.Wallets_Button.toggled.connect(self.update_Wallets_progressbar)
         self.ui.Wallets_Button.toggled.connect(self.update_categories_progressbar) 
         self.ui.Wallets_Button.toggled.connect(self.wallet_balance)
