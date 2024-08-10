@@ -834,7 +834,6 @@ class MainWindow(QMainWindow):
                 amountpercent = 0
             expenselis[expenselis.index(amount)]=amountpercent
         bar_list=[self.ui.food_bar,self.ui.travel,self.ui.groceries_bar,self.ui.clothes,self.ui.health_bar,self.ui.other_4,self.ui.other]
-        print("expense:",expenselis)
         for i in range(len(expenselis)):
             animation = QPropertyAnimation(bar_list[i], b"value")
             animation.setDuration(400)  # Set animation duration in milliseconds
@@ -858,7 +857,6 @@ class MainWindow(QMainWindow):
 
         cursor.execute("select sum(amount) from transactions t join Wallet w on t.wallet_id = w.wallet_id where t.transaction_type='Expense' and w.wallet_name=? and w.user_id=?", (selected_wallet, self.current_user.userid))
         total=cursor.fetchone()
-        print("total spend:",total)
         total=total[0]
 
         for amount in expenselis:
@@ -922,8 +920,6 @@ class MainWindow(QMainWindow):
         total_income=cursor.fetchone()
         cursor.execute("select sum(balance) from wallet where user_id=?;",(self.current_user.userid,))
         total_balance=cursor.fetchone()
-        print("total_balace",total_balance[0])
-
         if total_balance[0]==None:
             self.ui.getbackamount_4.setText(f'<center><span style="font-size: 15pt;">0$</span></center>')
         else:

@@ -285,7 +285,7 @@ class Ui_MainWindow(object):
         self.overview_frame.setMaximumSize(QtCore.QSize(4960, 1800))
         self.overview_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -381,7 +381,7 @@ class Ui_MainWindow(object):
         self.Statistics_frame.setMaximumSize(QtCore.QSize(4960, 1800))
         self.Statistics_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -474,7 +474,7 @@ class Ui_MainWindow(object):
         self.Expense_Frame.setMaximumSize(QtCore.QSize(4960, 1800))
         self.Expense_Frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -722,7 +722,7 @@ class Ui_MainWindow(object):
         self.Monthly_frame.setMaximumSize(QtCore.QSize(4420, 120000))
         self.Monthly_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -840,7 +840,7 @@ class Ui_MainWindow(object):
         self.History_frame.setMaximumSize(QtCore.QSize(23100, 35500))
         self.History_frame.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -1054,7 +1054,7 @@ class Ui_MainWindow(object):
         self.Monthly_frame_6.setMaximumSize(QtCore.QSize(4420, 120000))
         self.Monthly_frame_6.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -1102,7 +1102,7 @@ class Ui_MainWindow(object):
         self.overview_frame_6.setMaximumSize(QtCore.QSize(4960, 1800))
         self.overview_frame_6.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -1151,7 +1151,7 @@ class Ui_MainWindow(object):
         self.overview_frame_5.setMaximumSize(QtCore.QSize(4960, 1800))
         self.overview_frame_5.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -1200,7 +1200,7 @@ class Ui_MainWindow(object):
         self.Monthly_frame_5.setMaximumSize(QtCore.QSize(4420, 120000))
         self.Monthly_frame_5.setStyleSheet("*{background-color: rgb(28, 41, 72);\n"
 "border-radius: 40px;\n"
-"pading-left: 20px;}\n"
+" }\n"
 "QComboBox::down-arrow {\n"
 "    image:url(:/icon/icons/chevron-down.svg);\n"
 "    width: 0;\n"
@@ -1888,7 +1888,7 @@ class Ui_MainWindow(object):
         self.textBrowser.setEnabled(True)
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(True)
         font.setItalic(False)
         font.setUnderline(False)
