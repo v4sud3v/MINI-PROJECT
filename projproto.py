@@ -366,45 +366,54 @@ class MainWindow(QMainWindow):
         # Update the QLabel with the days before salary
         self.ui.getbackamount_6.setText(f'<center><span style="font-size: 15pt;">{days_before_salary} days</span></center>')
         self.ui.overview_frame_5.update()
+        
     def sign_out(self):
         self.close()
         self.set_login()
+
     def display_wallet(self):
         # Simulated database query (replace with actual query)
         cursor = self.conn.cursor()
-        wallname=self.ui.group_3.currentText()
-        cursor.execute("SELECT wallet_name, balance FROM Wallet where wallet_name=? and user_id=?", (wallname, self.current_user.userid))
+        cursor.execute("SELECT wallet_name, balance FROM Wallet WHERE user_id=?", (self.current_user.userid,))
         wallet_data = cursor.fetchall()
-
+    
         # Find the widget
         widget = self.ui.widget  # Replace with the actual QWidget
         widget_30 = widget.findChild(QWidget, "widget_30")  # Replace with the actual QWidget
-
+    
         # Clear previous content
-
-        if 'widget_30' in globals() and widget_30.layout() is not None:
-            while widget_30.layout().count():
-                child = widget_30.layout().takeAt(0)
+        if widget_30.layout() is not None:
+            # Remove and delete the existing layout's children
+            old_layout = widget_30.layout()
+            while old_layout.count():
+                child = old_layout.takeAt(0)
                 if child.widget():
                     child.widget().deleteLater()
-
-        # Create a QVBoxLayout for the widget_30
-        widget_30_layout = QVBoxLayout(widget_30)
-
+        else:
+            # If widget_30 does not have a layout, create one
+            old_layout = QVBoxLayout(widget_30)
+            widget_30.setLayout(old_layout)
+    
         # Create widgets for each data entry
         for entry in wallet_data:
-            # Create a QLabel for the wallet name and balance and add it to the widget_30_layout
-            wallet_label = QLabel(f"Wallet Name: {entry[0]}, Balance: {entry[1]:.2f}")
-            wallet_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px;}")
-            wallet_label.setFixedHeight(100)
-            widget_30_layout.addWidget(wallet_label)
-
+            # Create a QWidget for each wallet entry
+            entry_widget = QWidget()
+            entry_layout = QVBoxLayout(entry_widget)
+    
+            # Set widget border radius and background color
+            entry_widget.setStyleSheet("QWidget { border-radius: 20px; background-color: rgb(45, 63, 109); }")
+            entry_widget.setFixedHeight(100)
+            entry_label = QLabel(f"Wallet Name: {entry[0]}, Balance: {entry[1]:.2f}", entry_widget)
+            entry_layout.addWidget(entry_label)
+    
+            # Set label color, font, and size
+            entry_label.setStyleSheet("QLabel { color: white; font-family: 'Century Gothic'; font-size: 16px; }")
+    
+            entry_widget.setLayout(entry_layout)
+            old_layout.addWidget(entry_widget)
+    
             # Add padding between the widgets
-            widget_30_layout.addSpacing(10)  # Set your desired spacing here
-
-        # Set the layout for the widget_30
-        widget_30.setLayout(widget_30_layout)
-
+            old_layout.addSpacing(10)  # Set your desired spacing here
     def remove_account(self):
         # Create a QMessageBox
         msg = QMessageBox()
