@@ -176,49 +176,7 @@ class MainWindow(QMainWindow):
         # Close the dialog
         dialog.accept()
 
-    def remove_wallet(self):
-        # Ask the user to enter the wallet name
-        wallet_name, ok = QInputDialog.getText(self, "Remove Wallet", "Enter the wallet name to remove:")
     
-        if ok and wallet_name:
-            # Check if the wallet exists in the database
-            cursor = self.conn.cursor()
-            cursor.execute("SELECT COUNT(*) FROM Wallet WHERE wallet_name = ?", (wallet_name,))
-            wallet_exists = cursor.fetchone()[0]
-    
-            if wallet_exists:
-                # Create a QMessageBox to confirm removal
-                msg = QMessageBox()
-                msg.setWindowTitle("Remove Wallet")
-                msg.setText(f"Are you sure you want to remove the wallet '{wallet_name}'?")
-                msg.setIcon(QMessageBox.Question)
-                msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-                msg.setDefaultButton(QMessageBox.No)
-    
-                # Connect the buttonClicked signal to a slot that closes the message box
-                msg.buttonClicked.connect(lambda: msg.done(0))
-    
-                if msg.exec_() == QMessageBox.Yes:
-                    # User clicked 'Yes', so remove the wallet
-                    cursor.execute("DELETE FROM Wallet WHERE wallet_name = ?", (wallet_name,))
-                    self.conn.commit()
-    
-                    # Update the combo boxes
-                    self.update_wallets()
-                    self.ui.group_3.setCurrentIndex(0)
-                    self.wallet_balance()
-                    self.display_widget()
-                    self.update_Wallets_progressbar()
-                    self.update_categories_progressbar()
-            else:
-                # Wallet does not exist, show an error message
-                error_msg = QMessageBox()
-                error_msg.setWindowTitle("Error")
-                error_msg.setText(f"The wallet '{wallet_name}' does not exist.")
-                error_msg.setIcon(QMessageBox.Warning)
-                error_msg.exec_()
-    
-            cursor.close()
 
 
     def add_transaction(self):
